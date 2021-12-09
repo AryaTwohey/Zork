@@ -18,6 +18,7 @@ public class Game {
 
   /**
    * Create the game and initialize its internal map.
+   * fred is hot
    */
   public Game() {
     try {

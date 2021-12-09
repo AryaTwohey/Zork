@@ -21,6 +21,7 @@ public class CommandWords {
         return true;
     }
     // if we get here, the string was not found in the commands
+    //fred is hot
     return false;
   }
 
