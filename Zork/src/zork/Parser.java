@@ -20,8 +20,7 @@ public class Parser {
   public Command getCommand() throws java.io.IOException {
     String inputLine = "";
     String[] words;
-
-
+  
     System.out.print("> "); // print prompt
 
     inputLine = in.nextLine();
