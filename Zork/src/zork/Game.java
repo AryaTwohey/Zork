@@ -110,7 +110,7 @@ public class Game {
     else if (commandWord.equals("go"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-      if (command.hasSecondWord())
+      if (command.hasExtraWords())
         System.out.println("Quit what?");
       else
         return true; // signal that we want to quit
@@ -139,13 +139,15 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
-    if (!command.hasSecondWord()) {
+    if (!command.hasExtraWords()) {
       // if there is no second word, we don't know where to go...
-      System.out.println("Go where?");
+      System.out.println("Go Where?");
       return;
     }
 
-    String direction = command.getSecondWord();
+    ArrayList<String> rest = command.getExtraWords();
+
+    String direction = rest.get(0); 
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
