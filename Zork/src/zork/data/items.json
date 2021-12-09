@@ -27,8 +27,29 @@
       },
       {
         "id": "Bathroom",
-        "name": "Key",
+        "name": "Key 1",
         "description": "You have found 1 of the 3 keys that lie in this house. Find the other 2 keys to unlock the passage to the cellar and save your friend from the horrors within the house.",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "id": "Bedroom 3",
+        "name": "Key 2",
+        "description": "This key is one of the last to find, hurry to save your friend in time!",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "id": "Bedroom 4",
+        "name": "Key 3",
+        "description": "Congratulations on finding the last key, but don’t celebrate just yet. Head down to the cellar to figure out what’s next.",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "id": "Bedroom 4",
+        "name": "Master Key",
+        "description": "Master key was created with all three keys. Use the key to unlock the cellar to save your friend.",
         "isOpenable" : "False",
         "Weight" : "50g"
       },
