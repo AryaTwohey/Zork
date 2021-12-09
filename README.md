@@ -1,4 +1,4 @@
 
 
 
-![github-medium](https://www.callcentrehelper.com/images/stories/2019/01/night-sky-rock-vector-760.jpg)
+![github-medium](https://static3.srcdn.com/wordpress/wp-content/uploads/2020/09/zork-terminal.jpg)
