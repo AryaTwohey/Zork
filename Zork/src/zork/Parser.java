@@ -8,44 +8,42 @@ import java.util.TreeSet;
 public class Parser {
   private CommandWords commands; // holds all valid command words
   private Scanner in;
-  private ArrayList <String> rest;  
-  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against"));
+  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "please", "i", "want"));
 
   public Parser() {
     commands = new CommandWords();
-    rest = new ArrayList<String>(); 
     in = new Scanner(System.in);
   }
 
   public Command getCommand() throws java.io.IOException {
     String inputLine = "";
-    String[] words;
+    ArrayList <String> words;
   
     System.out.print("> "); // print prompt
 
-    inputLine = in.nextLine();
+    inputLine = in.nextLine().toLowerCase();
 
-    words = inputLine.split(" ");
+    inputLine = inputLine.trim().replace("  ", " "); 
+    
+   words = new ArrayList<String>(Arrays.asList(inputLine.split(" ")));
 
-    String word1 = words[0];
-
-    for(int i = 0; i < words.length - 1; i++){
-        while(i != 0){
-          //IMPORTANT
-          if (!ignoredWords.contains(words[i])){
-            rest.add(words[i]); 
-          }
-        }
+    for(int i = words.size() - 1; i >= 0; i--){
+      //IMPORTANT
+      if (!ignoredWords.contains(words.get(i))){
+        words.remove(i); 
+      }
     }  
 
-    if (words.length <= 1)
-      rest.clear();
+    String word1 = null; 
 
+    if(words.size() != 0){
+      word1 = words.remove(0); 
+    }
 
     if (commands.isCommand(word1))
-      return new Command(word1, rest);
+      return new Command(word1, words);
     else
-      return new Command(null, rest);
+      return new Command(null, words);
   }
 
   /**
