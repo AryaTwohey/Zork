@@ -29,7 +29,7 @@ public class Parser {
 
     for(int i = words.size() - 1; i >= 0; i--){
       //IMPORTANT
-      if (!ignoredWords.contains(words.get(i))){
+      if (ignoredWords.contains(words.get(i))){
         words.remove(i); 
       }
     }  
