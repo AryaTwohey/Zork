@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class Parser {
   private CommandWords commands; // holds all valid command words
   private Scanner in;
-  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "please", "i", "want"));
+  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "please", "i", "want", "to"));
 
   public Parser() {
     commands = new CommandWords();
