@@ -32,27 +32,33 @@ public class Inventory {
 
   public boolean dropItem(Command command) {
 
-    if(!command.hasSecondWord()){
-
-      System.out.println();
-      System.out.println("Drop What?");
       
-    }else{
+    if(command.hasExtraWords().length() > 0){
 
-  String itemName = command.getSecondWord();
-      
-    for (int i = 0; i < items.size(); i++) {
+     for (int i = items.size()-1; i >= 0; i--) {
 
-      if (itemName.equals(items.get(i).getName())) {
+      String itemName = command.hasExtraWords();
+
+      System.out.println("MADE IT HERE");   //test to see if loop is working
+    
+      if (items.get(i).getName().equals(itemName)) {
+
         items.remove(i);
+
         return true;
+
       }
     }
+  }else{
+    System.out.println();
+
+    System.out.println("Drop What ");
+    
+    System.out.println();
   }
   return false;
 
 }
-
   public String toString(){
     String msg = "";
 
