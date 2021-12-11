@@ -115,7 +115,37 @@ public class Game {
       else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
-      System.out.println("Do you really think you should be eating at a time like this?");
+      System.out.println("Eat?!? Are you serious");
+    }
+    else if(commandWord.equals("climb")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("take")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("drop")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("kill")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("search")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("read")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("run")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("shoot")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("hit")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("stab")){
+      goRoom(command);
     }
     return false;
   }
@@ -127,8 +157,8 @@ public class Game {
    * and a list of the command words.
    */
   private void printHelp() {
-    System.out.println("You are lost. You are alone. You wander");
-    System.out.println("around at Monash Uni, Peninsula Campus.");
+    System.out.println("Now is not a good time to be lost!");
+    System.out.println("You better get to thinking.");
     System.out.println();
     System.out.println("Your command words are:");
     parser.showCommands();

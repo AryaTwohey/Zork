@@ -25,7 +25,7 @@ public class Inventory {
     if (item.getWeight() + currentWeight <= maxWeight)
       return items.add(item);
     else {
-      System.out.println("There is no room to add the item. Fred is hot");
+      System.out.println("There is no room to add the item.");
       return false;
     }
   }
