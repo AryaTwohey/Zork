@@ -1,0 +1,131 @@
+{
+    "items": [
+      {
+        "starting location": "Kitchen (counter)",
+        "id": "Bloody Knife",
+        "name": "Bloody Knife",
+        "description": "This thing is sharp and' pointy, could probably be used as a weapon",
+        "isOpenable" : "False",
+        "Weight" : "130g" 
+      },
+
+      {
+
+        "starting location": "Bedroom 3",
+        "id": "Sword",
+        "name": "Sword",
+        "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
+        "isOpenable" : "False",
+        "Weight" : "1000g"
+      
+    
+      },
+      {
+        "starting location": "Library (Doll Case)",
+        "id": "Creepy doll",
+        "name": "Creepy doll",
+        "description": "You see a weird looking doll, sitting on a chair in the middle of the room. Perhaps putting it somewhere will reveal the secrets of this house",
+        "isOpenable" : "False",
+        "Weight" : "800g"
+    
+      },
+      {
+        
+        "starting location": "Bathroom",
+        "id": "Key 1",
+        "name": "Key 1",
+        "description": "You have found 1 of the 3 keys that lie in this house. Find the other 2 keys to unlock the passage to the cellar and save your friend from the horrors within the house.",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "starting location": "Bedroom 3",
+        "id": "Key 2",
+        "name": "Key 2",
+        "description": "This key is one of the last to find, hurry to save your friend in time!",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "starting location": "Bedroom 4",
+        "id": "Key 3",
+        "name": "Key 3",
+        "description": "Congratulations on finding the last key, but don’t celebrate just yet. Head down to the cellar to figure out what’s next.",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "starting location": "Bedroom 4",
+        "id": "Master Key",
+        "name": "Master Key",
+        "description": "Master key was created with all three keys. Use the key to unlock the cellar to save your friend.",
+        "isOpenable" : "False",
+        "Weight" : "50g"
+      },
+      {
+        "starting location": "Bedroom 3",
+        "id": "Riddle",
+        "name": "Riddle",
+        "description": "I don't have eyes, but once I did see. Once I had thoughts, but now I'm white and empty. The answer is a skull.",
+        "isOpenable" : "False",
+        "Weight" : "5g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Pistol",
+        "name": "Pistol",
+        "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
+        "isOpenable" : "False",
+        "Weight" : "950g"
+      },
+      {
+        "starting location": "Library (Doll case)",
+        "id": "Introductory note",
+        "name": "Introductory note",
+        "description": "We have your friend. To find your friend you must collect items around the house and decide which ones can be used. Remember, if you fail, we come for you.",
+        "isOpenable" : "False",
+        "Weight" : "5g"
+      },
+      {
+        "starting location": "Bedroom 1",
+        "id": "Explanation note",
+        "name": "Explanation note",
+        "description": "To win and help save your friend, you must collect three keys. These are the only things that you can do.",
+        "isOpenable" : "False",
+        "Weight" : "5g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Bat",
+        "name": "Bat",
+        "description": "You have chosen the baseball bat. It looks like it’s pretty old, maybe from the 1900s.",
+        "isOpenable" : "False",
+        "Weight" : "880g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "A.K 47",
+        "name": "A.K 47",
+        "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
+        "isOpenable" : "False",
+        "Weight" : "3800g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Pitch Fork",
+        "name": "Pitch Fork",
+        "description": "You have chosen a Pitch Fork. Quick and hurry to save your friend!”",
+        "isOpenable" : "False",
+        "Weight" : "907g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Plastic Spoon",
+        "name": "Plastic Spoon",
+        "description": "You have chosen a plastic spoon. You never know, this might come in handy. Fred is hot",
+        "isOpenable" : "False",
+        "Weight" : "6g"
+      }
+
+    ]
+  }

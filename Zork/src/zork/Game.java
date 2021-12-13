@@ -17,12 +17,13 @@ public class Game {
   private Room currentRoom;
 
   /**
-   * Create the game and initialise its internal map.
+   * Create the game and initialize its internal map.
+   * fred is hot
    */
   public Game() {
     try {
       initRooms("src\\zork\\data\\rooms.json");
-      currentRoom = roomMap.get("Bedroom");
+      currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -109,12 +110,42 @@ public class Game {
     else if (commandWord.equals("go"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-      if (command.hasSecondWord())
+      if (command.hasExtraWords())
         System.out.println("Quit what?");
       else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
-      System.out.println("Do you really think you should be eating at a time like this?");
+      System.out.println("Eat?!? Are you serious");
+    }
+    else if(commandWord.equals("climb")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("take")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("drop")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("kill")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("search")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("read")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("run")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("shoot")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("hit")){
+      goRoom(command);
+    }
+    else if(commandWord.equals("stab")){
+      goRoom(command);
     }
     return false;
   }
@@ -126,8 +157,8 @@ public class Game {
    * and a list of the command words.
    */
   private void printHelp() {
-    System.out.println("You are lost. You are alone. You wander");
-    System.out.println("around at Monash Uni, Peninsula Campus.");
+    System.out.println("Now is not a good time to be lost!");
+    System.out.println("You better get to thinking.");
     System.out.println();
     System.out.println("Your command words are:");
     parser.showCommands();
@@ -138,13 +169,15 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
-    if (!command.hasSecondWord()) {
+    if (!command.hasExtraWords()) {
       // if there is no second word, we don't know where to go...
-      System.out.println("Go where?");
+      System.out.println("Go Where?");
       return;
     }
 
-    String direction = command.getSecondWord();
+    ArrayList<String> rest = command.getExtraWords();
+
+    String direction = rest.get(0); 
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
