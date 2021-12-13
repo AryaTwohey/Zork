@@ -32,12 +32,11 @@ public class Inventory {
 
   public boolean dropItem(Command command) {
 
-      
-    if(command.hasExtraWords().length() > 0){
+    if(command.getExtraWords().toString().length() != 0){
 
      for (int i = items.size()-1; i >= 0; i--) {
 
-      String itemName = command.hasExtraWords();
+      String itemName = command.getExtraWords().toString();
 
       System.out.println("MADE IT HERE");   //test to see if loop is working
     
