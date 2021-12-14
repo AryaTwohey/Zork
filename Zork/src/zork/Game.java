@@ -8,13 +8,14 @@ import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import zork.Inventory;
 
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
   private Parser parser;
   private Room currentRoom;
-  Inventory playeInventory;
+  Inventory playerInventory;
   public static final String yellow = "\u001B[33m";      //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
 
@@ -179,14 +180,11 @@ public class Game {
     } else if (commandWord.equals("eat")) {
       System.out.println("Eat?!? Are you serious");
     }
-    else if(commandWord.equals("climb")){
-      //TODO
-    }
     else if(commandWord.equals("take")){
-      //TODO
+      //playerInventory.addItem(command); 
     }
     else if(commandWord.equals("drop")){
-      playeInventory.dropItem(command);
+      playerInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
       goRoom(command);
