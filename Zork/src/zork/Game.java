@@ -158,6 +158,8 @@ public class Game {
    */
   private boolean processCommand(Command command) {
     if (command.isUnknown()) {
+      
+      System.out.println();
       System.out.println("I don't know what you mean...");
       return false;
     }
