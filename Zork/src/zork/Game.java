@@ -83,6 +83,15 @@ public class Game {
       }
 
     }
+    String quit =  "Thank you for playing. Good Bye.";
+
+    for(int i = 0; i < quit.length(); i++){
+      System.out.printf("%c", quit.charAt(i));
+      Thread.sleep(15);
+    }
+    System.out.println();
+
+
     System.out.println("Thank you for playing.  Good bye.");
   }
 
@@ -92,7 +101,6 @@ public class Game {
    */
   private void printWelcome() throws InterruptedException {
     
-
   String welcome = "Welcome To Zork!!!";
   String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
   String help = "Type help to see the commands";
@@ -107,7 +115,7 @@ public class Game {
     for(int i = 0; i < line.length(); i++){
 
     System.out.printf("%c", line.charAt(i));
-    Thread.sleep(15);
+    Thread.sleep(10);
     }
     System.out.println();
     System.out.println();
@@ -138,7 +146,7 @@ public class Game {
     for(int i = 0; i < line.length(); i++){
     
       System.out.printf("%c", line.charAt(i));
-      Thread.sleep(15);
+      Thread.sleep(10);
     }
 
     System.out.println();
