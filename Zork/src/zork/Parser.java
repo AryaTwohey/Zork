@@ -9,6 +9,10 @@ public class Parser {
   private CommandWords commands; // holds all valid command words
   private Scanner in;
   private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "please", "i", "want", "to"));
+  public static final String yellow = "\u001B[33m";   //for the compiler arrow
+  public static final String white = "\u001B[37m"; //also for the compiler arrow
+
+
 
   public Parser() {
     commands = new CommandWords();
@@ -18,8 +22,10 @@ public class Parser {
   public Command getCommand() throws java.io.IOException {
     String inputLine = "";
     ArrayList <String> words;
-  
-    System.out.print("> "); // print prompt
+
+    
+    System.out.println();
+    System.out.print(yellow + "--> " + white); // print prompt
 
     inputLine = in.nextLine().toLowerCase();
 
