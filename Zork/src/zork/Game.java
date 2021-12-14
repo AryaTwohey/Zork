@@ -8,7 +8,6 @@ import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import zork.Inventory;
 
 public class Game {
 
@@ -16,6 +15,8 @@ public class Game {
   private Parser parser;
   private Room currentRoom;
   Inventory playerInventory;
+  Item item;
+  
   public static final String yellow = "\u001B[33m";      //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
 
@@ -32,6 +33,7 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    Inventory playerInventory = new Inventory(1000);
     parser = new Parser();
   }
 
@@ -170,6 +172,8 @@ public class Game {
    * the game, true is returned, otherwise false is returned.
    */
   private boolean processCommand(Command command) {
+
+
     if (command.isUnknown()) {
       
       System.out.println();
@@ -191,7 +195,7 @@ public class Game {
       System.out.println("Eat?!? Are you serious");
     }
     else if(commandWord.equals("take")){
-      //playerInventory.addItem(command); 
+      playerInventory.addItem(command, item); 
     }
     else if(commandWord.equals("drop")){
       playerInventory.dropItem(command);
