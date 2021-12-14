@@ -96,7 +96,7 @@ public class Game {
   String welcome = "Welcome To Zork!!!";
   String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
   String help = "Type help to see the commands";
-  String line = yellow + "_________________________________________________" + white;
+  String line = yellow + "________________________________________________________________" + white;
 
   //Cool Printable Message
 
