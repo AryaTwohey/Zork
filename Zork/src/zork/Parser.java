@@ -25,7 +25,7 @@ public class Parser {
 
     
     System.out.println();
-    System.out.print(yellow + "--> " + white); // print prompt
+    System.out.print(yellow + "-->  " + white); // print prompt
 
     inputLine = in.nextLine().toLowerCase();
 
