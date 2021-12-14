@@ -147,11 +147,21 @@ public class Game {
       System.out.printf("%c", line.charAt(i));
       Thread.sleep(10);
     }
-
     System.out.println();
-    System.out.println("In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint screaming.  To the north of you there is an open door covered in blood. The blood of your friend");
-    System.out.println("Exits: North");
+    System.out.println();
 
+    String firstScentence = "In front of you there is a large house with no lights on." ;
+    String secondScentence ="The windows are boarded up and you can hear squeaking and faint screaming."; 
+    String thirdScentence = "To the north of you there is an open door covered in blood...the blood of your friend.";
+    String exits = "Exits: North ";
+
+    System.out.println(firstScentence);
+    System.out.println(secondScentence);
+    System.out.println(thirdScentence);
+    System.out.println();
+    System.out.println(exits);
+
+    
   }
 
   /**
