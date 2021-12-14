@@ -178,10 +178,10 @@ public class Game {
       System.out.println("Eat?!? Are you serious");
     }
     else if(commandWord.equals("climb")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("take")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("drop")){
       goRoom(command);

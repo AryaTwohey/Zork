@@ -6,13 +6,11 @@ package zork;
 public class Exit extends OpenableObject {
   private String direction;
   private String adjacentRoom;
-  private String fred;
 
   public Exit(String direction, String adjacentRoom, boolean isLocked, String keyId) {
     super(isLocked, keyId);
     this.direction = direction;
     this.adjacentRoom = adjacentRoom;
-    fred = "Fred is hot";
   }
 
   public Exit(String direction, String adjacentRoom, boolean isLocked, String keyId, Boolean isOpen) {
