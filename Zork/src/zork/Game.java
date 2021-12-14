@@ -12,9 +12,12 @@ import org.json.simple.parser.JSONParser;
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
-
   private Parser parser;
   private Room currentRoom;
+  public static final String yellow = "\u001B[33m";      //for the welcome message
+  public static final String white = "\u001B[0m";        //also for the welcome message
+
+
 
   /**
    * Create the game and initialize its internal map.
@@ -64,8 +67,9 @@ public class Game {
 
   /**
    * Main play routine. Loops until end of play.
+   * @throws InterruptedException
    */
-  public void play() {
+  public void play() throws InterruptedException {
     printWelcome();
 
     boolean finished = false;
@@ -84,14 +88,62 @@ public class Game {
 
   /**
    * Print out the opening message for the player.
+   * @throws InterruptedException
    */
-  private void printWelcome() {
+  private void printWelcome() throws InterruptedException {
+    
+
+  String welcome = "Welcome To Zork!!!";
+  String creators = "A game created by Arya, Arman, Lara and Muriel!!!";
+  String help = "Type help to see the commands";
+  String line = yellow + "_________________________________________________" + white;
+
+  //Cool Printable Message
+
+  System.out.println();
+  System.out.println();
+  //line
+
+    for(int i = 0; i < line.length(); i++){
+
+    System.out.printf("%c", line.charAt(i));
+    Thread.sleep(15);
+    }
     System.out.println();
-    System.out.println("Welcome to Zork!");
-    System.out.println("Zork is a new, incredibly boring adventure game.");
-    System.out.println("Type 'help' if you need help.");
     System.out.println();
-    System.out.println(currentRoom.longDescription());
+
+    for(int i = 0; i < welcome.length(); i++){
+      System.out.printf("%c", welcome.charAt(i));
+      Thread.sleep(10);
+    }
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < creators.length(); i++){
+      System.out.printf("%c", creators.charAt(i));
+      Thread.sleep(10);
+    }
+
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < help.length(); i ++){
+      System.out.printf("%c", help.charAt(i));
+      Thread.sleep(10);
+    }
+
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < line.length(); i++){
+    
+      System.out.printf("%c", line.charAt(i));
+      Thread.sleep(15);
+    }
+
+    System.out.println();
+    System.out.println();
+
   }
 
   /**
