@@ -90,9 +90,7 @@ public class Game {
       Thread.sleep(15);
     }
     System.out.println();
-
-
-    System.out.println("Thank you for playing.  Good bye.");
+    System.out.println();
   }
 
   /**
