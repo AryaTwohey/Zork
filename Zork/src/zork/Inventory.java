@@ -37,6 +37,8 @@ public class Inventory {
 
      for (int i = items.size()-1; i >= 0; i--) {
 
+      System.out.println("Hellow ");
+
       String itemName = command.getExtraWords().toString();
 
       System.out.println("MADE IT HERE");   //test to see if loop is working

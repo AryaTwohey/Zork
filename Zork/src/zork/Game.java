@@ -14,6 +14,7 @@ public class Game {
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
   private Parser parser;
   private Room currentRoom;
+  Inventory playeInventory;
   public static final String yellow = "\u001B[33m";      //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
 
@@ -148,7 +149,8 @@ public class Game {
     }
 
     System.out.println();
-    System.out.println();
+    System.out.println("In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint screaming.  To the north of you there is an open door covered in blood. The blood of your friend");
+    System.out.println("Exits: North");
 
   }
 
@@ -184,7 +186,7 @@ public class Game {
       goRoom(command);
     }
     else if(commandWord.equals("drop")){
-      goRoom(command);
+      playeInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
       goRoom(command);
