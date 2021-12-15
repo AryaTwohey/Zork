@@ -35,7 +35,6 @@ public class Game {
     }
    parser = new Parser();
    playerInventory = new Inventory(1000); 
-   item = new Item(12, "hello", false); 
 
   }
 
