@@ -306,6 +306,8 @@ public class Game {
         System.out.println(quotes + "A situation in which events happen at the same time in a way that is not planned  or expected." + quotes);
         System.out.println();
         System.out.println("...however, I think math");
+        System.out.println();
+        System.out.println("   -Greg Winson 2011-2021");
       } 
       else{
         System.out.println();
