@@ -32,7 +32,7 @@
     {
       "id": "Library (Doll Case)",
       "name": "Library",
-      "description": "You are now in the library. In front of you is a doll case. Every doll is staring you straight in   the eye with a threatening smile. There is one doll that is missing.There is a note attached to the doll case." ,
+      "description": "You are now in the library. In front of you is a doll case. Every doll is staring you straight in                           the eye with a threatening smile. There is one doll that is missing.There is a note attached to the doll case." ,
       "exits": [
         {
           "isLocked": false,
