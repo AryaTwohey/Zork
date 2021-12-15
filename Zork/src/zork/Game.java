@@ -201,25 +201,25 @@ public class Game {
       playerInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
-      //TODO
+      System.out.println("kill what?");
     }
     else if(commandWord.equals("search")){
-      //TODO
+      System.out.println("There is nothing to search for");
     }
     else if(commandWord.equals("read")){
-      //TODO
+      System.out.println("There is nothing to read right now");
     }
     else if(commandWord.equals("run")){
-      //TODO
+      goRoom(command);
     }
     else if(commandWord.equals("shoot")){
-      //TODO
+      System.out.println("shoot what?");
     }
     else if(commandWord.equals("hit")){
-      //TODO
+      System.out.println("hit what?");
     }
     else if(commandWord.equals("stab")){
-      //TODO
+      System.out.println("stab what?");
     }
     return false;
   }
@@ -231,11 +231,9 @@ public class Game {
    * and a list of the command words.
    */
   private void printHelp() {
-    System.out.println("Now is not a good time to be lost!");
-    System.out.println("You better get to thinking.");
-    System.out.println();
     System.out.println("Your command words are:");
     parser.showCommands();
+    System.out.println("Use these to win the game!"); 
   }
 
   /**
@@ -257,7 +255,7 @@ public class Game {
     Room nextRoom = currentRoom.nextRoom(direction);
 
     if (nextRoom == null)
-      System.out.println("There is no door!");
+      System.out.println("There is no path or door!");
     else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
