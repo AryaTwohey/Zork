@@ -246,8 +246,7 @@ public class Game {
       System.out.println();
       System.out.println("Stab what?");
 
-    }else if(commandWord.equals("inventory")){
-
+    }else if(commandWord.equals("inventory") || commandWord.equals("display")){
       System.out.println();
       System.out.println("*Not Finished Yet");
       System.out.println();
@@ -349,8 +348,7 @@ public class Game {
   }
   public void displayInventory(Command command){
 
-    for(int i = 0; i < playerInventory.toString().length(); i++){
-
+    for(int i = 0; i < playerInventory.toString().length(); i++){ 
       System.out.println(i + " ");
     
   }
