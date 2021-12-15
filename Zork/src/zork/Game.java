@@ -220,22 +220,22 @@ public class Game {
       playerInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
-      goRoom(command);
+      System.out.println("kill what?");
     }
     else if(commandWord.equals("search")){
-      goRoom(command);
+      System.out.println("There is nothing to search for");
     }
     else if(commandWord.equals("read")){
-      goRoom(command);
+      System.out.println("There is nothing to read right now");
     }
     else if(commandWord.equals("run")){
       goRoom(command);
     }
     else if(commandWord.equals("shoot")){
-      goRoom(command);
+      System.out.println("shoot what?");
     }
     else if(commandWord.equals("hit")){
-      goRoom(command);
+      System.out.println("hit what?");
     }
     else if(commandWord.equals("stab")){
       goRoom(command);
@@ -322,7 +322,7 @@ public class Game {
     Room nextRoom = currentRoom.nextRoom(direction);
 
     if (nextRoom == null)
-      System.out.println("There is no door!");
+      System.out.println("There is no path or door!");
     else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
