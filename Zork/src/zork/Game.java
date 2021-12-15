@@ -210,6 +210,7 @@ public class Game {
       else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
+      System.out.println();
       System.out.println("Eat?!? Are you serious");
     }
     else if(commandWord.equals("take")){
@@ -219,32 +220,63 @@ public class Game {
       playerInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
-      System.out.println("kill what?");
+      System.out.println();
+      System.out.println("Kill what?");
     }
     else if(commandWord.equals("search")){
+      System.out.println();
       System.out.println("There is nothing to search for");
     }
     else if(commandWord.equals("read")){
-    System.out.println("There are no pictures, so I ain't reading it...");
+      System.out.println();
+      System.out.println("There is nothing to read...");
 
     }
     else if(commandWord.equals("run")){
       goRoom(command);
     }
     else if(commandWord.equals("shoot")){
-      System.out.println("shoot what?");
+      System.out.println();
+      System.out.println("Shoot what?");
     }
     else if(commandWord.equals("hit")){
+      System.out.println();
       System.out.println("Hit what?");
     }
     else if(commandWord.equals("stab")){
+      System.out.println();
       System.out.println("Stab what?");
 
     }else if(commandWord.equals("inventory")){
 
-      System.out.println("inventory");
+      System.out.println();
+      System.out.println("*Not Finished Yet");
+      System.out.println();
+      System.out.println("-Developers");
 
       displayInventory(command);
+
+    }else if(commandWord.equals("hello")){
+
+    int result = (int)(Math.random() * 3);
+      if(result == 1){
+
+        System.out.println();
+        System.out.println("Hi, how are you?");
+        System.out.println();
+
+      }else if(result == 2){
+
+        System.out.println();
+        System.out.println("Whats Up?");
+        System.out.println();
+      }else{
+
+        System.out.println();
+        System.out.println("Whats Good?");
+        System.out.println();
+
+      }
     }
     else if(commandWord.equals("fred")){
       System.out.println();
@@ -282,6 +314,7 @@ public class Game {
         System.out.println("     -Greg Winson 2011-2021");
       }
     }
+      
     return false;
   }
 
@@ -295,7 +328,7 @@ public class Game {
   private void printHelp() throws InterruptedException {
     String helperMessage = "Not a good time to be lost, your command words are below ";
     String commandWords =  yellow + "[go, quit, help, eat, take, drop, kill, " + white;
-    String commandWords2 = yellow + "search, read, run, shoot, hit, stab]" + white ;
+    String commandWords2 = yellow + "search, read, run, shoot, hit, stab, inventory]" + white ;
 
     System.out.println();
     System.out.println();
@@ -324,18 +357,12 @@ public class Game {
       System.out.println();
       System.out.println();
 
-      
-
-
-
-    //parser.showCommands();
   }
-
   public void displayInventory(Command command){
 
     for(int i = 0; i < playerInventory.toString().length(); i++){
 
-      System.out.println(i);
+      System.out.println(i + " ");
     
   }
   }
@@ -347,7 +374,8 @@ public class Game {
   private void goRoom(Command command) {
     if (!command.hasExtraWords()) {
       // if there is no second word, we don't know where to go...
-      System.out.println("Go Where?");
+      System.out.println();
+      System.out.println("Go where?");
       return;
     }
 
@@ -358,9 +386,10 @@ public class Game {
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
 
-    if (nextRoom == null)
+    if (nextRoom == null){
+      System.out.println();
       System.out.println("There is no path or door!");
-    else {
+     } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
     }
