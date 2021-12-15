@@ -246,12 +246,18 @@ public class Game {
       displayInventory(command);
     }
     else if(commandWord.equals("fred")){
+      System.out.println();
       System.out.println("This may help you on your adventure... Fred is HOT!"); 
+      
     }
     else if(commandWord.equals("winson")){
       int ran = (int) (Math.random() * 2);
       if(ran == 0){
-        System.out.println("Coincidence? I think math."); 
+        System.out.println();
+        System.out.print("Coincidence: ");
+        System.out.println("A situation in which events happen at the same time in a way that is not planned or expected.");
+        System.out.println();
+        System.out.println("...however, I think math");
       } 
       else{
         System.out.println("Remember, the most common mistakes in Math are in arithmetic involving negative numbers."); 
