@@ -3,8 +3,8 @@ package zork;
 public class CommandWords {
   // a constant array that holds all valid command words
   private static final String validCommands[] = { "go", "quit", "help", "eat", "take", "drop", "kill", "search", "read", "run", "shoot", "hit", "stab", "inventory", "hello", "fred", "winson"};
-
-  /**
+                                                                                                                                                                  //these commands are not included in printhelp
+  /**                                                                                                                                                             //so they are hidden from the users basic knowlage of the game
    * Constructor - initialise the command words.
    */
   public CommandWords() {
@@ -21,7 +21,6 @@ public class CommandWords {
         return true;
     }
     // if we get here, the string was not found in the commands
-    //fred is hot
     return false;
   }
 
