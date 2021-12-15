@@ -21,23 +21,34 @@ public class Inventory {
     return currentWeight;
   }
 
-  public boolean addItem(Item item) {
-    if (item.getWeight() + currentWeight <= maxWeight)
+
+  public boolean addItem(Command command, Item item) {
+
+    //this first if statement checks the weight of the item and if the extra words match the items name
+    //if both these conditions are met, add the item to the arraylist called items
+    //items is the actual name for the inventory, it is an arraylist
+    System.out.println("made it here");
+
+  if(!command.hasExtraWords()){
+    System.out.println();
+    System.out.println("Take what?");
+    System.out.println();
+  }
+
+    else if (item.getWeight() + currentWeight <= maxWeight && command.getExtraWords().toString().equals(item.getName())) 
       return items.add(item);
     else {
       System.out.println("There is no room to add the item, please drop something.");
       return false;
     }
+    return false;
   }
 
   public boolean dropItem(Command command) {
 
-      
     if(command.getExtraWords().size() > 0){
 
      for (int i = items.size()-1; i >= 0; i--) {
-
-      System.out.println("Hello ");
 
       String itemName = command.getExtraWords().toString();
 
