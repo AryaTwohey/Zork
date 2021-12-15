@@ -85,7 +85,7 @@ public class Inventory {
     }else{
     System.out.println();
 
-    System.out.println("Drop What ");
+    System.out.println("Drop what?");
     
     System.out.println();
   }
