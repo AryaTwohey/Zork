@@ -70,7 +70,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "SouthWest",
+          "direction": "Southwest",
           "adjacentRoom": "Living Room"
         }, 
         {
@@ -92,7 +92,7 @@
         }, 
         {
           "isLocked": false,
-          "direction": "NorthEast",
+          "direction": "Northeast",
           "adjacentRoom": "Kitchen"
         }
       ]
