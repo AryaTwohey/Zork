@@ -197,25 +197,25 @@ public class Game {
       playerInventory.dropItem(command);
     }
     else if(commandWord.equals("kill")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("search")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("read")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("run")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("shoot")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("hit")){
-      goRoom(command);
+      //TODO
     }
     else if(commandWord.equals("stab")){
-      goRoom(command);
+      //TODO
     }
     return false;
   }
