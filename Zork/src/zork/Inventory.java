@@ -71,11 +71,18 @@ public class Inventory {
 
         items.remove(i);
 
+        
         return true;
-
+        
+      }else if(items.get(i).getName() != itemName){
+        
+        System.out.println();
+        System.out.println("You do not have this item.");
+        System.out.println();
       }
-    }
-  }else{
+      }
+
+    }else{
     System.out.println();
 
     System.out.println("Drop What ");
