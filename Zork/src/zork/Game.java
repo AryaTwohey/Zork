@@ -275,8 +275,8 @@ public class Game {
    */
   private void printHelp() throws InterruptedException {
     String helperMessage = "Not a good time to be lost, your command words are below ";
-    String commandWords =  yellow + "go, quit, help, eat, take, drop, kill " + white;
-    String commandWords2 = yellow + "search, read, run, shoot, hit, stab" + white ;
+    String commandWords =  yellow + "[go, quit, help, eat, take, drop, kill " + white;
+    String commandWords2 = yellow + "search, read, run, shoot, hit, stab]" + white ;
 
     System.out.println();
     System.out.println();
@@ -297,7 +297,7 @@ public class Game {
       }
 
       for(int i = 0; i < commandWords2.length(); i++){
-        System.out.printf("%c", commandWords.charAt(i));
+        System.out.printf("%c", commandWords2.charAt(i));
         Thread.sleep(15);
 
       }
