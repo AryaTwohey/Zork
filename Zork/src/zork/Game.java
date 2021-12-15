@@ -262,11 +262,16 @@ public class Game {
         System.out.println();
     }
     else if(commandWord.equals("winson")){
+
+
+
       int ran = (int) (Math.random() * 2);
       if(ran == 0){
+        String quotes = "''";
+
         System.out.println();
         System.out.print("Coincidence: ");
-        System.out.println("A situation in which events happen at the same time in a way that is not planned or expected.");
+        System.out.println(quotes + "A situation in which events happen at the same time in a way that is not planned or expected." + quotes);
         System.out.println();
         System.out.println("...however, I think math");
       } 
