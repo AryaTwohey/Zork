@@ -17,10 +17,10 @@ public class Game {
   Inventory playerInventory;
   Item item;
   
-  public static final String yellow = "\u001B[33m";      //for the welcome message
+  public static final String yellow = "\u001B[33m";       //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
-  public static final String blue = "\u001B[34m"; //for quit message
-  public static final String red = "\u001B[31m";   //for red coloured text (blood)
+  public static final String blue = "\u001B[34m";       //for quit message 
+  public static final String red = "\u001B[31m";       //for red coloured text (blood)
 
 
   /**
@@ -90,6 +90,7 @@ public class Game {
 
     }
     String quit =  blue + "Thank you for playing. Good Bye." + white;
+    String threeDots = "...";
     System.out.println();
     System.out.println();
     System.out.println();
@@ -100,7 +101,19 @@ public class Game {
     System.out.println();
     System.out.println();
     System.out.println();
-   
+    System.out.println();
+    System.out.print("TERMINATING COMPILER");
+
+    for(int i = 0; i < threeDots.length(); i++){
+
+        System.out.printf("%c", threeDots.charAt(i));
+        Thread.sleep(1500);
+    }
+
+    System.out.println();
+    
+    System.out.println("TERMINATION COMPLETE");
+    System.out.println();
   }
 
   /**
