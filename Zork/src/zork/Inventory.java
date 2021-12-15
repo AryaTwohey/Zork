@@ -24,24 +24,37 @@ public class Inventory {
 
   public boolean addItem(Command command, Item item) {
 
-    //this first if statement checks the weight of the item and if the extra words match the items name
-    //if both these conditions are met, add the item to the arraylist called items
-    //items is the actual name for the inventory, it is an arraylist
-    System.out.println("made it here");
+ /**The first if statement checks for any extra words to use in the method
+  * The next if statement checks to see if your command matches the item in front of you
+  * After this, the weight is checks to see if it meets the requirement and return true or false
+  * Either adds or ignores it
+  */
 
   if(!command.hasExtraWords()){
+
     System.out.println();
     System.out.println("Take what?");
     System.out.println();
-  }
 
-    else if (item.getWeight() + currentWeight <= maxWeight && command.getExtraWords().toString().equals(item.getName())) 
-      return items.add(item);
-    else {
+  }else if(command.getExtraWords().toString() != item.getName()){   //not equal means doesnt exist
+
+    System.out.println();
+    System.out.println("This item does not exist");
+    System.out.println();
+
+    //both the name and weight need to work
+
+  }else if(command.getExtraWords().toString().equals(item.getName()) && item.getWeight() + currentWeight <= maxWeight){
+    return items.add(item);
+     
+    }else{
+      //if the items weight plus the current weight is too high, then tell the user
+
+      System.out.println();
       System.out.println("There is no room to add the item, please drop something.");
-      return false;
+      System.out.println();
     }
-    return false;
+  return false;
   }
 
   public boolean dropItem(Command command) {
