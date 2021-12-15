@@ -34,12 +34,13 @@ public class CommandWords {
   public void showAll() {
     String openBracket = yellow + "[" + white;
     String closeBracket = yellow + "]" + white;
+    String yellowComma = yellow + "," + white;
     
     System.out.print(openBracket + "  ");
 
     for (String c : validCommands) {
       if(!(c.equals("winson") || c.equals("fred") || c.equals("hello")))
-        System.out.print(c + ",  ");
+        System.out.print(c + yellowComma + "  ");
     }
     System.out.print(closeBracket);
 
