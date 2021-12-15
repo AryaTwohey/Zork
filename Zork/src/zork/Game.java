@@ -181,7 +181,6 @@ public class Game {
     System.out.println();
     System.out.println(exits);
     System.out.println();
-
   }
 
   /**
@@ -226,7 +225,8 @@ public class Game {
       System.out.println("There is nothing to search for");
     }
     else if(commandWord.equals("read")){
-      System.out.println("There is nothing to read right now");
+    System.out.println("There are no pictures, so I ain't reading it...");
+
     }
     else if(commandWord.equals("run")){
       goRoom(command);
@@ -235,10 +235,11 @@ public class Game {
       System.out.println("shoot what?");
     }
     else if(commandWord.equals("hit")){
-      System.out.println("hit what?");
+      System.out.println("Hit what?");
     }
     else if(commandWord.equals("stab")){
-      goRoom(command);
+      System.out.println("Stab what?");
+
     }else if(commandWord.equals("inventory")){
 
       System.out.println("inventory");
@@ -247,7 +248,7 @@ public class Game {
     }
     else if(commandWord.equals("fred")){
       System.out.println();
-      System.out.println("This may help you on your adventure... Fred is HOT!"); 
+      System.out.println("Fred is hot"); 
       
     }
     else if(commandWord.equals("winson")){
@@ -260,7 +261,10 @@ public class Game {
         System.out.println("...however, I think math");
       } 
       else{
+        System.out.println();
         System.out.println("Remember, the most common mistakes in Math are in arithmetic involving negative numbers."); 
+        System.out.println();
+        System.out.println("     -Greg Winson 2010-2021");
       }
     }
     return false;
@@ -275,7 +279,7 @@ public class Game {
    */
   private void printHelp() throws InterruptedException {
     String helperMessage = "Not a good time to be lost, your command words are below ";
-    String commandWords =  yellow + "[go, quit, help, eat, take, drop, kill " + white;
+    String commandWords =  yellow + "[go, quit, help, eat, take, drop, kill, " + white;
     String commandWords2 = yellow + "search, read, run, shoot, hit, stab]" + white ;
 
     System.out.println();
