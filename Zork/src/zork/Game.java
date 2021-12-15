@@ -19,7 +19,7 @@ public class Game {
   
   public static final String yellow = "\u001B[33m";      //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
-
+  public static final String red = "\u001B[31m";   //for red coloured text (blood)
 
 
   /**
@@ -33,8 +33,10 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    Inventory playerInventory = new Inventory(1000);
-    parser = new Parser();
+   parser = new Parser();
+   playerInventory = new Inventory(1000); 
+   item = new Item(12, "hello", false); 
+
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -70,7 +72,7 @@ public class Game {
   }
 
   /**
-   * Main play routine. Loops until end of play.
+   * Required for printable messges, doesnt do anything else
    * @throws InterruptedException
    */
   public void play() throws InterruptedException {
@@ -117,29 +119,33 @@ public class Game {
     for(int i = 0; i < line.length(); i++){
 
     System.out.printf("%c", line.charAt(i));
-    Thread.sleep(10);
+    Thread.sleep(5);
     }
     System.out.println();
     System.out.println();
 
     for(int i = 0; i < welcome.length(); i++){
+
       System.out.printf("%c", welcome.charAt(i));
-      Thread.sleep(10);
+      Thread.sleep(5);
     }
+   
     System.out.println();
     System.out.println();
 
     for(int i = 0; i < creators.length(); i++){
+
       System.out.printf("%c", creators.charAt(i));
-      Thread.sleep(10);
+      Thread.sleep(5);
     }
 
     System.out.println();
     System.out.println();
 
     for(int i = 0; i < help.length(); i ++){
+
       System.out.printf("%c", help.charAt(i));
-      Thread.sleep(10);
+      Thread.sleep(5);
     }
 
     System.out.println();
@@ -148,30 +154,43 @@ public class Game {
     for(int i = 0; i < line.length(); i++){
     
       System.out.printf("%c", line.charAt(i));
-      Thread.sleep(10);
+      Thread.sleep(5);
     }
     System.out.println();
     System.out.println();
 
+    /**Sorry for all the strings
+     * I just wanted to have the "blood" text coloured in red
+     */
+  
     String firstScentence = "In front of you there is a large house with no lights on." ;
     String secondScentence ="The windows are boarded up and you can hear squeaking and faint screaming."; 
-    String thirdScentence = "To the north of you there is an open door covered in blood...the blood of your friend.";
+    String thirdScentence = "To the North of you there is an open door covered in ";
+    String forthScentence = "...the ";
+    String fifthScentence = " of your friend.";
+    String blood = red + "blood" + white;
     String exits = "Exits: North ";
 
     System.out.println(firstScentence);
     System.out.println(secondScentence);
-    System.out.println(thirdScentence);
+    System.out.print(thirdScentence);
+    System.out.print(blood);
+    System.out.print(forthScentence);
+    System.out.print(blood);
+    System.out.println(fifthScentence);
     System.out.println();
     System.out.println(exits);
+    System.out.println();
 
-    
   }
 
   /**
    * Given a command, process (that is: execute) the command. If this command ends
    * the game, true is returned, otherwise false is returned.
+   * 
+   * @throws InterruptedException   //this is for the printhelp message, dont worry it doenst do anything bad
    */
-  private boolean processCommand(Command command) {
+  private boolean processCommand(Command command) throws InterruptedException {
 
 
     if (command.isUnknown()) {
@@ -219,7 +238,12 @@ public class Game {
       System.out.println("hit what?");
     }
     else if(commandWord.equals("stab")){
-      System.out.println("stab what?");
+      goRoom(command);
+    }else if(commandWord.equals("inventory")){
+
+      System.out.println("inventory");
+
+      displayInventory(command);
     }
     else if(commandWord.equals("fred")){
       System.out.println("This may help you on your adventure... Fred is HOT!"); 
@@ -239,13 +263,56 @@ public class Game {
   // implementations of user commands:
 
   /**
-   * Print out some help information. Here we print some stupid, cryptic message
-   * and a list of the command words.
+   * Print out some help information and a list of the command words.
+   * 
+   * @throws InterruptedException // this is for the printed message it doesnt do anything 
    */
-  private void printHelp() {
-    System.out.println("Your command words are:");
-    parser.showCommands();
-    System.out.println("Use these to win the game!"); 
+  private void printHelp() throws InterruptedException {
+    String helperMessage = "Not a good time to be lost, your command words are below ";
+    String commandWords =  yellow + "go, quit, help, eat, take, drop, kill " + white;
+    String commandWords2 = yellow + "search, read, run, shoot, hit, stab" + white ;
+
+    System.out.println();
+    System.out.println();
+
+      for(int i  = 0; i < helperMessage.length(); i++){
+
+      System.out.printf("%c", helperMessage.charAt(i));
+    
+      Thread.sleep(15);
+      }
+      System.out.println();
+      System.out.println();
+
+      for(int i = 0; i < commandWords.length(); i++){
+
+        System.out.printf("%c", commandWords.charAt(i));
+        Thread.sleep(15);
+      }
+
+      for(int i = 0; i < commandWords2.length(); i++){
+        System.out.printf("%c", commandWords.charAt(i));
+        Thread.sleep(15);
+
+      }
+      
+      System.out.println();
+      System.out.println();
+
+      
+
+
+
+    //parser.showCommands();
+  }
+
+  public void displayInventory(Command command){
+
+    for(int i = 0; i < playerInventory.toString().length(); i++){
+
+      System.out.println(i);
+    
+  }
   }
 
   /**
