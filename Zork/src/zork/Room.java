@@ -84,7 +84,7 @@ public class Room {
       System.out.println(direction + " is not a valid direction.");
       return null;
     }
-
+    System.out.println();
     System.out.println(direction + " is not a valid direction.");
     return null;
   }
