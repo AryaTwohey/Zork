@@ -19,6 +19,7 @@ public class Game {
   
   public static final String yellow = "\u001B[33m";      //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
+  public static final String blue = "\u001B[34m"; //for quit message
   public static final String red = "\u001B[31m";   //for red coloured text (blood)
 
 
@@ -88,14 +89,18 @@ public class Game {
       }
 
     }
-    String quit =  "Thank you for playing. Good Bye.";
-
+    String quit =  blue + "Thank you for playing. Good Bye." + white;
+    System.out.println();
+    System.out.println();
+    System.out.println();
     for(int i = 0; i < quit.length(); i++){
       System.out.printf("%c", quit.charAt(i));
       Thread.sleep(15);
     }
     System.out.println();
     System.out.println();
+    System.out.println();
+   
   }
 
   /**
@@ -204,9 +209,10 @@ public class Game {
     else if (commandWord.equals("go"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-      if (command.hasExtraWords())
+      if (command.hasExtraWords()){
+        System.out.println();
         System.out.println("Quit what?");
-      else
+       } else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println();
