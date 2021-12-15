@@ -221,6 +221,18 @@ public class Game {
     else if(commandWord.equals("stab")){
       System.out.println("stab what?");
     }
+    else if(commandWord.equals("fred")){
+      System.out.println("This may help you on your adventure... Fred is HOT!"); 
+    }
+    else if(commandWord.equals("winson")){
+      int ran = (int) (Math.random() * 2);
+      if(ran == 0){
+        System.out.println("Coincidence? I think math."); 
+      } 
+      else{
+        System.out.println("Remember, the most common mistakes in Math are in arithmetic involving negative numbers."); 
+      }
+    }
     return false;
   }
 
