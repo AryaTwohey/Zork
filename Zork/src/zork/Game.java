@@ -324,7 +324,7 @@ public class Game {
         System.out.println();
         System.out.println("...however, I think math");
         System.out.println();
-        System.out.println("   -Greg Winson 2011-2021");
+        System.out.println("    -Greg Winson 2011-2021");
       } 
       else{
         System.out.println();
