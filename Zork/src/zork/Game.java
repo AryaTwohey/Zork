@@ -248,8 +248,18 @@ public class Game {
     }
     else if(commandWord.equals("fred")){
       System.out.println();
-      System.out.println("Fred is hot"); 
+      System.out.println();
       
+      String importantMessage = "Fred is hot";
+
+        for(int i = 0 ; i < importantMessage.length(); i++){
+
+          System.out.printf("%c", importantMessage.charAt(i));
+          Thread.sleep(500);
+
+        }
+        System.out.println();
+        System.out.println();
     }
     else if(commandWord.equals("winson")){
       int ran = (int) (Math.random() * 2);
