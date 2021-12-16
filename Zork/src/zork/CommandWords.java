@@ -6,8 +6,8 @@ public class CommandWords {
   public static final String white = "\u001B[0m";        //for square brakcets
 
   private static final String validCommands[] = { "go", "quit", "help", "eat", "take", "drop", "kill", "search", "read", "run", "shoot", "hit", "stab", "inventory", "display", "hello", "fred", "winson"};
-                                                                                                                                                                  //these commands are not included in printhelp
-  /**                                                                                                                                                             //so they are hidden from the users basic knowledge of the game
+  //some of these commands are not included in printhelp, so they are hidden from the basic knowledge of the game
+  /**                                                                                                                                                            
    * 
    * Constructor - initialise the command words.
    */
