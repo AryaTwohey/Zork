@@ -39,7 +39,7 @@ public class CommandWords {
     System.out.print(openBracket + "  ");
 
     for (String c : validCommands) {
-      if(!(c.equals("winson") || c.equals("fred") || c.equals("hello")) || c.equals("display"))
+      if(!(c.equals("winson") || c.equals("fred") || c.equals("hello") || c.equals("display")))
         System.out.print(c + yellowComma + "  ");
     }
     System.out.print(closeBracket);
