@@ -248,7 +248,6 @@ public class Game {
     else if(commandWord.equals("read")){
       System.out.println();
       System.out.println("There is nothing to read...");
-
     }
     else if(commandWord.equals("run")){
       goRoom(command);
@@ -265,7 +264,8 @@ public class Game {
       System.out.println();
       System.out.println("Stab what?");
 
-    }else if(commandWord.equals("inventory") || commandWord.equals("display")){ 
+    }
+    else if(commandWord.equals("inventory") || commandWord.equals("display")){ 
       System.out.println();
       System.out.println("*Not Finished Yet");
       System.out.println();
@@ -273,7 +273,8 @@ public class Game {
 
       displayInventory(command);
 
-    }else if(commandWord.equals("hello")){
+    }
+    else if(commandWord.equals("hello")){
 
     int result = (int)(Math.random() * 3);
       if(result == 1){
@@ -398,6 +399,6 @@ public class Game {
      } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
-    }
+      }
   }
 }
