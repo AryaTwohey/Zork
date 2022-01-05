@@ -1,74 +1,363 @@
 {
   "rooms": [
     {
-      "id": "Hallway",
-      "name": "Hallway",
-      "description": "You are in a long hallway. There are family pictures on all of the walls.",
+      "id": "Outside Entrance",
+      "name": "Outside Entrance",
+      "description": "In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint   screaming.  To the north of you there is an open door covered in blood. The blood of your friend.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Bedroom"
-        },
-        {
-          "isLocked": true,
-          "direction": "East",
-          "adjacentRoom": "Bathroom",
-          "keyId": "1234"
+          "adjacentRoom": "Foyer"
         }
       ]
     },
     {
-      "id": "Bedroom",
-      "name": "Bedroom",
-      "description": "You are in a large bedroom",
+      "id": "Foyer",
+      "name": "Foyer",
+      "description": "You have entered the foyer. It is very dark.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Library (Doll Case)"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Outside Entrance"
+        }
+      ]
+    },
+    {
+      "id": "Library (Doll Case)",
+      "name": "Library",
+      "description": "You are now in the library. In front of you is a doll case. Every doll is staring you straight in                           the eye with a threatening smile. There is one doll that is missing.There is a note attached to the doll case." ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Library (Bookshelf)"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Foyer"
+        }
+      ]
+    },
+    {
+      "id": "Library (Bookshelf)",
+      "name": "Library",
+      "description": "To the right of you is a bookshelf, it is filled with dusty books and cobwebs",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Kitchen"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South", 
+          "adjacentRoom": "Library (Doll Case)"
+        }
+      ]
+    }, 
+    {
+      "id": "Kitchen",
+      "name": "Kitchen",
+      "description": "You are in the kitchen. There is a knife on the counter in front of you. Blood is dripping down onto the floor, slowly." ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Southwest",
+          "adjacentRoom": "Living Room"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Library (Bookshelf)"
+        }
+      ]
+    },
+    {
+      "id": "Living Room",
+      "name": "Living Room",
+      "description": "You have entered the living room. There is a table with nothing but a tablecloth on it. The room is covered with dust and   old fashioned decorations." ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ballroom"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "Northeast",
+          "adjacentRoom": "Kitchen"
+        }
+      ]
+    },
+    {
+      "id": "Ballroom (Mirrors)",
+      "name": "Ballroom",
+      "description": "You are in the ballroom. On every wall surrounding you there are mirrors and old rustic curtains. In the dark, you see yourself in the mirrors and a faint shadow behind you." ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ballroom (Dolls)"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Living Room"
+        }
+      ]
+    },
+    {
+      "id": "Ballroom (Dolls)",
+      "name": "Ballroom",
+      "description": "As you move you hear a doll laughing directly behind you" ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Skeleton Room (Skeleton)"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Living Room"
+        }
+      ]
+    },
+    {
+      "id": "Skeleton Room (Skeleton)",
+      "name": "Skeleton Room",
+      "description": "You moved West to advance up the stairs. As you were walking you heard creaking and cracking. One of the steps fell through, and you fell into a secret room. You landed right in front of a skeleton on the furthest East side of the room." ,
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Skeleton Room (Painting)"
+        }
+      ]
+    }, 
+    {
+      "id": "Skeleton Room (Painting)",
+      "name": "Skeleton Room",
+      "description": "You moved West and are now facing the painting of an old woman and a cat.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Bedroom"
+        }
+      ]
+    }, 
+    {
+      "id": "Bedroom 1",
+      "name": "Bedroom 1",
+      "description": "You have entered a bedroom. In front of you is a note.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Bathroom"
+        }
+      ]
+    }, 
+    {
+      "id": "Bathroom (Sink)",
+      "name": "Bathroom",
+      "description": "You slowly enter into the dark, creaky bathroom. All you can see is a running sink directly in front of you.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Bathroom (Toilet)"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Bathroom (Bathtub)"
+        }, 
+        {
+            "isLocked": false,
+            "direction": "East",
+            "adjacentRoom": "Bedroom 1"
+          }
+      ]
+    }, 
+    {
+      "id": "Bathroom (Toilet)",
+      "name": "Bathroom",
+      "description": "You have moved to the North and are now facing a toilet.",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Hallway"
+          "adjacentRoom": "Bathroom (Sink)"
         },
         {
           "isLocked": false,
-          "direction": "SouthEast",
-          "adjacentRoom": "Bathroom"
-        },
+          "direction": "West",
+          "adjacentRoom": "Bathroom (Bathtub)"
+        }
+      ]
+    }, 
+    {
+      "id": "Bathroom (Bathtub)",
+      "name": "Bathroom",
+      "description": "You walked forward, blindly in the dark, your foot hitting something cold. You figure out that it is a bathtub.",
+      "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Closet"
-        }
-      ]
-    },
-    {
-      "id": "Bathroom",
-      "name": "Bathroom",
-      "description": "You are in a blue bathroom",
-      "exits": [
-        {
-          "isLocked": true,
-          "direction": "West",
-          "adjacentRoom": "Hallway",
-          "keyId": "1234"
+          "adjacentRoom": "Bathroom (Toilet)"
         },
         {
           "isLocked": false,
-          "direction": "NorthWest",
-          "adjacentRoom": "Bedroom"
+          "direction": "West",
+          "adjacentRoom": "Bedroom 2"
         }
       ]
-    },
+    }, 
     {
-      "id": "Closet",
-      "name": "Closet",
-      "description": "You are in the closet. It is dark.",
+      "id": "Bedroom 2",
+      "name": "Bedroom 2",
+      "description": "As you enter this room, a doll awaits to see you, swinging in the antique rocking chair. It says “I have your mother. Dolls are eating her alive”.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Bedroom"
+          "direction": "East",
+          "adjacentRoom": "Bathroom (Bathtub)"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Bedroom 3"
         }
       ]
+    }, 
+    {
+      "id": "Bedroom 3",
+      "name": "Bedroom 3",
+      "description": "You walk into a third bedroom, with a strange riddle under a painting. Solve the riddle to find the sword, and save your friend.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Bedroom 4"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Bedroom 2"
+        }
+      ]
+    }, 
+    {
+      "id": "Bedroom 4",
+      "name": "Bedroom 4",
+      "description": "You have entered the fourth bedroom, with a doll’s sibling to greet you. Defeat this doll to receive the last missing key to save you all.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Bedroom 4 (key)"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Bedroom 4 (trapdoor)"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Bedroom 3"
+        }
+      ]
+    }, 
+    {
+      "id": "Bedroom 4 (key)",
+      "name": "Bedroom 4",
+      "description": "Sitting in front of you is a bed with a key placed neatly on the duvets. This is either really suspicious or you are getting really lucky right now",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Bedroom 4 (trapdoor)"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Bedroom 4"
+        }        
+      ]
+    }, 
+    {
+      "id": "Bedroom 4 (trapdoor)",
+      "name": "Bedroom 4",
+      "description": "You have collected all the keys to create the master key. The one to open the ancient trap door and open the cellar within the house. Hurry time is running out! ",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Armory"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Bedroom 4 (key)"
+        }        
+      ]
+    }, 
+    {
+      "id": "Armory", 
+      "name": "Armory",
+      "description": "You enter an armory - you see a pitchfork, a bat, an AK-47, a pistol … and for some strange reason there is a plastic spoon. We have gone very far together my friend, but there is nothing much I can help you do now. Choose carefully, your weapon is your way out.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Cellar"
+        }       
+      ]
+    }, 
+    {
+      "id": "Cellar", 
+      "name": "Cellar",
+      "description": "You have now entered a room filled to the brim with dolls. Will you survive? That is for you to decide. Just remember every room has its purpose",
+      "exits": [
+        {
+          "isLocked": true,
+          "direction": "South",
+          "adjacentRoom": "Cell"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Armory"
+        }         
+      ]
+    }, 
+    {
+      "id": "Cell", 
+      "name": "Cell",
+      "description": "This may be the end of your journey, so play wisely. As you remember the doll has taken your friend and the only way to get them back is by killing the doll",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Cellar"
+        }       
+      ]
     }
+    
+
+    
+        
+    
   ]
 }

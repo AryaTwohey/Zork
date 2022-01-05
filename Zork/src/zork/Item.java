@@ -9,6 +9,7 @@ public class Item extends OpenableObject {
     this.weight = weight;
     this.name = name;
     this.isOpenable = isOpenable;
+    
   }
 
   public void open() {

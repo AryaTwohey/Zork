@@ -3,7 +3,7 @@
     {
       "id": "Outside Entrance",
       "name": "Outside Entrance",
-      "description": "In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint screaming.  To the north of you there is an open door covered in blood. The blood of your friend.",
+      "description": "In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint   screaming.  To the north of you there is an open door covered in blood. The blood of your friend.",
       "exits": [
         {
           "isLocked": false,
@@ -32,7 +32,7 @@
     {
       "id": "Library (Doll Case)",
       "name": "Library",
-      "description": "You are now in the library. In front of you is a doll case. Every doll is staring you straight in the eye with a threatening smile. There is one doll that is missing. There is a note attached to the doll case." ,
+      "description": "You are now in the library. In front of you is a doll case. Every doll is staring you straight in                           the eye with a threatening smile. There is one doll that is missing.There is a note attached to the doll case." ,
       "exits": [
         {
           "isLocked": false,
@@ -70,7 +70,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "South West",
+          "direction": "Southwest",
           "adjacentRoom": "Living Room"
         }, 
         {
@@ -83,7 +83,7 @@
     {
       "id": "Living Room",
       "name": "Living Room",
-      "description": "You have entered the living room. There is a table with nothing but a tablecloth on it. The room is covered with dust and old fashioned decorations." ,
+      "description": "You have entered the living room. There is a table with nothing but a tablecloth on it. The room is covered with dust and   old fashioned decorations." ,
       "exits": [
         {
           "isLocked": false,
@@ -92,7 +92,7 @@
         }, 
         {
           "isLocked": false,
-          "direction": "North East",
+          "direction": "Northeast",
           "adjacentRoom": "Kitchen"
         }
       ]
