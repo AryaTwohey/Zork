@@ -30,8 +30,8 @@
       },
       {
         "starting location": "Cellar",
-        "id": "Pennywise",
-        "name": "Pennywise",
+        "id": "Pennywise.",
+        "name": "Pennywise.",
         "description": "You must kill all these characters in order to make it to the Boss doll",
         "Health" : "650" 
       },
