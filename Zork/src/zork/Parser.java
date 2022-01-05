@@ -12,7 +12,7 @@ public class Parser {
   public static final String yellow = "\u001B[33m";   //for the compiler arrow
   public static final String white = "\u001B[37m"; //also for the compiler arrow
 
-
+  //test
 
   public Parser() {
     commands = new CommandWords();

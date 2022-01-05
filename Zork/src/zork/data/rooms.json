@@ -3,7 +3,7 @@
     {
       "id": "Outside Entrance",
       "name": "Outside Entrance",
-      "description": "In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint   screaming.  To the north of you there is an open door covered in blood. The blood of your friend.",
+      "description": "In front of you there is a large house with no lights on. The windows are boarded up and you can hear squeaking and faint screaming. To the north of you there is an open door covered in blood. The blood of your friend.",
       "exits": [
         {
           "isLocked": false,
