@@ -1,11 +1,54 @@
 {
     "characters": [
       {
-        "starting location": "Cell",
+        "starting location": "Cellar",
         "id": "Boss Doll",
         "name": "Boss Doll",
         "description": "This is the final doll that must be killed in order to win the game",
-        "Health" : "500" 
+        "Health" : "1050" 
+      },
+      {
+        "starting location": "Bedroom 4",
+        "id": "Cousin Doll",
+        "name": "Cousin Doll",
+        "description": "Killing this doll is how you get the fourth key to save your friend",
+        "Health" : "200" 
+      }, 
+      {
+        "starting location": "Cellar",
+        "id": "Freddy Krueger",
+        "name": "Freddy Krueger",
+        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "Health" : "300" 
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Ghostface",
+        "name": "Ghostface",
+        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "Health" : "450" 
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Pennywise",
+        "name": "Pennywise",
+        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "Health" : "650" 
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Micheal Myers",
+        "name": "Micheal Myers ",
+        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "Health" : "750" 
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Ghost of AP",
+        "name": "Ghost of AP",
+        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "Health" : "900" 
       }
+
     ]
   }
