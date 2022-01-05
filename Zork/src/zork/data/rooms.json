@@ -88,7 +88,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ballroom"
+          "adjacentRoom": "Ballroom (Mirrors)"
         }, 
         {
           "isLocked": false,
