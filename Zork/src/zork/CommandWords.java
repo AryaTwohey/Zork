@@ -1,5 +1,8 @@
 package zork;
 
+import java.util.Arrays;
+import java.util.TreeSet;
+
 public class CommandWords {
   // a constant array that holds all valid command words
   public static final String yellow = "\u001B[33m";      //for the square brackets in print help
@@ -7,9 +10,12 @@ public class CommandWords {
 
   private static final String validCommands[] = { "go", "quit", "help", "eat", "take", "drop", "kill", "search", "read", "run", "shoot", "hit", "stab", "inventory", "display", "hello", "fred", "winson"};
   //some of these commands are not included in printhelp, so they are hidden from the basic knowledge of the game
+
+  private static TreeSet<String> validDirections = new TreeSet<String>(Arrays.asList("north", "east", "south", "west", "n", "e", "s", "w", "northeast", "northwest", "southeast", "southwest", "ne", "nw", "se", "sw"));
+  
   /**                                                                                                                                                            
    * 
-   * Constructor - initialise the command words.
+   * Constructor - initialize the command words.
    */
   public CommandWords() {
     // nothing to do at the moment...
