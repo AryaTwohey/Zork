@@ -6,6 +6,14 @@
         "name": "Boss Doll",
         "description": "This is the final doll that must be killed in order to win the game",
         "Health" : "500" 
+      },
+      {
+        "starting location": "Office",
+        "id": "Boss Doll",
+        "name": "Boss Doll",
+        "description": "This is the final doll that must be killed in order to win the game",
+        "Health" : "500" 
       }
     ]
+    
   }

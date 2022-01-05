@@ -3,7 +3,7 @@
       {
         "starting location": "Kitchen (counter)",
         "id": "Bloody Knife",
-        "name": "Bloody Kniffe",
+        "name": "Bloody Knife",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",
         "Weight" : "130g" 
