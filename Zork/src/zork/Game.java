@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.TreeSet;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,6 +19,7 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
+  
   
   public static final String yellow = "\u001B[33m";       //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
@@ -207,8 +211,8 @@ public class Game {
    * @throws InterruptedException   //this is for the printhelp message, dont worry it doenst do anything bad
    */
   private boolean processCommand(Command command) throws InterruptedException {
-
-
+    
+    
     if (command.isUnknown()) {
       
       System.out.println();
@@ -217,9 +221,10 @@ public class Game {
     }
 
     String commandWord = command.getCommandWord();
+
     if (commandWord.equals("help"))
       printHelp();
-    else if (commandWord.equals("go"))
+    else if (commandWord.equals("go") || commandWord.equals("move"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
       if (command.hasExtraWords()){
@@ -340,13 +345,14 @@ public class Game {
 
   // implementations of user commands:
 
+
   /**
    * Print out some help information and a list of the command words.
    * 
    * @throws InterruptedException // this is for the printed message it doesnt do anything 
    */
   private void printHelp() throws InterruptedException {
-    String helperMessage = "Not a good time to be lost, your command words are below ";
+    String helperMessage = "Your command words are below, use them to win the game ";
 
     System.out.println();
     System.out.println();

@@ -1,28 +1,6 @@
 {
     "items": [
       {
-        "starting location": "Kitchen (counter)",
-        "id": "Bloody Knife",
-        "name": "Bloody Knife",
-        "damage": "75",
-        "description": "This thing is sharp and' pointy, could probably be used as a weapon",
-        "isOpenable" : "False",
-        "Weight" : "130g" 
-      },
-
-      {
-
-        "starting location": "Bedroom 3",
-        "id": "Sword",
-        "name": "Sword",
-        "damage": "70",
-        "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
-        "isOpenable" : "False",
-        "Weight" : "1000g"
-      
-    
-      },
-      {
         "starting location": "Library (Doll Case)",
         "id": "Creepy doll",
         "name": "Creepy doll",
@@ -73,15 +51,6 @@
         "Weight" : "5g"
       },
       {
-        "starting location": "Cellar",
-        "id": "Pistol",
-        "name": "Pistol",
-        "damage": "  ",
-        "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
-        "isOpenable" : "False",
-        "Weight" : "950g"
-      },
-      {
         "starting location": "Library (Doll case)",
         "id": "Introductory note",
         "name": "Introductory note",
@@ -96,6 +65,15 @@
         "description": "To win and help save your friend, you must collect three keys. These are the only things that you can do.",
         "isOpenable" : "False",
         "Weight" : "5g"
+      },
+      {
+        "starting location": "Cellar",
+        "id": "Pistol",
+        "name": "Pistol",
+        "damage": "60",
+        "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
+        "isOpenable" : "False",
+        "Weight" : "950g"
       },
       {
         "starting location": "Cellar",
@@ -132,6 +110,24 @@
         "description": "You have chosen a plastic spoon. You never know, this might come in handy. Fred is hot",
         "isOpenable" : "False",
         "Weight" : "6g"
+      },
+      {
+        "starting location": "Kitchen (counter)",
+        "id": "Bloody Knife",
+        "name": "Bloody Knife",
+        "damage": "75",
+        "description": "This thing is sharp and' pointy, could probably be used as a weapon",
+        "isOpenable" : "False",
+        "Weight" : "130g" 
+      },
+      {
+        "starting location": "Bedroom 3",
+        "id": "Sword",
+        "name": "Sword",
+        "damage": "70",
+        "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
+        "isOpenable" : "False",
+        "Weight" : "1000g"
       }
 
     ]
