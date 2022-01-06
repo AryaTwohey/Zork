@@ -239,10 +239,6 @@ private void reset(){
     else if (commandWord.equals("go") || commandWord.equals("move"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-      if (command.hasExtraWords()){
-        System.out.println();
-        System.out.println("Quit what?");
-       } else
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println();
