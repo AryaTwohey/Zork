@@ -43,6 +43,18 @@ public class Game {
 
   }
 
+private void reset(){
+  try {
+    initRooms("src\\zork\\data\\rooms.json");
+    currentRoom = roomMap.get("Outside Entrance");
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+ parser = new Parser();
+ playerInventory = new Inventory(1000); 
+
+}
+
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -278,36 +290,91 @@ public class Game {
 
       displayInventory(command);
 
-    }else if(commandWord.equals("restart") || commandWord.equals("Restart")){
+    }else if(commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset") || commandWord.equals("Reset")){
 
-      
+    System.out.println("Your game is being reset...");
+    reset();
 
+  String welcome = "Welcome To Zork!!!";
+  String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
+  String help = "Type 'help' to see the commands";
+  String line = yellow + "________________________________________________________________" + white;
 
+  //Cool Printable Message
 
+  System.out.println();
+  System.out.println();
+  //line
+
+    for(int i = 0; i < line.length(); i++){
+
+    System.out.printf("%c", line.charAt(i));
+    Thread.sleep(5);
     }
-    else if(commandWord.equals("hello")){
+    System.out.println();
+    System.out.println();
 
-    int result = (int)(Math.random() * 3);
-      if(result == 1){
+    for(int i = 0; i < welcome.length(); i++){
 
-        System.out.println();
-        System.out.println("Hi, how are you?");
-        System.out.println();
-
-      }else if(result == 2){
-
-        System.out.println();
-        System.out.println("Whats Up?");
-        System.out.println();
-      }else{
-
-        System.out.println();
-        System.out.println("Whats Good?");
-        System.out.println();
-
-      }
+      System.out.printf("%c", welcome.charAt(i));
+      Thread.sleep(5);
     }
-    else if(commandWord.equals("fred")){
+   
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < creators.length(); i++){
+
+      System.out.printf("%c", creators.charAt(i));
+      Thread.sleep(5);
+    }
+
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < help.length(); i ++){
+
+      System.out.printf("%c", help.charAt(i));
+      Thread.sleep(5);
+    }
+
+    System.out.println();
+    System.out.println();
+
+    for(int i = 0; i < line.length(); i++){
+    
+      System.out.printf("%c", line.charAt(i));
+      Thread.sleep(5);
+    }
+  
+    System.out.println();
+    System.out.println();
+
+    /**Sorry for all the strings
+     * I just wanted to have the "blood" text coloured in red
+     */
+  
+    String firstScentence = "In front of you there is a large house with no lights on." ;
+    String secondScentence ="The windows are boarded up and you can hear squeaking and faint screaming."; 
+    String thirdScentence = "To the North of you there is an open door covered in ";
+    String forthScentence = "...the ";
+    String fifthScentence = " of your friend.";
+    String blood = red + "blood" + white;
+    String exits = "Exits: North ";
+
+    System.out.println(firstScentence);
+    System.out.println(secondScentence);
+    System.out.print(thirdScentence);
+    System.out.print(blood);
+    System.out.print(forthScentence);
+    System.out.print(blood);
+    System.out.println(fifthScentence);
+    System.out.println();
+    System.out.println(exits);
+    System.out.println();
+  }
+  
+     if(commandWord.equals("fred")){
       System.out.println();
       System.out.println();
       
@@ -344,10 +411,12 @@ public class Game {
         System.out.println();
         System.out.println("     -Greg Winson 2011-2021");
       }
-    }
+    
       
+    }
     return false;
   }
+  
 
   // implementations of user commands:
 
