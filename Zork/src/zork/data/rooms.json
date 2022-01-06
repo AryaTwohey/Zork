@@ -145,13 +145,13 @@
     }, 
     {
       "id": "Skeleton Room (Painting)",
-      "name": "Skeleton Room",
+      "name": "Stairs of Skeleton Room",
       "description": "You moved West and are now facing the painting of an old woman and a cat.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Bedroom"
+          "adjacentRoom": "Bedroom 1"
         }
       ]
     }, 
