@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Arrays;    //not sure if we actaully need these 
 import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.TreeSet;   //code works without them
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -277,6 +277,12 @@ public class Game {
       System.out.println("-Developers");
 
       displayInventory(command);
+
+    }else if(commandWord.equals("restart") || commandWord.equals("Restart")){
+
+      
+
+
 
     }
     else if(commandWord.equals("hello")){
