@@ -65,70 +65,7 @@
         "description": "To win and help save your friend, you must collect three keys. These are the only things that you can do.",
         "isOpenable" : "False",
         "Weight" : "5g"
-      },
-      {
-        "starting location": "Cellar",
-        "id": "Pistol",
-        "name": "Pistol",
-        "damage": "60",
-        "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
-        "isOpenable" : "False",
-        "Weight" : "950g"
-      },
-      {
-        "starting location": "Cellar",
-        "id": "Bat",
-        "name": "Bat",
-        "damage": "50",
-        "description": "You have chosen the baseball bat. It looks like it’s pretty old, maybe from the 1900s.",
-        "isOpenable" : "False",
-        "Weight" : "880g"
-      },
-      {
-        "starting location": "Cellar",
-        "id": "A.K 47",
-        "name": "A.K 47",
-        "damage": "80",
-        "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
-        "isOpenable" : "False",
-        "Weight" : "3800g"
-      },
-      {
-        "starting location": "Cellar",
-        "id": "Pitch Fork",
-        "name": "Pitch Fork",
-        "damage": "65",
-        "description": "You have chosen a Pitch Fork. Quick and hurry to save your friend!”",
-        "isOpenable" : "False",
-        "Weight" : "907g"
-      },
-      {
-        "starting location": "Cellar",
-        "id": "Plastic Spoon",
-        "name": "Plastic Spoon",
-        "damage": "5",
-        "description": "You have chosen a plastic spoon. You never know, this might come in handy. Fred is hot",
-        "isOpenable" : "False",
-        "Weight" : "6g"
-      },
-      {
-        "starting location": "Kitchen (counter)",
-        "id": "Bloody Knife",
-        "name": "Bloody Knife",
-        "damage": "75",
-        "description": "This thing is sharp and' pointy, could probably be used as a weapon",
-        "isOpenable" : "False",
-        "Weight" : "130g" 
-      },
-      {
-        "starting location": "Bedroom 3",
-        "id": "Sword",
-        "name": "Sword",
-        "damage": "70",
-        "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
-        "isOpenable" : "False",
-        "Weight" : "1000g"
-      }
+      }      
 
     ]
   }
