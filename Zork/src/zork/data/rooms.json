@@ -163,7 +163,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Bathroom"
+          "adjacentRoom": "Bathroom (Sink)"
         }
       ]
     }, 
