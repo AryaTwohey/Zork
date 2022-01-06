@@ -236,7 +236,7 @@ private void reset(){
 
     if (commandWord.equals("help"))
       printHelp();
-    else if (commandWord.equals("go") || commandWord.equals("move"))
+    else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
         return true; // signal that we want to quit
@@ -261,9 +261,6 @@ private void reset(){
     else if(commandWord.equals("read")){
       System.out.println();
       System.out.println("There is nothing to read...");
-    }
-    else if(commandWord.equals("run")){
-      goRoom(command);
     }
     else if(commandWord.equals("shoot")){
       System.out.println();
