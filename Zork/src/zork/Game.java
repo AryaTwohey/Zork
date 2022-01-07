@@ -36,6 +36,7 @@ public class Game {
     try {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
+      initCharacters("src\\zork\\data\\characters.json");
       currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
@@ -49,6 +50,7 @@ private void reset(){
   try {
     initRooms("src\\zork\\data\\rooms.json");
     initItems("src\\zork\\data\\items.json");
+    initCharacters("src\\zork\\data\\characters.json");
     currentRoom = roomMap.get("Outside Entrance");
   } catch (Exception e) {
     e.printStackTrace();
@@ -114,6 +116,28 @@ private void initItems(String fileName) throws Exception {
       roomMap.put(roomId, room);
     }
   }
+
+  private void initCharacters(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonChar = (JSONArray) json.get("characters");
+
+    for (Object charObj : jsonChar) {
+      Character character = new Character();
+      String CharName = (String) ((JSONObject) charObj).get("name");
+      String CharId = (String) ((JSONObject) charObj).get("id");
+      String CharDescription = (String) ((JSONObject) charObj).get("description");
+      int health = Integer.parseInt((String) ((JSONObject) charObj).get("health"));
+      character.setDescription(CharDescription);
+      character.setName(CharName);
+      character.setHealth(health);
+
+      }
+    }
+  
 
   /**
    * Required for printable messges, doesnt do anything else
