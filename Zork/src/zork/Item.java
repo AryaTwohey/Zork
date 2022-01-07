@@ -1,11 +1,5 @@
 package zork;
 
-import java.nio.file.Files;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 public class Item extends OpenableObject {
   private int weight;
   private String name;
