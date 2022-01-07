@@ -1,21 +1,21 @@
 package zork;
 
-public class Item extends OpenableObject {
-  private int weight;
+public class Character {
+  private int health;
   private String name;
   private boolean isOpenable;
   //private String description; 
 
   
-  public Item(int weight, String name, boolean isOpenable) {
-    this.weight = weight;
+  public Character(int health, String name, boolean isOpenable) {
+    this.health = health;
     this.name = name;
     this.isOpenable = isOpenable;
     
   }
   
 
-  public Item() {
+  public Character() {
   }
 
 
@@ -26,12 +26,12 @@ public class Item extends OpenableObject {
   }
 
 
-  public int getWeight() {
-    return weight;
+  public int getHealth() {
+    return health;
   }
 
-  public void setWeight(int weight) {
-    this.weight = weight;
+  public void setHealth(int health) {
+    this.health = health;
   }
 
  /* public String getDescription() {
@@ -62,3 +62,5 @@ public class Item extends OpenableObject {
   }
 
 }
+
+
