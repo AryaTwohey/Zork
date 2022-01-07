@@ -226,7 +226,7 @@
     {
       "id": "Bedroom 2",
       "name": "Bedroom 2",
-      "description": "As you enter this room, a doll awaits to see you, swinging in the antique rocking chair. It says “I have your mother. Dolls are eating her alive”.",
+      "description": "As you enter this room, a doll awaits to see you, swinging in the antique rocking chair. It says I have your friend. Now MY friends are eating her alive.",
       "exits": [
         {
           "isLocked": false,

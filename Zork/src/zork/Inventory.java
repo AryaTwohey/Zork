@@ -60,14 +60,14 @@ public class Inventory {
   public boolean dropItem(Command command) {
 
     if(command.getExtraWords().size() > 0){
-
+      
      for (int i = items.size()-1; i >= 0; i--) {
 
       String itemName = command.getExtraWords().toString();
     
       if (items.get(i).getName().equals(itemName)) {
 
-        items.remove(i);
+      items.remove(i);
 
         
         return true;
