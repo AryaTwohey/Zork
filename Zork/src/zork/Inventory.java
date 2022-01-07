@@ -24,72 +24,31 @@ public class Inventory {
 
   public boolean addItem(Command command, Item item) {
 
- /**The first if statement checks for any extra words to use in the method
-  * The next if statement checks to see if your command matches the item in front of you
-  * After this, the weight is checks to see if it meets the requirement and return true or false
-  * Either adds or ignores it
-  */
+    if(item.getWeight() + currentWeight <= maxWeight){
+     return items.add(item);
 
-  if(!command.hasExtraWords()){
-
-    System.out.println();
-    System.out.println("Take what?");
-    System.out.println();
-
-  }else if(command.getExtraWords().toString() != item.getName()){   //not equal means doesnt exist
-
-    System.out.println();
-    System.out.println("This item does not exist");
-    System.out.println();
-
-    //both the name and weight need to work
-
-  }else if(command.getExtraWords().toString().equals(item.getName()) && item.getWeight() + currentWeight <= maxWeight){
-    return items.add(item);
-     
     }else{
-      //if the items weight plus the current weight is too high, then tell the user
-
-      System.out.println();
-      System.out.println("There is no room to add the item, please drop something.");
-      System.out.println();
+    System.out.println();
+    System.out.println("There is no room to add this item");
+    System.out.println();
     }
-  return false;
+    return false;
+    }
+
+
+  public Item dropItem(String Itemname) {
+
+   for(int i = items.size()-1; i >=0; i--){
+    
+    Item item = items.get(i);
+      if(item.getName().equals(Itemname)){
+       return items.remove(i);
+      }
+   }
+   return null;
   }
 
-  public boolean dropItem(Command command) {
-
-    if(command.getExtraWords().size() > 0){
-      
-     for (int i = items.size()-1; i >= 0; i--) {
-
-      String itemName = command.getExtraWords().toString();
-    
-      if (items.get(i).getName().equals(itemName)) {
-
-      items.remove(i);
-
-        
-        return true;
-        
-      }else if(items.get(i).getName() != itemName){
-        
-        System.out.println();
-        System.out.println("You do not have this item.");
-        System.out.println();
-      }
-      }
-
-    }else{
-    System.out.println();
-
-    System.out.println("Drop what?");
-    
-    System.out.println();
-  }
-  return false;
-
-}
+  
   public String toString(){
     String msg = "";
 
@@ -103,3 +62,4 @@ public class Inventory {
     return msg;
   }
 }
+

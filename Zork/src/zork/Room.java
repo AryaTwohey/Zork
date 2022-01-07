@@ -112,4 +112,11 @@ public class Room {
   public void setDescription(String description) {
     this.description = description;
   }
+
+  public Item removeItem(String itemName){
+    return inventory.dropItem(itemName);
+  }
+
+
+
 }

@@ -276,7 +276,7 @@ private void initItems(String fileName) throws Exception {
       playerInventory.addItem(command, item); 
     }
     else if(commandWord.equals("drop")){
-      playerInventory.dropItem(command);
+    takeItem(command);
     }
     else if(commandWord.equals("kill")){
       System.out.println();
@@ -487,8 +487,7 @@ private void initItems(String fileName) throws Exception {
 
       }else{
 
-       // Item item = currentRoom.
-
+        Item item = currentRoom.removeItem(name);
       }
 
 
