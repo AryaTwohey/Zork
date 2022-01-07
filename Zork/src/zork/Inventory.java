@@ -22,7 +22,7 @@ public class Inventory {
     return currentWeight;
   }
 
-  public boolean addItem(Command command, Item item) {
+  public boolean addItem(Item item) {
 
     if (item.getWeight() + currentWeight <= maxWeight) {
       return items.add(item);

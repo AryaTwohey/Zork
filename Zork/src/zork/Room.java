@@ -117,6 +117,10 @@ public class Room {
     return inventory.dropItem(itemName);
   }
 
+  public boolean addRoomItem(Item item){
+    return inventory.addItem(item);
+  }
+
 
 
 }

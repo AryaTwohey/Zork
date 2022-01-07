@@ -297,10 +297,10 @@ private void initItems(String fileName) throws Exception {
       System.out.println("Eat?!? Are you serious");
     }
     else if(commandWord.equals("take")){
-      playerInventory.addItem(command, item); 
+    //playerInventory.
     }
     else if(commandWord.equals("drop")){
-    takeItem(command);
+    takeRoomItem(command);
     }
     else if(commandWord.equals("kill")){
       System.out.println();
@@ -499,7 +499,7 @@ private void initItems(String fileName) throws Exception {
     
   }
   }
-  private void takeItem(Command command){
+  private void takeRoomItem(Command command){
 
     String name = command.getExtraWords().toString();
 
@@ -513,11 +513,21 @@ private void initItems(String fileName) throws Exception {
 
         Item item = currentRoom.removeItem(name);
       }
+  }
 
+  private void dropPlayerItem(Command command){
 
+    String name = command.getExtraWords().toString();
 
+    if(name == null){
+      System.out.println();
+      System.out.println("Drop What?");
+      System.out.println();
+    }else{
 
+      //Item item = currentRoom.addRoomItem();
 
+    }
   }
 
   /**
