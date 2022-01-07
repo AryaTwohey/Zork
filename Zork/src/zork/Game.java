@@ -447,6 +447,27 @@ private void reset(){
     
   }
   }
+  private void takeItem(Command command){
+
+    String name = command.getExtraWords().toString();
+
+      if(name == null){
+
+        System.out.println();
+        System.out.println("Take What?");
+        System.out.println();
+
+      }else{
+
+       // Item item = currentRoom.
+
+      }
+
+
+
+
+
+  }
 
   /**
    * Try to go to one direction. If there is an exit, enter the new room,
