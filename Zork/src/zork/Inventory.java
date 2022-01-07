@@ -1,4 +1,5 @@
 package zork;
+
 import java.util.ArrayList;
 
 public class Inventory {
@@ -21,45 +22,42 @@ public class Inventory {
     return currentWeight;
   }
 
-
   public boolean addItem(Command command, Item item) {
 
-    if(item.getWeight() + currentWeight <= maxWeight){
-     return items.add(item);
+    if (item.getWeight() + currentWeight <= maxWeight) {
+      return items.add(item);
 
-    }else{
-    System.out.println();
-    System.out.println("There is no room to add this item");
-    System.out.println();
+    } else {
+      System.out.println();
+      System.out.println("There is no room to add this item");
+      System.out.println();
     }
     return false;
-    }
-
+  }
 
   public Item dropItem(String Itemname) {
 
-   for(int i = items.size()-1; i >=0; i--){
-    
-    Item item = items.get(i);
-      if(item.getName().equals(Itemname)){
-       return items.remove(i);
+    for (int i = items.size() - 1; i >= 0; i--) {
+
+      Item item = items.get(i);
+
+      if (item.getName().equals(Itemname)) {
+        return items.remove(i);
       }
-   }
-   return null;
+    }
+    return null;
   }
 
-  
-  public String toString(){
+  public String toString() {
     String msg = "";
 
-    for (Item item : items){
+    for (Item item : items) {
       msg += item + ", ";
     }
 
-    if (msg.length()>0){
-      msg = msg.substring(msg.length()-2);
+    if (msg.length() > 0) {
+      msg = msg.substring(msg.length() - 2);
     }
     return msg;
   }
 }
-
