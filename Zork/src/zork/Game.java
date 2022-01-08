@@ -242,7 +242,7 @@ private void reset(){
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println();
-      System.out.println("Eat?!? Are you serious");
+      System.out.println("Eat?!? Are you serious?!");
     }
     else if(commandWord.equals("take")){
       playerInventory.addItem(command, item); 
@@ -252,27 +252,27 @@ private void reset(){
     }
     else if(commandWord.equals("kill")){
       System.out.println();
-      System.out.println("Kill what?");
+      System.out.println("Kill using what? In order to to damage on NPCs please use the command words (shoot, fire, hit, stab), which correspond with the weapon(s) that you have");
     }
     else if(commandWord.equals("search")){
       System.out.println();
-      System.out.println("There is nothing to search for");
+      search(command); 
     }
     else if(commandWord.equals("read")){
       System.out.println();
-      System.out.println("There is nothing to read...");
+      read(command); 
     }
-    else if(commandWord.equals("shoot")){
+    else if(commandWord.equals("shoot") || commandWord.equals("fire")){
       System.out.println();
-      System.out.println("Shoot what?");
+      shoot(command); 
     }
     else if(commandWord.equals("hit")){
       System.out.println();
-      System.out.println("Hit what?");
+      hit(command); 
     }
     else if(commandWord.equals("stab")){
       System.out.println();
-      System.out.println("Stab what?");
+      stab(command); 
 
     }
     else if(commandWord.equals("inventory") || commandWord.equals("display")){ 
@@ -413,6 +413,21 @@ private void reset(){
 
   // implementations of user commands:
 
+
+  private void stab(Command command) {
+  }
+
+  private void hit(Command command) {
+  }
+
+  private void shoot(Command command) {
+  }
+
+  private void read(Command command) {
+  }
+
+  private void search(Command command) {
+  }
 
   /**
    * Print out some help information and a list of the command words.
