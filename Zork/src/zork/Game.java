@@ -15,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
+  public static HashMap<String, Item> itemMap = new HashMap<String, Item>(); 
   private Parser parser;
   private Room currentRoom;
   Inventory playerInventory;
@@ -34,6 +35,8 @@ public class Game {
   public Game() {
     try {
       initRooms("src\\zork\\data\\rooms.json");
+      initItems("src\\zork\\data\\items.json");
+      initCharacters("src\\zork\\data\\characters.json");
       currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
@@ -46,6 +49,8 @@ public class Game {
 private void reset(){
   try {
     initRooms("src\\zork\\data\\rooms.json");
+    initItems("src\\zork\\data\\items.json");
+    initCharacters("src\\zork\\data\\characters.json");
     currentRoom = roomMap.get("Outside Entrance");
   } catch (Exception e) {
     e.printStackTrace();
@@ -54,6 +59,31 @@ private void reset(){
  playerInventory = new Inventory(1000); 
 
 }
+private void initItems(String fileName) throws Exception {
+  Path path = Path.of(fileName);
+    String stringJson = Files.readString(path); 
+    JSONParser parser = new JSONParser(); 
+    JSONObject json = (JSONObject)parser.parse(stringJson); 
+
+    JSONArray itemsJson = (JSONArray)json.get("items"); 
+
+
+    for(Object obj: itemsJson) {
+      Item item = new Item(); 
+      String ItemName = (String) ((JSONObject) obj).get("name"); 
+      String ItemId = (String) ((JSONObject) obj).get("id"); 
+      int ItemWeight = Integer.parseInt((String) ((JSONObject) obj).get("weight")); 
+      String ItemDescription =  (String) ((JSONObject) obj).get("description"); 
+      String ItemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
+      
+      item.setName(ItemName); 
+      item.setDescription(ItemDescription); 
+      item.setWeight(ItemWeight); 
+  
+      //roomMap.get(ItemStartingRoom).addItem(item); //arya to do 
+      
+    }
+  }
 
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -86,6 +116,28 @@ private void reset(){
       roomMap.put(roomId, room);
     }
   }
+
+  private void initCharacters(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonChar = (JSONArray) json.get("characters");
+
+    for (Object charObj : jsonChar) {
+      Character character = new Character();
+      String CharName = (String) ((JSONObject) charObj).get("name");
+      String CharId = (String) ((JSONObject) charObj).get("id");
+      String CharDescription = (String) ((JSONObject) charObj).get("description");
+      int health = Integer.parseInt((String) ((JSONObject) charObj).get("health"));
+      character.setDescription(CharDescription);
+      character.setName(CharName);
+      character.setHealth(health);
+
+      }
+    }
+  
 
   /**
    * Required for printable messges, doesnt do anything else
@@ -245,10 +297,10 @@ private void reset(){
       System.out.println("Eat?!? Are you serious?!");
     }
     else if(commandWord.equals("take")){
-      playerInventory.addItem(command, item); 
+    //playerInventory.
     }
     else if(commandWord.equals("drop")){
-      playerInventory.dropItem(command);
+    takeRoomItem(command);
     }
     else if(commandWord.equals("kill")){
       System.out.println();
@@ -462,7 +514,7 @@ private void reset(){
     
   }
   }
-  private void takeItem(Command command){
+  private void takeRoomItem(Command command){
 
     String name = command.getExtraWords().toString();
 
@@ -474,14 +526,23 @@ private void reset(){
 
       }else{
 
-       // Item item = currentRoom.
-
+        Item item = currentRoom.removeItem(name);
       }
+  }
 
+  private void dropPlayerItem(Command command){
 
+    String name = command.getExtraWords().toString();
 
+    if(name == null){
+      System.out.println();
+      System.out.println("Drop What?");
+      System.out.println();
+    }else{
 
+      //Item item = currentRoom.addRoomItem();
 
+    }
   }
 
   /**
