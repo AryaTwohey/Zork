@@ -145,7 +145,7 @@ private void initItems(String fileName) throws Exception {
       }
     }
 
-    public class weapons extends items {
+    public class weapons extends Item {
 
     private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
