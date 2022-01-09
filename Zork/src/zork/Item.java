@@ -12,7 +12,7 @@ public class Item extends OpenableObject {
     this.weight = weight;
     this.name = name;
     this.isOpenable = isOpenable;
-     this.weaponDamage = weaponDamage;
+    this.weaponDamage = weaponDamage;
     
   }
   
