@@ -37,6 +37,8 @@ public class Game {
       initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
+      initWeapons("src\\zork\\data\\weapons.json");
+      initNotes("src\\zorl\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
@@ -51,6 +53,8 @@ private void reset(){
     initRooms("src\\zork\\data\\rooms.json");
     initItems("src\\zork\\data\\items.json");
     initCharacters("src\\zork\\data\\characters.json");
+    initWeapons("src\\zork\\data\\weapons.json");
+    initNotes("src\\zork\\data\\notes.json");
     currentRoom = roomMap.get("Outside Entrance");
   } catch (Exception e) {
     e.printStackTrace();
@@ -59,6 +63,9 @@ private void reset(){
  playerInventory = new Inventory(1000); 
 
 }
+private void initWeapons(String string) {
+}
+
 private void initItems(String fileName) throws Exception {
   Path path = Path.of(fileName);
     String stringJson = Files.readString(path); 
@@ -137,6 +144,61 @@ private void initItems(String fileName) throws Exception {
 
       }
     }
+
+    public class weapons extends items {
+
+    private void initWeapons(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+      String stringJson = Files.readString(path); 
+      JSONParser parser = new JSONParser(); 
+      JSONObject json = (JSONObject)parser.parse(stringJson); 
+  
+      JSONArray weaponsJson = (JSONArray)json.get("weapons"); 
+  
+  
+      for(Object weaponobj: weaponsJson) {
+        Weapons weapon = new Weapons(); 
+        String WeaponName = (String) ((JSONObject) weaponobj).get("name"); 
+        String WeaponId = (String) ((JSONObject) weaponobj).get("id"); 
+        int WeaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight")); 
+        String WeaponDescription =  (String) ((JSONObject) weaponobj).get("description"); 
+        String WeaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
+        String WeaponDamage = (String) ((JSONObject) weaponobj).get("damage");
+        
+        item.setName(WeaponName); 
+        item.setDescription(WeaponDescription); 
+        item.setWeight(WeaponWeight); 
+        item.setDamage(WeaponDamage);
+    
+      }
+        
+      }
+    }
+
+    private void initNotes(String fileName) throws Exception {
+      Path path = Path.of(fileName);
+        String stringJson = Files.readString(path); 
+        JSONParser parser = new JSONParser(); 
+        JSONObject json = (JSONObject)parser.parse(stringJson); 
+    
+        JSONArray notesJson = (JSONArray)json.get("notes"); 
+    
+    
+        for(Object noteobj: notesJson) {
+          Notes note = new Notes(); 
+          String NotesName = (String) ((JSONObject) noteobj).get("name"); 
+          String NotesId = (String) ((JSONObject) noteobj).get("id"); 
+          int NotesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("weight")); 
+          String NotesDescription =  (String) ((JSONObject) noteobj).get("description"); 
+          
+          item.setName(NotesName); 
+          item.setDescription(NotesDescription); 
+          item.setWeight(NotesWeight);
+
+ 
+          
+        }
+      }
   
 
   /**
