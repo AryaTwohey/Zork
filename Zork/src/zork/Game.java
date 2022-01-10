@@ -355,9 +355,8 @@ private void initItems(String fileName) throws Exception {
     else if(commandWord.equals("drop")){
     takeRoomItem(command);
     }
-    else if(commandWord.equals("kill")){
-      System.out.println();
-      System.out.println("Kill using what? In order to to damage on NPCs please use the command words (shoot, fire, hit, stab), which correspond with the weapon(s) that you have");
+    else if(commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire") || commandWord.equals("hit") || commandWord.equals("stab")){
+      attack(command);
     }
     else if(commandWord.equals("search")){
       System.out.println();
@@ -366,19 +365,6 @@ private void initItems(String fileName) throws Exception {
     else if(commandWord.equals("read")){
       System.out.println();
       read(command); 
-    }
-    else if(commandWord.equals("shoot") || commandWord.equals("fire")){
-      System.out.println();
-      shoot(command); 
-    }
-    else if(commandWord.equals("hit")){
-      System.out.println();
-      hit(command); 
-    }
-    else if(commandWord.equals("stab")){
-      System.out.println();
-      stab(command); 
-
     }
     else if(commandWord.equals("inventory") || commandWord.equals("display")){ 
       System.out.println();
@@ -519,13 +505,7 @@ private void initItems(String fileName) throws Exception {
   // implementations of user commands:
 
 
-  private void stab(Command command) {
-  }
-
-  private void hit(Command command) {
-  }
-
-  private void shoot(Command command) {
+  private void attack(Command command) {
   }
 
   private void read(Command command) {
