@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class Parser extends CommandWords {
   private CommandWords commands; // holds all valid command words
   private Scanner in;
-  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "can", "please", "i", "want", "to", "you"));
+  private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "using", "against", "can", "please", "i", "want", "to", "you"));
   private static TreeSet<String> validDirections = new TreeSet<String>(Arrays.asList("north", "east", "south", "west", "southwest", "southeast", "northwest", "northeast"));
   public static final String yellow = "\u001B[33m";   //for the compiler arrow
   public static final String white = "\u001B[37m"; //also for the compiler arrow
