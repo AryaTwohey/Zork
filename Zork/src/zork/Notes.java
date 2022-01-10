@@ -1,5 +1,5 @@
 package zork;
 
-public class Notes {
+public class Notes { 
 
 }
