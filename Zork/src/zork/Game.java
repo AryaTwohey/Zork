@@ -509,9 +509,8 @@ public class Game {
 
   private void search(Command command) {
   currentRoom.search();
-
+  
   }
-
   /**
    * Print out some help information and a list of the command words.
    * 
