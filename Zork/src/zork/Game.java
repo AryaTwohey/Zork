@@ -75,15 +75,15 @@ private void initItems(String fileName) throws Exception {
 
     for(Object obj: itemsJson) {
       Item item = new Item(); 
-      String ItemName = (String) ((JSONObject) obj).get("name"); 
-      String ItemId = (String) ((JSONObject) obj).get("id"); 
-      int ItemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight")); 
-      String ItemDescription =  (String) ((JSONObject) obj).get("description"); 
-      String ItemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
+      String itemName = (String) ((JSONObject) obj).get("name"); 
+      String itemId = (String) ((JSONObject) obj).get("id"); 
+      int itemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight")); 
+      String itemDescription =  (String) ((JSONObject) obj).get("description"); 
+      String itemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
       
-      item.setName(ItemName); 
-      item.setDescription(ItemDescription); 
-      item.setWeight(ItemWeight); 
+      item.setName(itemName); 
+      item.setDescription(itemDescription); 
+      item.setWeight(itemWeight); 
   
     }
   }
