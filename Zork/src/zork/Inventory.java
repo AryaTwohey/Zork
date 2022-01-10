@@ -35,13 +35,13 @@ public class Inventory {
     return false;
   }
 
-  public Item dropItem(String Itemname) {
+  public Item dropItem(String itemname) {
 
     for (int i = items.size() - 1; i >= 0; i--) {
 
       Item item = items.get(i);
 
-      if (item.getName().equals(Itemname)) {
+      if (item.getName().equals(itemname)) {
         return items.remove(i);
       }
     }
