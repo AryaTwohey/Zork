@@ -18,35 +18,35 @@
         "starting location": "Cellar",
         "id": "Freddy Krueger",
         "name": "Freddy Krueger",
-        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "description": "Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand.",
         "Health" : "300" 
       },
       {
         "starting location": "Cellar",
         "id": "Ghostface",
         "name": "Ghostface",
-        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "description": "Level 2: Ghostface - \"if you want to be in a hospital, I'd be happy to put you there...\"",
         "Health" : "450" 
       },
       {
         "starting location": "Cellar",
         "id": "Pennywise.",
         "name": "Pennywise.",
-        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "description": "Level 3: Pennywise - \"Tasty, tasty, beautiful fear/\", beware of Pennywise, but don't be sacred, he feeds on fear.",
         "Health" : "650" 
       },
       {
         "starting location": "Cellar",
         "id": "Micheal Myers",
         "name": "Micheal Myers ",
-        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "description": "Level 4: Micheal Myers - \"Turn around...\" - you can run but you can't hide.",
         "Health" : "750" 
       },
       {
         "starting location": "Cellar",
         "id": "Ghost of AP",
         "name": "Ghost of AP",
-        "description": "You must kill all these characters in order to make it to the Boss doll",
+        "description": "Level 5: The Ghost of AP - This is the final villain before the boss, kill the ghost and you might have a change at getting your friend back.",
         "Health" : "900" 
       }
 
