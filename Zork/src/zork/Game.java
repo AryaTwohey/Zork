@@ -38,7 +38,7 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      initNotes("src\\zorl\\data\\notes.json");
+      initNotes("src\\zork\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
@@ -79,7 +79,7 @@ private void initItems(String fileName) throws Exception {
       Item item = new Item(); 
       String ItemName = (String) ((JSONObject) obj).get("name"); 
       String ItemId = (String) ((JSONObject) obj).get("id"); 
-      int ItemWeight = Integer.parseInt((String) ((JSONObject) obj).get("weight")); 
+      int ItemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight")); 
       String ItemDescription =  (String) ((JSONObject) obj).get("description"); 
       String ItemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
       
@@ -136,7 +136,7 @@ private void initItems(String fileName) throws Exception {
       String CharName = (String) ((JSONObject) charObj).get("name");
       String CharId = (String) ((JSONObject) charObj).get("id");
       String CharDescription = (String) ((JSONObject) charObj).get("description");
-      int health = Integer.parseInt((String) ((JSONObject) charObj).get("health"));
+      int health = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
       character.setDescription(CharDescription);
       character.setName(CharName);
       character.setHealth(health);
@@ -187,7 +187,7 @@ private void initItems(String fileName) throws Exception {
           Notes note = new Notes(); 
           String NotesName = (String) ((JSONObject) noteobj).get("name"); 
           String NotesId = (String) ((JSONObject) noteobj).get("id"); 
-          int NotesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("weight")); 
+          int NotesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight")); 
           String NotesDescription =  (String) ((JSONObject) noteobj).get("description"); 
           
           item.setName(NotesName); 
