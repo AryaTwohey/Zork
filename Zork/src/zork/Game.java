@@ -178,13 +178,13 @@ private void initItems(String fileName) throws Exception {
     
   
         for(Object noteobj: notesJson) {
-          Notes note = new Notes(); 
+          Note note = new Note(); 
           String notesName = (String) ((JSONObject) noteobj).get("name"); 
           String notesId = (String) ((JSONObject) noteobj).get("id"); 
           int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight")); 
           String notesDescription =  (String) ((JSONObject) noteobj).get("description"); 
           
-         // note.setName(notesName); 
+         //note.setName(notesName); 
           //note.setDescription(notesDescription); 
           //note.setWeight(notesWeight);
         }
