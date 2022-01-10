@@ -35,6 +35,36 @@ public class Inventory {
     return false;
   }
 
+  public boolean hasItem(Command command){
+  if(items.size() == 0){
+    System.out.println();
+    System.out.println("This room has no items");
+    System.out.println();
+  }
+  for(int i = 0; i < items.size(); i++){
+   System.out.println(i + " ");
+
+  }
+  return true;
+
+  }
+public void searchRoom(){
+  
+if(items.size() == 0){
+
+  System.out.println();
+  System.out.println("This room has no items");
+  System.out.println();
+}else{
+    System.out.println();
+    System.out.print("You found a : ");
+
+    for(int i = 0; i < items.size(); i++){
+    System.out.print(items.get(i).getName() + "  ");
+    }
+    System.out.println();
+  }
+}
   public Item remove(String itemname) {
 
     for (int i = items.size() - 1; i >= 0; i--) {
