@@ -87,7 +87,6 @@ private void initItems(String fileName) throws Exception {
       item.setDescription(ItemDescription); 
       item.setWeight(ItemWeight); 
   
-      //roomMap.get(ItemStartingRoom).addItem(item); //arya to do 
       
     }
   }
