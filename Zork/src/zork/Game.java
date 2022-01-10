@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;    //not sure if we actaully need these 
+import java.util.Arrays;    
 import java.util.HashMap;
-import java.util.TreeSet;   //code works without them
+import java.util.TreeSet;   
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
@@ -20,7 +19,6 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  
   
   public static final String yellow = "\u001B[33m";       //for the welcome message
   public static final String white = "\u001B[0m";        //also for the welcome message
@@ -38,8 +36,9 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      initNotes("src\\zorl\\data\\notes.json");
+      initNotes("src\\zork\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
+
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -74,21 +73,18 @@ private void initItems(String fileName) throws Exception {
 
     JSONArray itemsJson = (JSONArray)json.get("items"); 
 
-
     for(Object obj: itemsJson) {
       Item item = new Item(); 
-      String ItemName = (String) ((JSONObject) obj).get("name"); 
-      String ItemId = (String) ((JSONObject) obj).get("id"); 
-      int ItemWeight = Integer.parseInt((String) ((JSONObject) obj).get("weight")); 
-      String ItemDescription =  (String) ((JSONObject) obj).get("description"); 
-      String ItemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
+      String itemName = (String) ((JSONObject) obj).get("name"); 
+      String itemId = (String) ((JSONObject) obj).get("id"); 
+      int itemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight")); 
+      String itemDescription =  (String) ((JSONObject) obj).get("description"); 
+      String itemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
       
-      item.setName(ItemName); 
-      item.setDescription(ItemDescription); 
-      item.setWeight(ItemWeight); 
+      item.setName(itemName); 
+      item.setDescription(itemDescription); 
+      item.setWeight(itemWeight); 
   
-      //roomMap.get(ItemStartingRoom).addItem(item); //arya to do 
-      
     }
   }
 
@@ -134,17 +130,16 @@ private void initItems(String fileName) throws Exception {
 
     for (Object charObj : jsonChar) {
       Character character = new Character();
-      String CharName = (String) ((JSONObject) charObj).get("name");
-      String CharId = (String) ((JSONObject) charObj).get("id");
-      String CharDescription = (String) ((JSONObject) charObj).get("description");
-      int health = Integer.parseInt((String) ((JSONObject) charObj).get("health"));
-      character.setDescription(CharDescription);
-      character.setName(CharName);
+      String charName = (String) ((JSONObject) charObj).get("name");
+      String charId = (String) ((JSONObject) charObj).get("id");
+      String charDescription = (String) ((JSONObject) charObj).get("description");
+      int health = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
+      character.setDescription(charDescription);
+      character.setName(charName);
       character.setHealth(health);
 
       }
     }
-
     public class weapons extends Item {
 
     private void initWeapons(String fileName) throws Exception {
@@ -158,46 +153,42 @@ private void initItems(String fileName) throws Exception {
   
       for(Object weaponobj: weaponsJson) {
         Weapons weapon = new Weapons(); 
-        String WeaponName = (String) ((JSONObject) weaponobj).get("name"); 
-        String WeaponId = (String) ((JSONObject) weaponobj).get("id"); 
-        int WeaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight")); 
-        String WeaponDescription =  (String) ((JSONObject) weaponobj).get("description"); 
-        String WeaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
-        String WeaponDamage = (String) ((JSONObject) weaponobj).get("damage");
+        String weaponName = (String) ((JSONObject) weaponobj).get("name"); 
+        String weaponId = (String) ((JSONObject) weaponobj).get("id"); 
+        int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight")); 
+        String weaponDescription =  (String) ((JSONObject) weaponobj).get("description"); 
+        String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
+        String weaponDamage = (String) ((JSONObject) weaponobj).get("damage");
         
-        item.setName(WeaponName); 
-        item.setDescription(WeaponDescription); 
-        item.setWeight(WeaponWeight); 
-        item.setDamage(WeaponDamage);
-    
+        item.setName(weaponName); 
+        item.setDescription(weaponDescription); 
+        item.setWeight(weaponWeight); 
+        item.setDamage(weaponDamage);
       }
-        
       }
     }
 
     private void initNotes(String fileName) throws Exception {
-      Path path = Path.of(fileName);
+     Path path = Path.of(fileName);
         String stringJson = Files.readString(path); 
         JSONParser parser = new JSONParser(); 
         JSONObject json = (JSONObject)parser.parse(stringJson); 
     
         JSONArray notesJson = (JSONArray)json.get("notes"); 
     
-    
+  
         for(Object noteobj: notesJson) {
           Notes note = new Notes(); 
-          String NotesName = (String) ((JSONObject) noteobj).get("name"); 
-          String NotesId = (String) ((JSONObject) noteobj).get("id"); 
-          int NotesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("weight")); 
-          String NotesDescription =  (String) ((JSONObject) noteobj).get("description"); 
+          String notesName = (String) ((JSONObject) noteobj).get("name"); 
+          String notesId = (String) ((JSONObject) noteobj).get("id"); 
+          int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight")); 
+          String notesDescription =  (String) ((JSONObject) noteobj).get("description"); 
           
-          item.setName(NotesName); 
-          item.setDescription(NotesDescription); 
-          item.setWeight(NotesWeight);
-
- 
-          
+         // note.setName(notesName); 
+          //note.setDescription(notesDescription); 
+          //note.setWeight(notesWeight);
         }
+      
       }
   
 
@@ -205,6 +196,8 @@ private void initItems(String fileName) throws Exception {
    * Required for printable messges, doesnt do anything else
    * @throws InterruptedException
    */
+
+    
   public void play() throws InterruptedException {
     printWelcome();
 
@@ -245,7 +238,6 @@ private void initItems(String fileName) throws Exception {
     System.out.println("TERMINATION COMPLETE");
     System.out.println();
   }
-
   /**
    * Print out the opening message for the player.
    * @throws InterruptedException
@@ -337,7 +329,6 @@ private void initItems(String fileName) throws Exception {
    * @throws InterruptedException   //this is for the printhelp message, dont worry it doenst do anything bad
    */
   private boolean processCommand(Command command) throws InterruptedException {
-    
     
     if (command.isUnknown()) {
       
