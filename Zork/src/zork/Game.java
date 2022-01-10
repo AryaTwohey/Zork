@@ -84,6 +84,7 @@ private void initItems(String fileName) throws Exception {
       item.setName(itemName); 
       item.setDescription(itemDescription); 
       item.setWeight(itemWeight); 
+      roomMap.get(itemStartingRoom).addItem(item); 
   
     }
   }
@@ -137,6 +138,8 @@ private void initItems(String fileName) throws Exception {
       character.setDescription(charDescription);
       character.setName(charName);
       character.setHealth(health);
+
+      //add characters to room - like items see init items 
 
       }
     }
@@ -350,10 +353,10 @@ private void initItems(String fileName) throws Exception {
       System.out.println("Eat?!? Are you serious?!");
     }
     else if(commandWord.equals("take")){
-    //playerInventory.
+      takeItem(command);
     }
     else if(commandWord.equals("drop")){
-    takeRoomItem(command);
+      dropItem(command);
     }
     else if(commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire") || commandWord.equals("hit") || commandWord.equals("stab")){
       attack(command);
@@ -547,34 +550,52 @@ private void initItems(String fileName) throws Exception {
     
   }
   }
-  private void takeRoomItem(Command command){
 
-    String name = command.getExtraWords().toString();
+  //FIX NEEDED
+  // If item is not valid code breaks 
+  private void takeItem(Command command){
 
-      if(name == null){
-
-        System.out.println();
-        System.out.println("Take What?");
-        System.out.println();
-
-      }else{
-
-        Item item = currentRoom.removeItem(name);
-      }
-  }
-
-  private void dropPlayerItem(Command command){
-
-    String name = command.getExtraWords().toString();
-
-    if(name == null){
+    if(!command.hasExtraWords()){
       System.out.println();
-      System.out.println("Drop What?");
+      System.out.println("Take What?");
       System.out.println();
     }else{
+      String first = command.getExtraWords().get(0);
+      String second = command.getExtraWords().get(1);
+      String itemName = first + " " + second; 
+      Item item = currentRoom.removeItem(itemName);
+      if(item == null){
+        System.out.println("What " + itemName + "?");
+      }else{
+        if(!playerInventory.add(item)){
+          currentRoom.addItem(item);
+        } 
+      }
+      System.out.println();
+      System.out.println("You took the " + itemName);
+      System.out.println();
+    }
+  }
 
-      //Item item = currentRoom.addRoomItem();
+  private void dropItem(Command command){
 
+    if(!command.hasExtraWords()){
+      System.out.println();
+      System.out.println("Take What?");
+      System.out.println();
+    }else{
+      String first = command.getExtraWords().get(0);
+      String second = command.getExtraWords().get(1);
+      String itemName = first + " " + second; 
+      Item item = playerInventory.remove(itemName);
+      if(item == null){
+        System.out.println("What " + itemName + "?");
+      }else{
+        currentRoom.addItem(item); 
+      }
+      System.out.println();
+      System.out.println("You dropped the " + itemName);
+      System.out.println();
     }
   }
 

@@ -24,12 +24,14 @@ public class Room {
   public Room(String description) {
     this.description = description;
     exits = new ArrayList<Exit>();
+    inventory = new Inventory(Integer.MAX_VALUE); 
   }
 
   public Room() {
     roomName = "DEFAULT ROOM";
     description = "DEFAULT DESCRIPTION";
     exits = new ArrayList<Exit>();
+    inventory = new Inventory(Integer.MAX_VALUE); 
   }
 
   public void addExit(Exit exit) throws Exception {
@@ -114,11 +116,11 @@ public class Room {
   }
 
   public Item removeItem(String itemName){
-    return inventory.dropItem(itemName);
+    return inventory.remove(itemName);
   }
 
-  public boolean addRoomItem(Item item){
-    return inventory.addItem(item);
+  public boolean addItem(Item item){
+    return inventory.add(item);
   }
 
 

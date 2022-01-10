@@ -22,7 +22,7 @@ public class Inventory {
     return currentWeight;
   }
 
-  public boolean addItem(Item item) {
+  public boolean add(Item item) {
 
     if (item.getWeight() + currentWeight <= maxWeight) {
       return items.add(item);
@@ -35,7 +35,7 @@ public class Inventory {
     return false;
   }
 
-  public Item dropItem(String itemname) {
+  public Item remove(String itemname) {
 
     for (int i = items.size() - 1; i >= 0; i--) {
 
