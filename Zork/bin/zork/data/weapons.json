@@ -8,7 +8,7 @@
         "damage": "60",
         "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
         "isOpenable" : "False",
-        "Weight" : "950g"
+        "Weight" : "950"
       },
       {
         "starting location": "Cellar",
@@ -17,7 +17,7 @@
         "damage": "50",
         "description": "You have chosen the baseball bat. It looks like it’s pretty old, maybe from the 1900s.",
         "isOpenable" : "False",
-        "Weight" : "880g"
+        "Weight" : "880"
       },
       {
         "starting location": "Cellar",
@@ -26,7 +26,7 @@
         "damage": "80",
         "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
         "isOpenable" : "False",
-        "Weight" : "3800g"
+        "Weight" : "3800"
       },
       {
         "starting location": "Cellar",
@@ -35,7 +35,7 @@
         "damage": "65",
         "description": "You have chosen a Pitch Fork. Quick and hurry to save your friend!”",
         "isOpenable" : "False",
-        "Weight" : "907g"
+        "Weight" : "907"
       },
       {
         "starting location": "Cellar",
@@ -44,7 +44,7 @@
         "damage": "5",
         "description": "You have chosen a plastic spoon. You never know, this might come in handy. Fred is hot",
         "isOpenable" : "False",
-        "Weight" : "6g"
+        "Weight" : "6"
       },
       {
         "starting location": "Kitchen (counter)",
@@ -53,7 +53,7 @@
         "damage": "75",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",
-        "Weight" : "130g" 
+        "Weight" : "130" 
       },
       {
         "starting location": "Bedroom 3",
@@ -62,7 +62,7 @@
         "damage": "70",
         "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
         "isOpenable" : "False",
-        "Weight" : "1000g"
+        "Weight" : "1000"
       }
 
     ]
