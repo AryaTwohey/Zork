@@ -6,8 +6,7 @@
         "name": "Creepy doll",
         "description": "You see a weird looking doll, sitting on a chair in the middle of the room. Perhaps putting it somewhere will reveal the secrets of this house",
         "isOpenable" : "False",
-        "Weight" : "800"
-    
+        "Weight" : "800" 
       },
       {
         
