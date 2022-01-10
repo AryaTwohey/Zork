@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class Parser {
+public class Parser extends CommandWords {
   private CommandWords commands; // holds all valid command words
   private Scanner in;
   private static TreeSet<String> ignoredWords = new TreeSet<String>(Arrays.asList("the", "with", "on", "a", "as", "against", "can", "please", "i", "want", "to", "you"));
@@ -39,6 +39,10 @@ public class Parser {
     
     if(validDirections.contains(words.get(0))){
       return new Command("go", words); 
+    }
+    
+    while(!isCommand(words.get(0)) && words.size() > 0){
+      words.remove(0); 
     }
     
 
@@ -90,14 +94,6 @@ public class Parser {
       }
     }
     
-  }
-
-  //checks if the commandWord is a valid direction so that the user can simply input the direction and no other words
-  private boolean isValidDirection(String possibleDirection) {
-    if(validDirections.contains(possibleDirection)){
-      return true; 
-    }
-    return false; 
   }
 
   /**
