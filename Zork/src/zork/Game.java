@@ -53,7 +53,7 @@ private void reset(){
     initItems("src\\zork\\data\\items.json");
     initCharacters("src\\zork\\data\\characters.json");
     initWeapons("src\\zork\\data\\weapons.json");
-    //initNotes("src\\zork\\data\\notes.json");
+    initNotes("src\\zork\\data\\notes.json");
     currentRoom = roomMap.get("Outside Entrance");
   } catch (Exception e) {
     e.printStackTrace();
@@ -169,13 +169,13 @@ private void initItems(String fileName) throws Exception {
     }
 
     private void initNotes(String fileName) throws Exception {
-  /*    Path path = Path.of(fileName);
+     Path path = Path.of(fileName);
         String stringJson = Files.readString(path); 
         JSONParser parser = new JSONParser(); 
         JSONObject json = (JSONObject)parser.parse(stringJson); 
     
         JSONArray notesJson = (JSONArray)json.get("notes"); 
-    }
+    
   
         for(Object noteobj: notesJson) {
           Notes note = new Notes(); 
@@ -188,7 +188,7 @@ private void initItems(String fileName) throws Exception {
           //note.setDescription(notesDescription); 
           //note.setWeight(notesWeight);
         }
-        */
+      
       }
   
 
