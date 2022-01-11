@@ -121,7 +121,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "South",
           "adjacentRoom": "Skeleton Room (Skeleton)"
         }, 
         {
@@ -138,7 +138,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "North",
           "adjacentRoom": "Skeleton Room (Painting)"
         }
       ]
@@ -162,7 +162,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "Southeast",
           "adjacentRoom": "Bathroom (Sink)"
         }
       ]
@@ -179,7 +179,7 @@
         },
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "Northeast",
           "adjacentRoom": "Bathroom (Bathtub)"
         }, 
         {
