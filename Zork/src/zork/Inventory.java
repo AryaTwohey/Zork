@@ -121,13 +121,13 @@ public class Inventory {
 
   public String readItem(String itemName){
     for (Item item : items) {
-      if (item.getName().equals(itemName)) {
+      if (item.isNote() && item.getName().equals(itemName)) {
         return item.getDescription();
       }
     }
     return("unable to read this item"); 
   }
-  
+
   public boolean inInventory(String name){
     for (Item i : items) {
       if(i.getName().equals(name)){

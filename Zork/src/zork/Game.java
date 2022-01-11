@@ -37,7 +37,7 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      initNotes("src\\zork\\data\\notes.json");
+      //initNotes("src\\zork\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
 
     } catch (Exception e) {
@@ -54,7 +54,6 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      initNotes("src\\zork\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
     } catch (Exception e) {
       e.printStackTrace();
@@ -62,9 +61,6 @@ public class Game {
     parser = new Parser();
     playerInventory = new Inventory(1000);
 
-  }
-
-  private void initWeapons(String string) {
   }
 
   private void initItems(String fileName) throws Exception {
@@ -82,10 +78,14 @@ public class Game {
       int itemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight"));
       String itemDescription = (String) ((JSONObject) obj).get("description");
       String itemStartingRoom = (String) ((JSONObject) obj).get("starting location");
+      String sIsNote = (String) ((JSONObject) obj).get("isNote");
 
       item.setName(itemName);
       item.setDescription(itemDescription);
       item.setWeight(itemWeight);
+      if(sIsNote != null){
+        item.setIsNote(Boolean.parseBoolean(sIsNote)); 
+      }
       roomMap.get(itemStartingRoom).addItem(item);
 
     }
@@ -148,7 +148,7 @@ public class Game {
     }
   }
 
-  public class weapons extends Item {
+
 
     private void initWeapons(String fileName) throws Exception {
       Path path = Path.of(fileName);
@@ -167,35 +167,11 @@ public class Game {
         String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
         String weaponDamage = (String) ((JSONObject) weaponobj).get("damage");
 
-        item.setName(weaponName);
+        weapon.setName(weaponName);
         weapon.setDescription(weaponDescription);
-        item.setWeight(weaponWeight);
+        weapon.setWeight(weaponWeight);
         weapon.setDamage(weaponDamage);
       }
-    }
-  }
-
-  private void initNotes(String fileName) throws Exception {
-    Path path = Path.of(fileName);
-    String stringJson = Files.readString(path);
-    JSONParser parser = new JSONParser();
-    JSONObject json = (JSONObject) parser.parse(stringJson);
-
-    JSONArray notesJson = (JSONArray) json.get("notes");
-
-    for (Object noteobj : notesJson) {
-      Note note = new Note();
-      String notesName = (String) ((JSONObject) noteobj).get("name");
-      String notesId = (String) ((JSONObject) noteobj).get("id");
-      int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight"));
-      String notesDescription = (String) ((JSONObject) noteobj).get("description");
-
-
-
-      note.setName(notesName);
-      note.setDescription(notesDescription);
-      note.setWeight(notesWeight);
-    }
   }
 
   /**
@@ -569,7 +545,6 @@ public class Game {
         System.out.println(description);
         System.out.println();
       }
-
     }
     
   }

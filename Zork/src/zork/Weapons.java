@@ -16,32 +16,15 @@ package zork;
         
         public Weapons() {
         }
-      
-        public void open() {
-          if (!isOpenable)
-            System.out.println("The " + name + " cannot be opened.");
-      
-        }
-      
-       public String getDescription() {
-          return description;
-        }
-        public void setDescription(String description) {
-          this.description = description;
-        }
 
         public void setDamage(String weaponDamage) {
             this.weaponDamage = weaponDamage;
         }
+
+        public String getDamage(String weaponDamage) {
+          return weaponDamage;
+      }
         
-      
-        public String getName() {
-          return name;
-        }
-      
-        public void setName(String name) {
-          this.name = name;
-        }
       }
  
 
