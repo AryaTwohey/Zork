@@ -4,14 +4,16 @@ package zork;
         private int weight;
         private String name;
         private boolean isOpenable;
-        private String description; 
+        private String description;
+        private String weaponDamage; 
 
-        
+
         public Weapons(int weight, String name, boolean isOpenable, String description, String weaponDamage) {
           this.weight = weight;
           this.name = name;
           this.isOpenable = isOpenable;
           this.description = description;
+          this.weaponDamage = weaponDamage;
           
         }
         
@@ -25,15 +27,6 @@ package zork;
       
         }
       
-      
-        public int getWeight() {
-          return weight;
-        }
-      
-        public void setWeight(int weight) {
-          this.weight = weight;
-        }
-      
        public String getDescription() {
           return description;
         }
@@ -42,6 +35,7 @@ package zork;
         }
 
         public void setDamage(String weaponDamage) {
+            this.weaponDamage = weaponDamage;
         }
         
       
@@ -53,13 +47,7 @@ package zork;
           this.name = name;
         }
       
-        public boolean isOpenable() {
-          return isOpenable;
-        }
-      
-        public void setOpenable(boolean isOpenable) {
-          this.isOpenable = isOpenable;
-        }
+
       
       
       
