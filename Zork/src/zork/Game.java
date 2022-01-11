@@ -168,9 +168,9 @@ public class Game {
         String weaponDamage = (String) ((JSONObject) weaponobj).get("damage");
 
         item.setName(weaponName);
-        item.setDescription(weaponDescription);
+        weapon.setDescription(weaponDescription);
         item.setWeight(weaponWeight);
-        item.setDamage(weaponDamage);
+        weapon.setDamage(weaponDamage);
       }
     }
   }

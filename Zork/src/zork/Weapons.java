@@ -9,12 +9,8 @@ package zork;
 
 
         public Weapons(int weight, String name, boolean isOpenable, String description, String weaponDamage) {
-          this.weight = weight;
-          this.name = name;
-          this.isOpenable = isOpenable;
-          this.description = description;
+          super(weight, name, isOpenable, description); 
           this.weaponDamage = weaponDamage;
-          
         }
         
       
