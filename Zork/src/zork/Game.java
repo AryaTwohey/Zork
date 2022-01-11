@@ -366,13 +366,7 @@ public class Game {
       System.out.println();
       read(command);
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
-      System.out.println();
-      System.out.println("*Not Finished Yet");
-      System.out.println();
-      System.out.println("-Developers");
-
-      displayInventory(command);
-
+        displayInventory();
     } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
         || commandWord.equals("Reset")) {
           
@@ -539,12 +533,8 @@ public class Game {
 
   }
 
-  public void displayInventory(Command command) {
-
-    for (int i = 0; i < playerInventory.toString().length(); i++) {
-      System.out.println(i + " ");
-
-    }
+  public void displayInventory() {
+    playerInventory.displayInventory(); 
   }
 
   // FIX NEEDED
@@ -568,14 +558,16 @@ public class Game {
 
       Item item = currentRoom.removeItem(itemName);
       if (item == null) {
-        System.out.println("What " + itemName + "?");
+        System.out.println("This " + itemName + " does not exist in this room.");
       } else {
         if (!playerInventory.add(item)) {
           currentRoom.addItem(item);
+          System.out.println();
+          System.out.println("You took the " + itemName);
+          System.out.println();
         }
       }
       System.out.println();
-      System.out.println("You took the " + itemName);
       System.out.print(currentRoom.exits());
       System.out.println();
       
@@ -600,12 +592,14 @@ public class Game {
 
       Item item = playerInventory.remove(itemName);
       if (item == null) {
-        System.out.println("What " + itemName + "?");
+        System.out.println("You don't have " + itemName + "in your inventory");
       } else {
         currentRoom.addItem(item);
+        System.out.println();
+        System.out.println("You dropped the " + itemName);
+        System.out.println();
       }
       System.out.println();
-      System.out.println("You dropped the " + itemName);
       System.out.println(currentRoom.exits());
       System.out.println();
     }
