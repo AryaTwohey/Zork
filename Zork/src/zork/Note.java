@@ -17,6 +17,7 @@ public class Note extends Item{
   
 
   public Note() {
+    
   }
 
   public void open() {

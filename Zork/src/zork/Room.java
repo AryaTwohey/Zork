@@ -144,6 +144,7 @@ public class Room {
   }
 
   public boolean hasEnemy(String roomName){
-    return characters.hasEnemy(roomName); 
+    //how to do - ask tmmr; 
+    return true; 
   }
 }
