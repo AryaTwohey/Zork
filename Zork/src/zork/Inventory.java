@@ -59,7 +59,15 @@ public void searchRoom(){
     System.out.print("You found a : ");
 
     for(int i = 0; i < items.size(); i++){
-      System.out.print(items.get(i).getName() + "  ");
+      if(i == items.size() - 2){
+        System.out.print(items.get(i).getName() + " and ");
+      }
+      else if(i == items.size() - 1){
+        System.out.print(items.get(i).getName());
+      }
+      else{
+        System.out.print(items.get(i).getName() + ", ");
+      }
     }
     System.out.println();
   }
