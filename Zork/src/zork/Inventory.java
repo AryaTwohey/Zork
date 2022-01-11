@@ -56,7 +56,7 @@ public void searchRoom(){
     System.out.println();
   }else{
     System.out.println();
-    System.out.print("You found a : ");
+    System.out.print("You found a: ");
 
     for(int i = 0; i < items.size(); i++){
       if(i == items.size() - 2){
