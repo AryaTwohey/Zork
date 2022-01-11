@@ -190,6 +190,8 @@ public class Game {
       int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight"));
       String notesDescription = (String) ((JSONObject) noteobj).get("description");
 
+
+
       note.setName(notesName);
       note.setDescription(notesDescription);
       note.setWeight(notesWeight);
@@ -544,6 +546,9 @@ public class Game {
   }
 
   private void read(Command command) {
+
+    playerInventory.readNote();
+    
   }
 
   private void search(Command command) throws InterruptedException {

@@ -3,11 +3,9 @@ package zork;
 import java.util.ArrayList;
 
 public class Inventory {
-  public static final String yellow = "\u001B[33m";  //for displayInventory
-  public static final String white = "\u001B[37m";  //for displayInventory
-  public static final String blue = "\u001B[34m";   //for another function
-
-
+  public static final String yellow = "\u001B[33m"; // for displayInventory
+  public static final String white = "\u001B[37m"; // for displayInventory
+  public static final String blue = "\u001B[34m"; // for another function
 
   private ArrayList<Item> items;
   private int maxWeight;
@@ -40,75 +38,74 @@ public class Inventory {
     return false;
   }
 
-  //not needed but keeping for now 
-  public boolean hasItem(){
+  // not needed but keeping for now
+  public boolean hasItem() {
 
-    if(items.size() == 0){
+    if (items.size() == 0) {
       System.out.println();
       System.out.println("This room has no items");
       System.out.println();
     }
-    for(int i = 0; i < items.size(); i++){
+    for (int i = 0; i < items.size(); i++) {
       System.out.println(i + " ");
     }
     return true;
   }
 
-  public void displayInventory() throws InterruptedException{
+  public void displayInventory() throws InterruptedException {
 
-    String message =  blue +"Displaying Inventory" + white ;
+    String message = blue + "Displaying Inventory" + white;
     System.out.println();
     System.out.println();
 
-    for(int i = 0; i < message.length(); i++){
+    for (int i = 0; i < message.length(); i++) {
 
-      System.out.printf("%c", message.charAt(i) );
+      System.out.printf("%c", message.charAt(i));
       Thread.sleep(50);
     }
     System.out.println();
     System.out.println();
 
-    for(Item i : items){
-        System.out.println( blue + "- " + white +  i.getName() + " ");
+    for (Item i : items) {
+      System.out.println(blue + "- " + white + i.getName() + " ");
     }
   }
 
-  public void searchRoom() throws InterruptedException{
-    String noItems =  blue + "This room has no items" + white;
-    String youFound = blue +  "You Found: " + white;
+  public void searchRoom() throws InterruptedException {
+    String noItems = blue + "This room has no items" + white;
+    String youFound = blue + "You Found: " + white;
 
-    if(items.size() == 0){
+    if (items.size() == 0) {
       System.out.println();
-        for(int i = 0; i < noItems.length(); i++){
-          System.out.printf("%c", noItems.charAt(i));
-          Thread.sleep(20);
-        }
-        System.out.println();
-        System.out.println();
-     
-    }else{
+      for (int i = 0; i < noItems.length(); i++) {
+        System.out.printf("%c", noItems.charAt(i));
+        Thread.sleep(20);
+      }
       System.out.println();
-      for(int i = 0; i < youFound.length(); i++){
+      System.out.println();
+
+    } else {
+      System.out.println();
+      for (int i = 0; i < youFound.length(); i++) {
         System.out.printf("%c", youFound.charAt(i));
         Thread.sleep(20);
       }
-      
-      for(int i = 0; i < items.size(); i++){
-        if(i == items.size() - 2){
+
+      for (int i = 0; i < items.size(); i++) {
+        if (i == items.size() - 2) {
           System.out.print(items.get(i).getName() + " and ");
-        }
-        else if(i == items.size() - 1){
+        } else if (i == items.size() - 1) {
           System.out.print(items.get(i).getName());
-        }
-        else{
+        } else {
           System.out.print(items.get(i).getName() + ", ");
         }
       }
       System.out.println();
       System.out.println();
-     
+
     }
   }
+
   public Item remove(String itemName) {
 
     for (int i = items.size() - 1; i >= 0; i--) {
@@ -121,6 +118,26 @@ public class Inventory {
     }
     return null;
   }
+
+  public void readNote() {
+
+    if (items.size() == 0) {
+      System.out.println("You don't have anything to read");
+
+    } else if (items.size() > 0) {
+
+      for (int i = 0; i < items.size(); i++) {
+
+        if (items.get(i).getName().equals("note") || items.get(i).getName().equals("riddle")) {
+
+          items.get(i).getDescription();
+
+        }else {
+          System.out.println("You dont have anything to read");
+        }
+      }
+    }  
+    }
 
   public String toString() {
     String msg = "";
