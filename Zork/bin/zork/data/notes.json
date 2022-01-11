@@ -3,7 +3,7 @@
       { 
         "starting location": "Bedroom 3",
         "id": "Riddle",
-        "name": "Riddle",
+        "name": "riddle",
         "description": "I don't have eyes, but once I did see. Once I had thoughts, but now I'm white and empty. The answer is a skull.",
         "isOpenable" : "False",
         "Weight" : "5"
@@ -11,7 +11,7 @@
       {
         "starting location": "Library (Doll case)",
         "id": "Introductory note",
-        "name": "Introductory note",
+        "name": "note",
         "description": "We have your friend. To find your friend you must collect items around the house and decide which ones can be used. Remember, if you fail, we come for you.",
         "isOpenable" : "False",
         "Weight" : "5"
@@ -19,7 +19,7 @@
       {
         "starting location": "Bedroom 1",
         "id": "Explanation note",
-        "name": "Explanation note",
+        "name": "note",
         "description": "To win and help save your friend, you must collect three keys. These are the only things that you can do.",
         "isOpenable" : "False",
         "Weight" : "5"
