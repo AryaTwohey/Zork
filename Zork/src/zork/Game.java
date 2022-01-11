@@ -605,6 +605,7 @@ public class Game {
 
       Item item = currentRoom.removeItem(itemName);
       if (item == null) {
+        System.out.println();
         System.out.println("This " + itemName + " does not exist in this room.");
       } else {
         if (!playerInventory.add(item)) 
