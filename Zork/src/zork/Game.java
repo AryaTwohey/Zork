@@ -628,7 +628,7 @@ public class Game {
 
     if (!command.hasExtraWords()) {
       System.out.println();
-      System.out.println("Drop what?");
+      System.out.println("Drop What?");
       System.out.println();
     } else {
       String itemName;
