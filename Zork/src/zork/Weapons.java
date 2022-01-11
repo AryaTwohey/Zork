@@ -12,8 +12,8 @@ package zork;
           super(weight, name, isOpenable, description); 
           this.weaponDamage = weaponDamage;
         }
+
         
-      
         public Weapons() {
         }
       
