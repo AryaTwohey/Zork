@@ -2,7 +2,7 @@
     "weapons": [
   
      {
-        "starting location": "Cellar",
+        "starting location": "Armory",
         "id": "Pistol",
         "name": "pistol",
         "damage": "60",
@@ -11,7 +11,7 @@
         "Weight" : "950"
       },
       {
-        "starting location": "Cellar",
+        "starting location": "Armory",
         "id": "Bat",
         "name": "bat",
         "damage": "50",
@@ -20,7 +20,7 @@
         "Weight" : "880"
       },
       {
-        "starting location": "Cellar",
+        "starting location": "Armory",
         "id": "A.K 47",
         "name": "a.k 47",
         "damage": "80",
@@ -29,7 +29,7 @@
         "Weight" : "3800"
       },
       {
-        "starting location": "Cellar",
+        "starting location": "Armory",
         "id": "Pitchfork",
         "name": "pitchfork",
         "damage": "65",
@@ -38,7 +38,7 @@
         "Weight" : "907"
       },
       {
-        "starting location": "Cellar",
+        "starting location": "Armory",
         "id": "Plastic Spoon",
         "name": "plastic spoon",
         "damage": "5",
