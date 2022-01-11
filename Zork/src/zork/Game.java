@@ -20,6 +20,7 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
+  String weapons[] = {"pistol", "bat", "a.k. 47", "pitchfork", "plastic spoon", "bloody knife", "sword"}; 
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
@@ -117,6 +118,8 @@ public class Game {
         Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
         exits.add(exit);
       }
+
+      room.setRoomName(roomName);
       room.setExits(exits);
       roomMap.put(roomId, room);
     }
@@ -144,7 +147,7 @@ public class Game {
 
     }
   }
-
+  
   public class weapons extends Item {
 
     private void initWeapons(String fileName) throws Exception {
@@ -211,7 +214,6 @@ public class Game {
       } catch (IOException e) {
         e.printStackTrace();
       }
-
     }
     String quit = blue + "Thank you for playing. Good Bye." + white;
     String threeDots = "...";
@@ -496,13 +498,48 @@ public class Game {
   // implementations of user commands:
 
   private void attack(Command command) {
+    if(currentRoom.hasEnemy(currentRoom.getRoomName())){
+      if (!command.hasExtraWords()) {
+        System.out.println();
+        System.out.println("I need more information");
+        System.out.println();
+      } else {
+        String weaponName; 
+        if(command.getExtraWords().size() > 1){
+          String first = command.getExtraWords().get(0);
+          String second = command.getExtraWords().get(1);
+          weaponName = first + " " + second;
+        }else{
+          weaponName = command.getExtraWords().get(0);
+        }
+        
+        if(!validWeapon(weaponName)){
+          System.out.println();
+          System.out.println(weaponName + " is not a valid weapon.");
+          System.out.println();
+        }else{
+          System.out.println("In progress");
+        }
+      }
+    }
+    else{
+      System.out.println("There is nothing to attack/kill in this space.");
+    }
+  }
+
+  private boolean validWeapon(String weaponName) {
+    for(String s : weapons){
+      if(s.equals(weaponName)){
+        return true; 
+      }
+    }
+    return false; 
   }
 
   private void read(Command command) {
   }
 
   private void search(Command command) {
-    
     currentRoom.search();
   }
   /**
