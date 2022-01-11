@@ -526,6 +526,7 @@ public class Game {
       System.out.println("read what?");
     }else{
       String itemName;
+
       if (command.getExtraWords().size() > 1) {
         String first = command.getExtraWords().get(0);
         String second = command.getExtraWords().get(1);
@@ -546,7 +547,6 @@ public class Game {
         System.out.println();
       }
     }
-    
   }
 
   private void search(Command command) throws InterruptedException {
