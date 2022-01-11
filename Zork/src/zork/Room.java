@@ -142,4 +142,8 @@ public class Room {
   public boolean addItem(Item item) {
     return inventory.add(item);
   }
+
+  public boolean hasEnemy(String roomName){
+    return characters.hasEnemy(roomName); 
+  }
 }
