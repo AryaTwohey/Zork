@@ -3,6 +3,11 @@ package zork;
 import java.util.ArrayList;
 
 public class Inventory {
+  public static final String yellow = "\u001B[33m";  //for displayInventory
+  public static final String white = "\u001B[37m";  //for displayInventory
+  public static final String blue = "\u001B[34m";   //for another function
+
+
 
   private ArrayList<Item> items;
   private int maxWeight;
@@ -35,8 +40,9 @@ public class Inventory {
     return false;
   }
 
-  //not needed 
+  //not needed but keeping for now 
   public boolean hasItem(){
+
     if(items.size() == 0){
       System.out.println();
       System.out.println("This room has no items");
@@ -46,27 +52,47 @@ public class Inventory {
       System.out.println(i + " ");
     }
     return true;
-
   }
 
-  public void displayInventory(){
+  public void displayInventory() throws InterruptedException{
+
+    String message =  yellow +"Displaying Inventory" + white ;
     System.out.println();
-    System.out.println("Displaying your current inventory: ");
+    System.out.println();
+
+    for(int i = 0; i < message.length(); i++){
+
+      System.out.printf("%c", message.charAt(i) );
+      Thread.sleep(50);
+    }
+    System.out.println();
+    System.out.println();
+
     for(Item i : items){
         System.out.println(i.getName() + " ");
     }
   }
 
+  public void searchRoom() throws InterruptedException{
+    String noItems =  blue + "This room has no items" + white;
+    String youFound = blue +  "You Found: " + white;
 
-  public void searchRoom(){
     if(items.size() == 0){
       System.out.println();
-      System.out.println("This room has no items");
-      System.out.println();
+        for(int i = 0; i < noItems.length(); i++){
+          System.out.printf("%c", noItems.charAt(i));
+          Thread.sleep(20);
+        }
+        System.out.println();
+        System.out.println();
+     
     }else{
       System.out.println();
-      System.out.print("You found: ");
-
+      for(int i = 0; i < youFound.length(); i++){
+        System.out.printf("%c", youFound.charAt(i));
+        Thread.sleep(20);
+      }
+      
       for(int i = 0; i < items.size(); i++){
         if(i == items.size() - 2){
           System.out.print(items.get(i).getName() + " and ");
@@ -79,6 +105,8 @@ public class Inventory {
         }
       }
       System.out.println();
+      System.out.println();
+     
     }
   }
   public Item remove(String itemname) {
