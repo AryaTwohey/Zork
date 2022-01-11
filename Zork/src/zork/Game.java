@@ -609,10 +609,8 @@ public class Game {
         else{
           System.out.println();
           System.out.println("You took the " + itemName);
-          System.out.println();
         }
       }
-      System.out.println();
       System.out.print(currentRoom.exits());
       System.out.println();
 
@@ -644,9 +642,7 @@ public class Game {
         currentRoom.addItem(item);
         System.out.println();
         System.out.println("You dropped the " + itemName);
-        System.out.println();
       }
-      System.out.println();
       System.out.println(currentRoom.exits());
       System.out.println();
     }
