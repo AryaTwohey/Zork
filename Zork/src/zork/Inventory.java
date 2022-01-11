@@ -57,7 +57,7 @@ if(items.size() == 0){
   System.out.println();
 }else{
     System.out.println();
-    System.out.print("You found a : ");
+    System.out.print("You found a: ");
 
     for(int i = 0; i < items.size(); i++){
     System.out.print(items.get(i).getName() + "  ");
