@@ -35,18 +35,6 @@ public class Inventory {
     return false;
   }
 
-<<<<<<< HEAD
-  public boolean hasItem(){
-
-  if(items.size() == 0){
-
-    System.out.println();
-    System.out.println("This room has no items");
-    System.out.println();
-  }
-  for(int i = 0; i < items.size(); i++){
-   System.out.println(i + " ");
-=======
   //not needed 
   public boolean hasItem(Command command){
     if(items.size() == 0){
@@ -58,7 +46,6 @@ public class Inventory {
       System.out.println(i + " ");
     }
     return true;
->>>>>>> ec0d9f15eefd7e394a964d49cb3e1f03ae5e6d94
 
   }
 
