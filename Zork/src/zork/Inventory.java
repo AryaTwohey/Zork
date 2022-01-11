@@ -119,26 +119,23 @@ public class Inventory {
     return null;
   }
 
-  public void readNote() {
-
-    if (items.size() == 0) {
-      System.out.println("You don't have anything to read");
-
-    } else if (items.size() > 0) {
-
-      for (int i = 0; i < items.size(); i++) {
-
-        if (items.get(i).getName().equals("note") || items.get(i).getName().equals("riddle")) {
-
-          items.get(i).getDescription();
-
-        }else {
-          System.out.println("You dont have anything to read");
-        }
+  public String readItem(String itemName){
+    for (Item item : items) {
+      if (item.getName().equals(itemName)) {
+        return item.getDescription();
       }
-    }  
     }
-
+    return("unable to read this item"); 
+  }
+  
+  public boolean inInventory(String name){
+    for (Item i : items) {
+      if(i.getName().equals(name)){
+        return true; 
+      }
+    }
+    return false; 
+  }
   public String toString() {
     String msg = "";
 
