@@ -44,7 +44,7 @@
       {
         "starting location": "Bedroom 3",
         "id": "Riddle",
-        "name": "riddle ",
+        "name": "riddle",
         "description": "I don't have eyes, but once I did see. Once I had thoughts, but now I'm white and empty. The answer is a skull.",
         "isOpenable" : "False",
         "Weight" : "5"

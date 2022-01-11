@@ -4,27 +4,27 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;    
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.TreeSet;   
+import java.util.TreeSet;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
-  public static HashMap<String, Item> itemMap = new HashMap<String, Item>(); 
+  public static HashMap<String, Item> itemMap = new HashMap<String, Item>();
   private Parser parser;
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  
-  public static final String yellow = "\u001B[33m";       //for the welcome message
-  public static final String white = "\u001B[0m";        //also for the welcome message
-  public static final String blue = "\u001B[34m";       //for quit message 
-  public static final String red = "\u001B[31m";       //for red coloured text (blood)
 
+  public static final String yellow = "\u001B[33m"; // for the welcome message
+  public static final String white = "\u001B[0m"; // also for the welcome message
+  public static final String blue = "\u001B[34m"; // for quit message
+  public static final String red = "\u001B[31m"; // for red coloured text (blood)
 
   /**
    * Create the game and initialize its internal map.
@@ -42,50 +42,51 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
-   parser = new Parser();
-   playerInventory = new Inventory(1000); 
+    parser = new Parser();
+    playerInventory = new Inventory(500);
 
   }
 
-private void reset(){
-  try {
-    initRooms("src\\zork\\data\\rooms.json");
-    initItems("src\\zork\\data\\items.json");
-    initCharacters("src\\zork\\data\\characters.json");
-    initWeapons("src\\zork\\data\\weapons.json");
-    initNotes("src\\zork\\data\\notes.json");
-    currentRoom = roomMap.get("Outside Entrance");
-  } catch (Exception e) {
-    e.printStackTrace();
+  private void reset() {
+    try {
+      initRooms("src\\zork\\data\\rooms.json");
+      initItems("src\\zork\\data\\items.json");
+      initCharacters("src\\zork\\data\\characters.json");
+      initWeapons("src\\zork\\data\\weapons.json");
+      initNotes("src\\zork\\data\\notes.json");
+      currentRoom = roomMap.get("Outside Entrance");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    parser = new Parser();
+    playerInventory = new Inventory(1000);
+
   }
- parser = new Parser();
- playerInventory = new Inventory(1000); 
 
-}
-private void initWeapons(String string) {
-}
+  private void initWeapons(String string) {
+  }
 
-private void initItems(String fileName) throws Exception {
-  Path path = Path.of(fileName);
-    String stringJson = Files.readString(path); 
-    JSONParser parser = new JSONParser(); 
-    JSONObject json = (JSONObject)parser.parse(stringJson); 
+  private void initItems(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String stringJson = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(stringJson);
 
-    JSONArray itemsJson = (JSONArray)json.get("items"); 
+    JSONArray itemsJson = (JSONArray) json.get("items");
 
-    for(Object obj: itemsJson) {
-      Item item = new Item(); 
-      String itemName = (String) ((JSONObject) obj).get("name"); 
-      String itemId = (String) ((JSONObject) obj).get("id"); 
-      int itemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight")); 
-      String itemDescription =  (String) ((JSONObject) obj).get("description"); 
-      String itemStartingRoom = (String) ((JSONObject) obj).get("starting location"); 
-      
-      item.setName(itemName); 
-      item.setDescription(itemDescription); 
-      item.setWeight(itemWeight); 
-      roomMap.get(itemStartingRoom).addItem(item); 
-  
+    for (Object obj : itemsJson) {
+      Item item = new Item();
+      String itemName = (String) ((JSONObject) obj).get("name");
+      String itemId = (String) ((JSONObject) obj).get("id");
+      int itemWeight = Integer.parseInt((String) ((JSONObject) obj).get("Weight"));
+      String itemDescription = (String) ((JSONObject) obj).get("description");
+      String itemStartingRoom = (String) ((JSONObject) obj).get("starting location");
+
+      item.setName(itemName);
+      item.setDescription(itemDescription);
+      item.setWeight(itemWeight);
+      roomMap.get(itemStartingRoom).addItem(item);
+
     }
   }
 
@@ -139,68 +140,65 @@ private void initItems(String fileName) throws Exception {
       character.setName(charName);
       character.setHealth(health);
 
-      //add characters to room - like items see init items 
+      // add characters to room - like items see init items
 
-      }
     }
-    public class weapons extends Item {
+  }
+
+  public class weapons extends Item {
 
     private void initWeapons(String fileName) throws Exception {
-    Path path = Path.of(fileName);
-      String stringJson = Files.readString(path); 
-      JSONParser parser = new JSONParser(); 
-      JSONObject json = (JSONObject)parser.parse(stringJson); 
-  
-      JSONArray weaponsJson = (JSONArray)json.get("weapons"); 
-  
-  
-      for(Object weaponobj: weaponsJson) {
-        Weapons weapon = new Weapons(); 
-        String weaponName = (String) ((JSONObject) weaponobj).get("name"); 
-        String weaponId = (String) ((JSONObject) weaponobj).get("id"); 
-        int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight")); 
-        String weaponDescription =  (String) ((JSONObject) weaponobj).get("description"); 
+      Path path = Path.of(fileName);
+      String stringJson = Files.readString(path);
+      JSONParser parser = new JSONParser();
+      JSONObject json = (JSONObject) parser.parse(stringJson);
+
+      JSONArray weaponsJson = (JSONArray) json.get("weapons");
+
+      for (Object weaponobj : weaponsJson) {
+        Weapons weapon = new Weapons();
+        String weaponName = (String) ((JSONObject) weaponobj).get("name");
+        String weaponId = (String) ((JSONObject) weaponobj).get("id");
+        int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight"));
+        String weaponDescription = (String) ((JSONObject) weaponobj).get("description");
         String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
         String weaponDamage = (String) ((JSONObject) weaponobj).get("damage");
-        
-        item.setName(weaponName); 
-        item.setDescription(weaponDescription); 
-        item.setWeight(weaponWeight); 
+
+        item.setName(weaponName);
+        item.setDescription(weaponDescription);
+        item.setWeight(weaponWeight);
         item.setDamage(weaponDamage);
       }
-      }
     }
+  }
 
-    private void initNotes(String fileName) throws Exception {
-     Path path = Path.of(fileName);
-        String stringJson = Files.readString(path); 
-        JSONParser parser = new JSONParser(); 
-        JSONObject json = (JSONObject)parser.parse(stringJson); 
-    
-        JSONArray notesJson = (JSONArray)json.get("notes"); 
-    
-  
-        for(Object noteobj: notesJson) {
-          Note note = new Note(); 
-          String notesName = (String) ((JSONObject) noteobj).get("name"); 
-          String notesId = (String) ((JSONObject) noteobj).get("id"); 
-          int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight")); 
-          String notesDescription =  (String) ((JSONObject) noteobj).get("description"); 
-          
-         //note.setName(notesName); 
-          //note.setDescription(notesDescription); 
-          //note.setWeight(notesWeight);
-        }
-      
-      }
-  
+  private void initNotes(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String stringJson = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(stringJson);
+
+    JSONArray notesJson = (JSONArray) json.get("notes");
+
+    for (Object noteobj : notesJson) {
+      Note note = new Note();
+      String notesName = (String) ((JSONObject) noteobj).get("name");
+      String notesId = (String) ((JSONObject) noteobj).get("id");
+      int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight"));
+      String notesDescription = (String) ((JSONObject) noteobj).get("description");
+
+      // note.setName(notesName);
+      // note.setDescription(notesDescription);
+      // note.setWeight(notesWeight);
+    }
+  }
 
   /**
    * Required for printable messges, doesnt do anything else
+   * 
    * @throws InterruptedException
    */
 
-    
   public void play() throws InterruptedException {
     printWelcome();
 
@@ -215,12 +213,12 @@ private void initItems(String fileName) throws Exception {
       }
 
     }
-    String quit =  blue + "Thank you for playing. Good Bye." + white;
+    String quit = blue + "Thank you for playing. Good Bye." + white;
     String threeDots = "...";
     System.out.println();
     System.out.println();
     System.out.println();
-    for(int i = 0; i < quit.length(); i++){
+    for (int i = 0; i < quit.length(); i++) {
       System.out.printf("%c", quit.charAt(i));
       Thread.sleep(15);
     }
@@ -230,52 +228,54 @@ private void initItems(String fileName) throws Exception {
     System.out.println();
     System.out.print("TERMINATING COMPILER");
 
-    for(int i = 0; i < threeDots.length(); i++){
+    for (int i = 0; i < threeDots.length(); i++) {
 
-        System.out.printf("%c", threeDots.charAt(i));
-        Thread.sleep(1500);
+      System.out.printf("%c", threeDots.charAt(i));
+      Thread.sleep(1500);
     }
 
     System.out.println();
-    
+
     System.out.println("TERMINATION COMPLETE");
     System.out.println();
   }
+
   /**
    * Print out the opening message for the player.
+   * 
    * @throws InterruptedException
    */
   private void printWelcome() throws InterruptedException {
-    
-  String welcome = "Welcome To Zork!!!";
-  String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
-  String help = "Type 'help' to see the commands";
-  String line = yellow + "________________________________________________________________" + white;
 
-  //Cool Printable Message
+    String welcome = "Welcome To Zork!!!";
+    String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
+    String help = "Type 'help' to see the commands";
+    String line = yellow + "________________________________________________________________" + white;
 
-  System.out.println();
-  System.out.println();
-  //line
+    // Cool Printable Message
 
-    for(int i = 0; i < line.length(); i++){
+    System.out.println();
+    System.out.println();
+    // line
 
-    System.out.printf("%c", line.charAt(i));
-    Thread.sleep(5);
+    for (int i = 0; i < line.length(); i++) {
+
+      System.out.printf("%c", line.charAt(i));
+      Thread.sleep(5);
     }
     System.out.println();
     System.out.println();
 
-    for(int i = 0; i < welcome.length(); i++){
+    for (int i = 0; i < welcome.length(); i++) {
 
       System.out.printf("%c", welcome.charAt(i));
       Thread.sleep(5);
     }
-   
+
     System.out.println();
     System.out.println();
 
-    for(int i = 0; i < creators.length(); i++){
+    for (int i = 0; i < creators.length(); i++) {
 
       System.out.printf("%c", creators.charAt(i));
       Thread.sleep(5);
@@ -284,7 +284,7 @@ private void initItems(String fileName) throws Exception {
     System.out.println();
     System.out.println();
 
-    for(int i = 0; i < help.length(); i ++){
+    for (int i = 0; i < help.length(); i++) {
 
       System.out.printf("%c", help.charAt(i));
       Thread.sleep(5);
@@ -293,20 +293,21 @@ private void initItems(String fileName) throws Exception {
     System.out.println();
     System.out.println();
 
-    for(int i = 0; i < line.length(); i++){
-    
+    for (int i = 0; i < line.length(); i++) {
+
       System.out.printf("%c", line.charAt(i));
       Thread.sleep(5);
     }
     System.out.println();
     System.out.println();
 
-    /**Sorry for all the strings
+    /**
+     * Sorry for all the strings
      * I just wanted to have the "blood" text coloured in red
      */
-  
-    String firstScentence = "In front of you there is a large house with no lights on." ;
-    String secondScentence ="The windows are boarded up and you can hear squeaking and faint screaming."; 
+
+    String firstScentence = "In front of you there is a large house with no lights on.";
+    String secondScentence = "The windows are boarded up and you can hear squeaking and faint screaming.";
     String thirdScentence = "To the North of you there is an open door covered in ";
     String forthScentence = "...the ";
     String fifthScentence = " of your friend.";
@@ -329,12 +330,13 @@ private void initItems(String fileName) throws Exception {
    * Given a command, process (that is: execute) the command. If this command ends
    * the game, true is returned, otherwise false is returned.
    * 
-   * @throws InterruptedException   //this is for the printhelp message, dont worry it doenst do anything bad
+   * @throws InterruptedException //this is for the printhelp message, dont worry
+   *                              it doenst do anything bad
    */
   private boolean processCommand(Command command) throws InterruptedException {
-    
+
     if (command.isUnknown()) {
-      
+
       System.out.println();
       System.out.println("I don't know what you mean...");
       return false;
@@ -347,166 +349,151 @@ private void initItems(String fileName) throws Exception {
     else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-        return true; // signal that we want to quit
+      return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println();
       System.out.println("Eat?!? Are you serious?!");
-    }
-    else if(commandWord.equals("take")){
+    } else if (commandWord.equals("take")) {
       takeItem(command);
-    }
-    else if(commandWord.equals("drop")){
+    } else if (commandWord.equals("drop")) {
       dropItem(command);
-    }
-    else if(commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire") || commandWord.equals("hit") || commandWord.equals("stab")){
+    } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
+        || commandWord.equals("hit") || commandWord.equals("stab")) {
       attack(command);
-    }
-    else if(commandWord.equals("search")){
+    } else if (commandWord.equals("search")) {
+      search(command);
+    } else if (commandWord.equals("read")) {
       System.out.println();
-      search(command); 
-    }
-    else if(commandWord.equals("read")){
+      read(command);
+    } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
+        displayInventory();
+    } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
+        || commandWord.equals("Reset")) {
+          
       System.out.println();
-      read(command); 
-    }
-    else if(commandWord.equals("inventory") || commandWord.equals("display")){ 
-      System.out.println();
-      System.out.println("*Not Finished Yet");
-      System.out.println();
-      System.out.println("-Developers");
+      System.out.println("Your game is being reset...");
+      reset();
 
-      displayInventory(command);
+      String welcome = "Welcome To Zork!!!";
+      String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
+      String help = "Type 'help' to see the commands";
+      String line = yellow + "________________________________________________________________" + white;
 
-    }else if(commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset") || commandWord.equals("Reset")){
+      // Cool Printable Message
 
-    System.out.println("Your game is being reset...");
-    reset();
-
-  String welcome = "Welcome To Zork!!!";
-  String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
-  String help = "Type 'help' to see the commands";
-  String line = yellow + "________________________________________________________________" + white;
-
-  //Cool Printable Message
-
-  System.out.println();
-  System.out.println();
-  //line
-
-    for(int i = 0; i < line.length(); i++){
-
-    System.out.printf("%c", line.charAt(i));
-    Thread.sleep(5);
-    }
-    System.out.println();
-    System.out.println();
-
-    for(int i = 0; i < welcome.length(); i++){
-
-      System.out.printf("%c", welcome.charAt(i));
-      Thread.sleep(5);
-    }
-   
-    System.out.println();
-    System.out.println();
-
-    for(int i = 0; i < creators.length(); i++){
-
-      System.out.printf("%c", creators.charAt(i));
-      Thread.sleep(5);
-    }
-
-    System.out.println();
-    System.out.println();
-
-    for(int i = 0; i < help.length(); i ++){
-
-      System.out.printf("%c", help.charAt(i));
-      Thread.sleep(5);
-    }
-
-    System.out.println();
-    System.out.println();
-
-    for(int i = 0; i < line.length(); i++){
-    
-      System.out.printf("%c", line.charAt(i));
-      Thread.sleep(5);
-    }
-  
-    System.out.println();
-    System.out.println();
-
-    /**Sorry for all the strings
-     * I just wanted to have the "blood" text coloured in red
-     */
-  
-    String firstScentence = "In front of you there is a large house with no lights on." ;
-    String secondScentence ="The windows are boarded up and you can hear squeaking and faint screaming."; 
-    String thirdScentence = "To the North of you there is an open door covered in ";
-    String forthScentence = "...the ";
-    String fifthScentence = " of your friend.";
-    String blood = red + "blood" + white;
-    String exits = "Exits: North ";
-
-    System.out.println(firstScentence);
-    System.out.println(secondScentence);
-    System.out.print(thirdScentence);
-    System.out.print(blood);
-    System.out.print(forthScentence);
-    System.out.print(blood);
-    System.out.println(fifthScentence);
-    System.out.println();
-    System.out.println(exits);
-    System.out.println();
-  }
-  
-     if(commandWord.equals("fred")){
       System.out.println();
       System.out.println();
-      
+      // line
+
+      for (int i = 0; i < line.length(); i++) {
+
+        System.out.printf("%c", line.charAt(i));
+        Thread.sleep(5);
+      }
+      System.out.println();
+      System.out.println();
+
+      for (int i = 0; i < welcome.length(); i++) {
+
+        System.out.printf("%c", welcome.charAt(i));
+        Thread.sleep(5);
+      }
+
+      System.out.println();
+      System.out.println();
+
+      for (int i = 0; i < creators.length(); i++) {
+
+        System.out.printf("%c", creators.charAt(i));
+        Thread.sleep(5);
+      }
+
+      System.out.println();
+      System.out.println();
+
+      for (int i = 0; i < help.length(); i++) {
+
+        System.out.printf("%c", help.charAt(i));
+        Thread.sleep(5);
+      }
+
+      System.out.println();
+      System.out.println();
+
+      for (int i = 0; i < line.length(); i++) {
+
+        System.out.printf("%c", line.charAt(i));
+        Thread.sleep(5);
+      }
+
+      System.out.println();
+      System.out.println();
+
+      /**
+       * Sorry for all the strings
+       * I just wanted to have the "blood" text coloured in red
+       */
+
+      String firstScentence = "In front of you there is a large house with no lights on.";
+      String secondScentence = "The windows are boarded up and you can hear squeaking and faint screaming.";
+      String thirdScentence = "To the North of you there is an open door covered in ";
+      String forthScentence = "...the ";
+      String fifthScentence = " of your friend.";
+      String blood = red + "blood" + white;
+      String exits = "Exits: North ";
+
+      System.out.println(firstScentence);
+      System.out.println(secondScentence);
+      System.out.print(thirdScentence);
+      System.out.print(blood);
+      System.out.print(forthScentence);
+      System.out.print(blood);
+      System.out.println(fifthScentence);
+      System.out.println();
+      System.out.println(exits);
+      System.out.println();
+    }
+
+    if (commandWord.equals("fred")) {
+      System.out.println();
+      System.out.println();
+
       String importantMessage = "Fred is hot";
 
-        for(int i = 0 ; i < importantMessage.length(); i++){
+      for (int i = 0; i < importantMessage.length(); i++) {
 
-          System.out.printf("%c", importantMessage.charAt(i));
-          Thread.sleep(500);
+        System.out.printf("%c", importantMessage.charAt(i));
+        Thread.sleep(500);
 
-        }
-        System.out.println();
-        System.out.println();
-    }
-    else if(commandWord.equals("winson")){
-
-
+      }
+      System.out.println();
+      System.out.println();
+    } else if (commandWord.equals("winson")) {
 
       int ran = (int) (Math.random() * 2);
-      if(ran == 0){
+      if (ran == 0) {
         String quotes = "''";
 
         System.out.println();
         System.out.print("Coincidence: ");
-        System.out.println(quotes + "A situation in which events happen at the same time in a way that is not planned or expected." + quotes);
+        System.out.println(quotes
+            + "A situation in which events happen at the same time in a way that is not planned or expected." + quotes);
         System.out.println();
         System.out.println("...however, I think math");
         System.out.println();
         System.out.println("    -Greg Winson 2011-2021");
-      } 
-      else{
+      } else {
         System.out.println();
-        System.out.println("Remember, the most common mistakes in Math is arithmetic involving negative numbers."); 
+        System.out.println("Remember, the most common mistakes in Math is arithmetic involving negative numbers.");
         System.out.println();
         System.out.println("     -Greg Winson 2011-2021");
       }
-    
-      
+
     }
     return false;
   }
-  
 
   // implementations of user commands:
-
 
   private void attack(Command command) {
   }
@@ -515,12 +502,14 @@ private void initItems(String fileName) throws Exception {
   }
 
   private void search(Command command) {
+    
+    currentRoom.search();
   }
-
   /**
    * Print out some help information and a list of the command words.
    * 
-   * @throws InterruptedException // this is for the printed message it doesnt do anything 
+   * @throws InterruptedException // this is for the printed message it doesnt do
+   *                              anything
    */
   private void printHelp() throws InterruptedException {
     String helperMessage = "Your command words are below, use them to win the game ";
@@ -528,76 +517,95 @@ private void initItems(String fileName) throws Exception {
     System.out.println();
     System.out.println();
 
-      for(int i  = 0; i < helperMessage.length(); i++){
+    for (int i = 0; i < helperMessage.length(); i++) {
 
       System.out.printf("%c", helperMessage.charAt(i));
-    
+
       Thread.sleep(15);
-      }
-      System.out.println();
-      System.out.println();
+    }
+    System.out.println();
+    System.out.println();
 
-      parser.showCommands();
-      
-      System.out.println();
-      System.out.println();
+    parser.showCommands();
+
+    System.out.println();
+    System.out.println();
 
   }
-  public void displayInventory(Command command){
 
-    for(int i = 0; i < playerInventory.toString().length(); i++){ 
-      System.out.println(i + " ");
-    
-  }
+  public void displayInventory() {
+    playerInventory.displayInventory(); 
   }
 
-  //FIX NEEDED
-  // If item is not valid code breaks 
-  private void takeItem(Command command){
+  // FIX NEEDED
+  // If item is not valid code breaks
+  private void takeItem(Command command) {
 
-    if(!command.hasExtraWords()){
+ 
+    if (!command.hasExtraWords()) {
       System.out.println();
       System.out.println("Take What?");
       System.out.println();
-    }else{
-      String first = command.getExtraWords().get(0);
-      String second = command.getExtraWords().get(1);
-      String itemName = first + " " + second; 
+    } else {
+      String itemName; 
+      if(command.getExtraWords().size() > 1){
+        String first = command.getExtraWords().get(0);
+        String second = command.getExtraWords().get(1);
+        itemName = first + " " + second;
+      }else{
+        itemName = command.getExtraWords().get(0);
+      }
+
       Item item = currentRoom.removeItem(itemName);
-      if(item == null){
-        System.out.println("What " + itemName + "?");
-      }else{
-        if(!playerInventory.add(item)){
+      if (item == null) {
+        System.out.println("This " + itemName + " does not exist in this room.");
+      } else {
+        if (!playerInventory.add(item)) {
           currentRoom.addItem(item);
-        } 
+          System.out.println();
+          System.out.println("You took the " + itemName);
+          System.out.println();
+        }
       }
       System.out.println();
-      System.out.println("You took the " + itemName);
+      System.out.print(currentRoom.exits());
       System.out.println();
+      
     }
   }
 
-  private void dropItem(Command command){
+  private void dropItem(Command command) {
 
-    if(!command.hasExtraWords()){
+    if (!command.hasExtraWords()) {
       System.out.println();
       System.out.println("Take What?");
       System.out.println();
-    }else{
-      String first = command.getExtraWords().get(0);
-      String second = command.getExtraWords().get(1);
-      String itemName = first + " " + second; 
-      Item item = playerInventory.remove(itemName);
-      if(item == null){
-        System.out.println("What " + itemName + "?");
+    } else {
+      String itemName; 
+      if(command.getExtraWords().size() > 1){
+        String first = command.getExtraWords().get(0);
+        String second = command.getExtraWords().get(1);
+        itemName = first + " " + second;
       }else{
-        currentRoom.addItem(item); 
+        itemName = command.getExtraWords().get(0);
+      }
+
+      Item item = playerInventory.remove(itemName);
+      if (item == null) {
+        System.out.println("You don't have " + itemName + " in your inventory");
+      } else {
+        currentRoom.addItem(item);
+        System.out.println();
+        System.out.println("You dropped the " + itemName);
+        System.out.println();
       }
       System.out.println();
-      System.out.println("You dropped the " + itemName);
+      System.out.println(currentRoom.exits());
       System.out.println();
     }
   }
+
+
 
   /**
    * Try to go to one direction. If there is an exit, enter the new room,
@@ -613,17 +621,17 @@ private void initItems(String fileName) throws Exception {
 
     ArrayList<String> rest = command.getExtraWords();
 
-    String direction = rest.get(0); 
+    String direction = rest.get(0);
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
 
-    if (nextRoom == null){
+    if (nextRoom == null) {
       System.out.println();
       System.out.println("There is no path or door!");
-     } else {
+    } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
-      }
+    }
   }
 }
