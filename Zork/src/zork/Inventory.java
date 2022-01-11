@@ -36,7 +36,7 @@ public class Inventory {
   }
 
   //not needed 
-  public boolean hasItem(Command command){
+  public boolean hasItem(){
     if(items.size() == 0){
       System.out.println();
       System.out.println("This room has no items");
