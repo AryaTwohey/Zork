@@ -557,9 +557,14 @@ public class Game {
       System.out.println("Take What?");
       System.out.println();
     } else {
-      String first = command.getExtraWords().get(0);
-      String second = command.getExtraWords().get(1);
-      String itemName = first + " " + second;
+      String itemName; 
+      if(command.getExtraWords().size() > 1){
+        String first = command.getExtraWords().get(0);
+        String second = command.getExtraWords().get(1);
+        itemName = first + " " + second;
+      }else{
+        itemName = command.getExtraWords().get(0);
+      }
 
       Item item = currentRoom.removeItem(itemName);
       if (item == null) {
@@ -584,9 +589,15 @@ public class Game {
       System.out.println("Take What?");
       System.out.println();
     } else {
-      String first = command.getExtraWords().get(0);
-      String second = command.getExtraWords().get(1);
-      String itemName = first + " " + second;
+      String itemName; 
+      if(command.getExtraWords().size() > 1){
+        String first = command.getExtraWords().get(0);
+        String second = command.getExtraWords().get(1);
+        itemName = first + " " + second;
+      }else{
+        itemName = command.getExtraWords().get(0);
+      }
+
       Item item = playerInventory.remove(itemName);
       if (item == null) {
         System.out.println("What " + itemName + "?");
