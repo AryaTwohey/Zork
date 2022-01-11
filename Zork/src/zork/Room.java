@@ -116,10 +116,11 @@ public class Room {
   }
 
   //not needed
-  public boolean hasItem() {
+  /*public boolean hasItem() {
     return  inventory.hasItem();
   }
 
+  */
   public String exits() {
 
     String returnString = "Exits: ";
