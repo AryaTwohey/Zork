@@ -115,6 +115,7 @@ public class Room {
     this.description = description;
   }
 
+  //not needed
   public boolean hasItem() {
     return hasItem();
   }
