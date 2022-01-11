@@ -375,7 +375,8 @@ public class Game {
 
     } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
         || commandWord.equals("Reset")) {
-
+          
+      System.out.println();
       System.out.println("Your game is being reset...");
       reset();
 
