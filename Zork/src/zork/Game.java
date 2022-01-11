@@ -592,7 +592,7 @@ public class Game {
 
       Item item = playerInventory.remove(itemName);
       if (item == null) {
-        System.out.println("You don't have " + itemName + "in your inventory");
+        System.out.println("You don't have " + itemName + " in your inventory");
       } else {
         currentRoom.addItem(item);
         System.out.println();
