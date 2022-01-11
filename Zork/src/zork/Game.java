@@ -547,7 +547,6 @@ public class Game {
 
   private void read(Command command) {
 
-    playerInventory.readNote();
     
   }
 

@@ -119,25 +119,7 @@ public class Inventory {
     return null;
   }
 
-  public void readNote() {
 
-    if (items.size() == 0) {
-      System.out.println("You don't have anything to read");
-
-    } else if (items.size() > 0) {
-
-      for (int i = 0; i < items.size(); i++) {
-
-        if (items.get(i).getName().equals("note") || items.get(i).getName().equals("riddle")) {
-
-          items.get(i).getDescription();
-
-        }else {
-          System.out.println("You dont have anything to read");
-        }
-      }
-    }  
-    }
 
   public String toString() {
     String msg = "";
