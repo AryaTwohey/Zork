@@ -109,13 +109,13 @@ public class Inventory {
      
     }
   }
-  public Item remove(String itemname) {
+  public Item remove(String itemName) {
 
     for (int i = items.size() - 1; i >= 0; i--) {
 
       Item item = items.get(i);
 
-      if (item.getName().equals(itemname)) {
+      if (item.getName().equals(itemName)) {
         return items.remove(i);
       }
     }

@@ -44,7 +44,7 @@ public class Game {
       e.printStackTrace();
     }
     parser = new Parser();
-    playerInventory = new Inventory(500);
+    playerInventory = new Inventory(Integer.MAX_VALUE);
 
   }
 
@@ -361,24 +361,20 @@ public class Game {
       dropItem(command);
     } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
         || commandWord.equals("hit") || commandWord.equals("stab")) {
-
       System.out.println();
       attack(command);
       System.out.println(currentRoom.exits());
       System.out.println();
-
     } else if (commandWord.equals("search")) {
       System.out.println();
       search(command);
       System.out.println(currentRoom.exits());
       System.out.println();
-
     } else if (commandWord.equals("read")) {
       System.out.println();
       read(command);
       System.out.println(currentRoom.exits());
-      System.out.println();
-      
+      System.out.println(); 
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
       displayInventory();
     } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
@@ -608,8 +604,9 @@ public class Game {
       if (item == null) {
         System.out.println("This " + itemName + " does not exist in this room.");
       } else {
-        if (!playerInventory.add(item)) {
+        if (!playerInventory.add(item)) 
           currentRoom.addItem(item);
+        else{
           System.out.println();
           System.out.println("You took the " + itemName);
           System.out.println();
