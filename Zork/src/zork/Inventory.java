@@ -119,8 +119,23 @@ public class Inventory {
     return null;
   }
 
-
-
+  public String readItem(String itemName){
+    for (Item item : items) {
+      if (item.getName().equals(itemName)) {
+        return item.getDescription();
+      }
+    }
+    return("unable to read this item"); 
+  }
+  
+  public boolean inInventory(String name){
+    for (Item i : items) {
+      if(i.getName().equals(name)){
+        return true; 
+      }
+    }
+    return false; 
+  }
   public String toString() {
     String msg = "";
 

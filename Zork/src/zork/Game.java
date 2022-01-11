@@ -546,7 +546,31 @@ public class Game {
   }
 
   private void read(Command command) {
+    if(!command.hasExtraWords()){
+      System.out.println("read what?");
+    }else{
+      String itemName;
+      if (command.getExtraWords().size() > 1) {
+        String first = command.getExtraWords().get(0);
+        String second = command.getExtraWords().get(1);
+        itemName = first + " " + second;
+      } else {
+        itemName = command.getExtraWords().get(0);
+      }
 
+      if (!playerInventory.inInventory(itemName)) {
+        System.out.println();
+        System.out.println("I can't read " + itemName + " because it is not in your inventory");
+        System.out.println();
+      }
+      else{
+        String description = playerInventory.readItem(itemName);
+        System.out.println();
+        System.out.println(description);
+        System.out.println();
+      }
+
+    }
     
   }
 
