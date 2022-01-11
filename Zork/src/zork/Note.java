@@ -8,19 +8,17 @@ public class Note extends Item{
 
   
   public Note(int weight, String name, boolean isOpenable, String description) {
-    this.weight = weight;
-    this.name = name;
-    this.isOpenable = isOpenable;
+    super(weight, name, isOpenable); 
     this.description = description; 
     
   }
   
 
   public Note() {
-    
+
   }
 
- public String getDescription() {
+ public String displayDescription() {
     return description;
   }
   public void setDescription(String description) {
