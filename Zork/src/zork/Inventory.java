@@ -50,17 +50,16 @@ public class Inventory {
   }
 public void searchRoom(){
   
-if(items.size() == 0){
-
-  System.out.println();
-  System.out.println("This room has no items");
-  System.out.println();
-}else{
+  if(items.size() == 0){
+    System.out.println();
+    System.out.println("This room has no items");
+    System.out.println();
+  }else{
     System.out.println();
     System.out.print("You found a: ");
 
     for(int i = 0; i < items.size(); i++){
-    System.out.print(items.get(i).getName() + "  ");
+      System.out.print(items.get(i).getName() + "  ");
     }
     System.out.println();
   }
