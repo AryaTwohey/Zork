@@ -8,12 +8,11 @@ public class Item extends OpenableObject {
   private String description; 
 
   
-  public Item(int weight, String name, boolean isOpenable,String description, String weaponDamage) {
+  public Item(int weight, String name, boolean isOpenable) {
     this.weight = weight;
     this.name = name;
     this.isOpenable = isOpenable;
-    this.weaponDamage = weaponDamage;
-    this.description = description;
+   
     
   }
   
