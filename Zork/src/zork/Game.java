@@ -361,7 +361,6 @@ public class Game {
         || commandWord.equals("hit") || commandWord.equals("stab")) {
       attack(command);
     } else if (commandWord.equals("search")) {
-
       search(command);
     } else if (commandWord.equals("read")) {
       System.out.println();
@@ -508,8 +507,7 @@ public class Game {
   }
 
   private void search(Command command) {
-  currentRoom.search();
-  
+    currentRoom.search();
   }
   /**
    * Print out some help information and a list of the command words.
