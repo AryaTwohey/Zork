@@ -20,7 +20,7 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  String weapons[] = {"pistol", "bat", "a.k. 47", "pitchfork", "plastic spoon", "bloody knife", "sword"}; 
+  String weapons[] = { "pistol", "bat", "a.k. 47", "pitchfork", "plastic spoon", "bloody knife", "sword" };
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
@@ -147,7 +147,7 @@ public class Game {
 
     }
   }
-  
+
   public class weapons extends Item {
 
     private void initWeapons(String fileName) throws Exception {
@@ -361,17 +361,29 @@ public class Game {
       dropItem(command);
     } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
         || commandWord.equals("hit") || commandWord.equals("stab")) {
+
+      System.out.println();
       attack(command);
+      System.out.println(currentRoom.exits());
+      System.out.println();
+
     } else if (commandWord.equals("search")) {
+      System.out.println();
       search(command);
+      System.out.println(currentRoom.exits());
+      System.out.println();
+
     } else if (commandWord.equals("read")) {
       System.out.println();
       read(command);
+      System.out.println(currentRoom.exits());
+      System.out.println();
+      
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
-        displayInventory();
+      displayInventory();
     } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
         || commandWord.equals("Reset")) {
-          
+
       System.out.println();
       System.out.println("Your game is being reset...");
       reset();
@@ -498,50 +510,50 @@ public class Game {
   // implementations of user commands:
 
   private void attack(Command command) {
-    if(currentRoom.hasEnemy(currentRoom.getRoomName())){
+    if (currentRoom.hasEnemy(currentRoom.getRoomName())) {
       if (!command.hasExtraWords()) {
         System.out.println();
         System.out.println("I need more information");
         System.out.println();
       } else {
-        String weaponName; 
-        if(command.getExtraWords().size() > 1){
+        String weaponName;
+        if (command.getExtraWords().size() > 1) {
           String first = command.getExtraWords().get(0);
           String second = command.getExtraWords().get(1);
           weaponName = first + " " + second;
-        }else{
+        } else {
           weaponName = command.getExtraWords().get(0);
         }
-        
-        if(!validWeapon(weaponName)){
+
+        if (!validWeapon(weaponName)) {
           System.out.println();
           System.out.println(weaponName + " is not a valid weapon.");
           System.out.println();
-        }else{
+        } else {
           System.out.println("In progress");
         }
       }
-    }
-    else{
+    } else {
       System.out.println("There is nothing to attack/kill in this space.");
     }
   }
 
   private boolean validWeapon(String weaponName) {
-    for(String s : weapons){
-      if(s.equals(weaponName)){
-        return true; 
+    for (String s : weapons) {
+      if (s.equals(weaponName)) {
+        return true;
       }
     }
-    return false; 
+    return false;
   }
 
   private void read(Command command) {
   }
 
-  private void search(Command command) {
+  private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
+
   /**
    * Print out some help information and a list of the command words.
    * 
@@ -570,26 +582,25 @@ public class Game {
 
   }
 
-  public void displayInventory() {
-    playerInventory.displayInventory(); 
+  public void displayInventory() throws InterruptedException {
+    playerInventory.displayInventory();
   }
 
   // FIX NEEDED
   // If item is not valid code breaks
   private void takeItem(Command command) {
 
- 
     if (!command.hasExtraWords()) {
       System.out.println();
       System.out.println("Take What?");
       System.out.println();
     } else {
-      String itemName; 
-      if(command.getExtraWords().size() > 1){
+      String itemName;
+      if (command.getExtraWords().size() > 1) {
         String first = command.getExtraWords().get(0);
         String second = command.getExtraWords().get(1);
         itemName = first + " " + second;
-      }else{
+      } else {
         itemName = command.getExtraWords().get(0);
       }
 
@@ -607,7 +618,7 @@ public class Game {
       System.out.println();
       System.out.print(currentRoom.exits());
       System.out.println();
-      
+
     }
   }
 
@@ -618,18 +629,20 @@ public class Game {
       System.out.println("Take What?");
       System.out.println();
     } else {
-      String itemName; 
-      if(command.getExtraWords().size() > 1){
+      String itemName;
+      if (command.getExtraWords().size() > 1) {
         String first = command.getExtraWords().get(0);
         String second = command.getExtraWords().get(1);
         itemName = first + " " + second;
-      }else{
+      } else {
         itemName = command.getExtraWords().get(0);
       }
 
       Item item = playerInventory.remove(itemName);
       if (item == null) {
+        System.out.println();
         System.out.println("You don't have " + itemName + " in your inventory");
+        System.out.println();
       } else {
         currentRoom.addItem(item);
         System.out.println();
@@ -641,8 +654,6 @@ public class Game {
       System.out.println();
     }
   }
-
-
 
   /**
    * Try to go to one direction. If there is an exit, enter the new room,
