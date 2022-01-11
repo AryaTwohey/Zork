@@ -49,7 +49,7 @@ public class Inventory {
 
   }
 public void searchRoom(){
-  
+  //change
   if(items.size() == 0){
     System.out.println();
     System.out.println("This room has no items");
