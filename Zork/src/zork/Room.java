@@ -116,7 +116,7 @@ public class Room {
   }
 
   public boolean hasItem() {
-    return hasItem();
+    return  inventory.hasItem();
   }
 
   public String exits() {

@@ -508,6 +508,7 @@ public class Game {
   }
 
   private void search(Command command) {
+    
     currentRoom.search();
   }
   /**
@@ -550,8 +551,7 @@ public class Game {
   // If item is not valid code breaks
   private void takeItem(Command command) {
 
-    //currentRoom.hasItem();      //this needs to work because our code picks up items even when they are not there
-                                  //so it needs to check if the room has any items before accepting take
+ 
     if (!command.hasExtraWords()) {
       System.out.println();
       System.out.println("Take What?");
