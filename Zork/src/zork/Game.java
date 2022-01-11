@@ -29,7 +29,7 @@ public class Game {
 
   /**
    * Create the game and initialize its internal map.
-   * fred is hot
+   * 
    */
   public Game() {
     try {
@@ -190,9 +190,9 @@ public class Game {
       int notesWeight = Integer.parseInt((String) ((JSONObject) noteobj).get("Weight"));
       String notesDescription = (String) ((JSONObject) noteobj).get("description");
 
-      // note.setName(notesName);
-      // note.setDescription(notesDescription);
-      // note.setWeight(notesWeight);
+      note.setName(notesName);
+      note.setDescription(notesDescription);
+      note.setWeight(notesWeight);
     }
   }
 
