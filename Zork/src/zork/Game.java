@@ -29,7 +29,7 @@ public class Game {
 
   /**
    * Create the game and initialize its internal map.
-   * fred is hot
+   * 
    */
   public Game() {
     try {
@@ -374,7 +374,12 @@ public class Game {
       System.out.println();
       read(command);
       System.out.println(currentRoom.exits());
+<<<<<<< Updated upstream
       System.out.println(); 
+=======
+      System.out.println();
+
+>>>>>>> Stashed changes
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
       displayInventory();
     } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
@@ -610,7 +615,7 @@ public class Game {
           System.out.println();
           System.out.println("You took the " + itemName);
           System.out.println();
-        }else{
+        } else {
           System.out.println("You took " + itemName);
         }
       }
