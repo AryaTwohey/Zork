@@ -56,7 +56,7 @@ public class Inventory {
 
   public void displayInventory() throws InterruptedException{
 
-    String message =  yellow +"Displaying Inventory" + white ;
+    String message =  blue +"Displaying Inventory" + white ;
     System.out.println();
     System.out.println();
 
@@ -69,7 +69,7 @@ public class Inventory {
     System.out.println();
 
     for(Item i : items){
-        System.out.println(i.getName() + " ");
+        System.out.println( blue + "- " + white +  i.getName() + " ");
     }
   }
 
