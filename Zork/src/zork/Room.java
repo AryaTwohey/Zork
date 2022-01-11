@@ -24,12 +24,14 @@ public class Room {
   public Room(String description) {
     this.description = description;
     exits = new ArrayList<Exit>();
+    inventory = new Inventory(Integer.MAX_VALUE);
   }
 
   public Room() {
     roomName = "DEFAULT ROOM";
     description = "DEFAULT DESCRIPTION";
     exits = new ArrayList<Exit>();
+    inventory = new Inventory(Integer.MAX_VALUE);
   }
 
   public void addExit(Exit exit) throws Exception {
@@ -49,7 +51,7 @@ public class Room {
    * Exits: north west
    */
   public String longDescription() {
-    
+
     return "Room: " + roomName + "\n\n" + description + "\n" + exitString();
   }
 
@@ -113,14 +115,31 @@ public class Room {
     this.description = description;
   }
 
-  public Item removeItem(String itemName){
-    return inventory.dropItem(itemName);
+  //not needed
+  /*public boolean hasItem() {
+    return  inventory.hasItem();
   }
 
-  public boolean addRoomItem(Item item){
-    return inventory.addItem(item);
+  */
+  public String exits() {
+
+    String returnString = "Exits: ";
+    for (Exit exit : exits) {
+      returnString += exit.getDirection() + " ";
+    }
+    return returnString;
   }
 
+ public void search(){
 
+  inventory.searchRoom();
+ }
 
+  public Item removeItem(String itemName) {
+    return inventory.remove(itemName);
+  }
+
+  public boolean addItem(Item item) {
+    return inventory.add(item);
+  }
 }
