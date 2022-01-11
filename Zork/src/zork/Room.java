@@ -130,7 +130,7 @@ public class Room {
     return returnString;
   }
 
- public void search(){
+ public void search() throws InterruptedException{
 
   inventory.searchRoom();
  }
