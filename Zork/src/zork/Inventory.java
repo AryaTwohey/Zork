@@ -125,7 +125,7 @@ public class Inventory {
         return item.getDescription();
       }
     }
-    return("unable to read this item"); 
+    return("Unable to read this item"); 
   }
 
   public boolean inInventory(String name){
