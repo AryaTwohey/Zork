@@ -174,6 +174,8 @@ public class Game {
         weapon.setDescription(weaponDescription);
         weapon.setWeight(weaponWeight);
         weapon.setDamage(weaponDamage);
+        roomMap.get(weaponStartingRoom).addItem(weapon);
+
       }
   }
 
@@ -480,7 +482,7 @@ public class Game {
         System.out.println();
         System.out.print("Coincidence: ");
         System.out.println(quotes
-            + "A situation in which events happen at the same time in a way that is not planned or expected." + quotes);
+            + "A situation in which events happen at the same in a way that is not planned or expected." + quotes);
         System.out.println();
         System.out.println("...however, I think math");
         System.out.println();
@@ -605,8 +607,7 @@ public class Game {
     playerInventory.displayInventory();
   }
 
-  // FIX NEEDED
-  // If item is not valid code breaks
+ 
   private void takeItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -626,7 +627,8 @@ public class Game {
       Item item = currentRoom.removeItem(itemName);
       if (item == null) {
         System.out.println();
-        System.out.println("This " + itemName + " does not exist in this room.");
+        System.out.print("This " + itemName + " does not exist in this room. ");
+        System.out.println("Or try typing " + blue + "search " + white + "to find the name of the item");
       } else {
         if (!playerInventory.add(item)) 
           currentRoom.addItem(item);

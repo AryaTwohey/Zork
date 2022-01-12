@@ -47,7 +47,7 @@
         "weight" : "6"
       },
       {
-        "starting location": "Kitchen (counter)",
+        "starting location": "Kitchen",
         "id": "Bloody Knife",
         "name": "bloody knife",
         "damage": "75",

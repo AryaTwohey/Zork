@@ -134,11 +134,11 @@
     {
       "id": "Skeleton Room (Skeleton)",
       "name": "Skeleton Room",
-      "description": "You moved West to advance up the stairs. As you were walking you heard creaking and cracking. One of the steps fell through, and you fell into a secret room. You landed right in front of a skeleton on the furthest East side of the room." ,
+      "description": "You advance up the stairs. As you were walking you heard creaking and cracking. One of the steps fell through, and you fell into a secret room. You landed right in front of a skeleton on the furthest East side of the room." ,
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "South",
           "adjacentRoom": "Skeleton Room (Painting)"
         }
       ]
@@ -146,19 +146,25 @@
     {
       "id": "Skeleton Room (Painting)",
       "name": "Stairs of Skeleton Room",
-      "description": "You moved West and are now facing the painting of an old woman and a cat.",
+      "description": "You are now facing the painting of an old woman and a cat.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
           "adjacentRoom": "Bedroom 1"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Skeleton Room (Skeleton)"
         }
+
       ]
     }, 
     {
       "id": "Bedroom 1",
       "name": "Bedroom 1",
-      "description": "You have entered a bedroom. In front of you is a note.",
+      "description": "You have entered a bedroom. In front of you is a piece of paper.",
       "exits": [
         {
           "isLocked": false,
@@ -184,7 +190,7 @@
         }, 
         {
             "isLocked": false,
-            "direction": "East",
+            "direction": "Northwest",
             "adjacentRoom": "Bedroom 1"
           }
       ]
@@ -192,7 +198,7 @@
     {
       "id": "Bathroom (Toilet)",
       "name": "Bathroom",
-      "description": "You have moved to the North and are now facing a toilet.",
+      "description": "You are now facing a toilet.",
       "exits": [
         {
           "isLocked": false,
@@ -201,7 +207,7 @@
         },
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "East",
           "adjacentRoom": "Bathroom (Bathtub)"
         }
       ]
@@ -213,12 +219,12 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "West",
           "adjacentRoom": "Bathroom (Toilet)"
         },
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "Northwest",
           "adjacentRoom": "Bedroom 2"
         }
       ]
@@ -230,7 +236,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "Southeast",
           "adjacentRoom": "Bathroom (Bathtub)"
         },
         {
@@ -260,7 +266,7 @@
     {
       "id": "Bedroom 4",
       "name": "Bedroom 4",
-      "description": "You have entered the fourth bedroom, with a doll’s sibling to greet you. Defeat this doll to receive the last missing key to save you all.",
+      "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to receive a missing key to save yourself and your friend.",
       "exits": [
         {
           "isLocked": false,
