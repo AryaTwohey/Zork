@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Room {
 
   private String roomName;
-  private String description;
+  private String description; 
+  private ArrayList<Character> characters;  
   private ArrayList<Exit> exits;
   Inventory inventory;
 
@@ -21,7 +22,7 @@ public class Room {
    * Create a room described "description". Initially, it has no exits.
    * "description" is something like "a kitchen" or "an open court yard".
    */
-  public Room(String description) {
+  public Room(String description, boolean isLocked) {
     this.description = description;
     exits = new ArrayList<Exit>();
     inventory = new Inventory(Integer.MAX_VALUE);
@@ -32,6 +33,7 @@ public class Room {
     description = "DEFAULT DESCRIPTION";
     exits = new ArrayList<Exit>();
     inventory = new Inventory(Integer.MAX_VALUE);
+    characters = new ArrayList<Character>(); 
   }
 
   public void addExit(Exit exit) throws Exception {
@@ -77,6 +79,12 @@ public class Room {
       for (Exit exit : exits) {
 
         if (exit.getDirection().equalsIgnoreCase(direction)) {
+          if(exit.isLocked()){
+            System.out.println();
+            System.out.println("The door is locked.");
+            System.out.println();
+            return null; 
+          }
           String adjacentRoom = exit.getAdjacentRoom();
 
           return Game.roomMap.get(adjacentRoom);
@@ -143,8 +151,15 @@ public class Room {
     return inventory.add(item);
   }
 
-  public boolean hasEnemy(String roomName){
-    //how todo  
-    return true; 
+  public boolean hasEnemy(){
+    return characters.size() > 0;  
+  }
+
+  public Character getCharacter(){
+    return characters.get(0); 
+  }
+
+  public void addCharacter(Character character) {
+    characters.add(character); 
   }
 }

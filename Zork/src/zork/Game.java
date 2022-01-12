@@ -38,7 +38,7 @@ public class Game {
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
       //initNotes("src\\zork\\data\\notes.json");
-      currentRoom = roomMap.get("Outside Entrance");
+      currentRoom = roomMap.get("Bedroom 4");
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -145,6 +145,7 @@ public class Game {
       character.setDescription(charDescription);
       character.setName(charName);
       character.setHealth(health);
+      roomMap.get(charLocation).addCharacter(character);
 
       // add characters to room - like items see init items
 
@@ -194,18 +195,6 @@ public class Game {
       try {
         command = parser.getCommand();
         finished = processCommand(command);
-        if(currentRoom.getRoomName().equals("Bedroom 4")){
-          if(playerInventory.makeMasterKey()){
-            playerInventory.remove("key 1");
-            currentRoom.removeItem("key 1");  
-            playerInventory.remove("key 2");
-            currentRoom.removeItem("key 2");  
-            playerInventory.remove("key 3"); 
-            currentRoom.removeItem("key 3");
-            Item masterKey =  new Item(50, "Master Key", false, "Master Key made with the 3 keys previously found"); 
-            playerInventory.add(masterKey);  
-          }
-        }
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -495,13 +484,23 @@ public class Game {
       }
 
     }
+    if(currentRoom.getRoomName().equals("Bedroom 4")){
+      if(playerInventory.makeMasterKey()){
+        playerInventory.remove("key 1");
+        playerInventory.remove("key 2");
+        playerInventory.remove("key 3"); 
+        Item masterKey =  new Item(50, "Master Key", false, "Master Key made with the 3 keys previously found"); 
+        playerInventory.add(masterKey);  
+        System.out.println("You now have the master key and can go through all locked doors");
+      }
+    }
     return false;
   }
 
   // implementations of user commands:
 
   private void attack(Command command) {
-    if (currentRoom.hasEnemy(currentRoom.getRoomName())) {
+    if (currentRoom.hasEnemy()) {
       if (!command.hasExtraWords()) {
         System.out.println();
         System.out.println("I need more information");
@@ -680,7 +679,7 @@ public class Game {
    */
   private void goRoom(Command command) {
     if (!command.hasExtraWords()) {
-      // if there is no second word, we don't know where to go...
+      // if there are no second word, we don't know where to go...
       System.out.println();
       System.out.println("Go where?");
       return;
@@ -695,7 +694,7 @@ public class Game {
 
     if (nextRoom == null) {
       System.out.println();
-      System.out.println("There is no path or door!");
+      System.out.println("Can't go there!");
     } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
