@@ -60,6 +60,12 @@ public class Inventory {
     System.out.println();
     System.out.println();
 
+    if(items.size() == 0){
+      System.out.println("Search for items around the map, and find them here");
+      System.out.println();
+    }else{
+
+
     for (int i = 0; i < message.length(); i++) {
 
       System.out.printf("%c", message.charAt(i));
@@ -73,8 +79,10 @@ public class Inventory {
       System.out.println(blue + "- " + white + i.getName() + " ");
     }
   }
+}
 
   public void searchRoom() throws InterruptedException {
+
     String noItems = red + "Keep Searching..." + white;
     String youFound = blue + "You Found: " + white;
 
