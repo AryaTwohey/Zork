@@ -163,7 +163,7 @@ public class Inventory {
     if(items.size() == 0){
 
       System.out.println();
-      System.out.println(blue + "100% Carrying Capacity" + white);
+      System.out.println(blue + "100% Carrying Capacity Left" + white);
       System.out.println();
 
     }else{
