@@ -152,7 +152,13 @@
           "isLocked": false,
           "direction": "West",
           "adjacentRoom": "Bedroom 1"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Skeleton Room (Skeleton)"
         }
+
       ]
     }, 
     {
@@ -184,7 +190,7 @@
         }, 
         {
             "isLocked": false,
-            "direction": "East",
+            "direction": "Northwest",
             "adjacentRoom": "Bedroom 1"
           }
       ]
@@ -201,7 +207,7 @@
         },
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "East",
           "adjacentRoom": "Bathroom (Bathtub)"
         }
       ]
@@ -213,12 +219,12 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "West",
           "adjacentRoom": "Bathroom (Toilet)"
         },
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "Northwest",
           "adjacentRoom": "Bedroom 2"
         }
       ]
@@ -230,7 +236,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "Southeast",
           "adjacentRoom": "Bathroom (Bathtub)"
         },
         {
