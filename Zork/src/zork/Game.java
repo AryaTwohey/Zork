@@ -470,7 +470,7 @@ public class Game {
         System.out.println();
         System.out.print("Coincidence: ");
         System.out.println(quotes
-            + "A situation in which events happen at the same time in a way that is not planned or expected." + quotes);
+            + "A situation in which events happen at the same in a way that is not planned or expected." + quotes);
         System.out.println();
         System.out.println("...however, I think math");
         System.out.println();

@@ -99,7 +99,7 @@ public class Parser extends CommandWords {
         System.out.println("Time is ticking, make your choice...");
         System.out.println();
       }                                                             //this length limit is so that it doesnt mix up other commands with directions
-      else if(validDirections.indexOf(i) < 0 && words.get(i).length() == 1 || words.get(i).length() < 3){ //shows the invalid direction being inputted
+      else if(validDirections.indexOf(i) < 0 && words.get(i).length() == 1 || words.get(i).length() < 3 && words.get(i).length() == 0){ //shows the invalid direction being inputted
 
         System.out.println();
         System.out.println(words.get(i).toString() + " is not a valid direction");    //this shows the shortened 
