@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class Inventory {
   public static final String yellow = "\u001B[33m"; // for displayInventory
   public static final String white = "\u001B[37m"; // for displayInventory
-  public static final String blue = "\u001B[34m"; // for another function
+  public static final String blue = "\u001B[34m"; // for another functionpublic static final String TEXT_RED = "\u001B[31m";
+  public static final String red = "\u001B[31m";  //for "keep searching"
+
 
   private ArrayList<Item> items;
   private int maxWeight;
@@ -72,7 +74,7 @@ public class Inventory {
   }
 
   public void searchRoom() throws InterruptedException {
-    String noItems = blue + "This room has no items" + white;
+    String noItems = red + "Keep Searching..." + white;
     String youFound = blue + "You Found: " + white;
 
     if (items.size() == 0) {
