@@ -7,7 +7,6 @@ package zork;
         private String description;
         private String weaponDamage; 
 
-
         public Weapons(int weight, String name, boolean isOpenable, String description, String weaponDamage) {
           super(weight, name, isOpenable, description); 
           this.weaponDamage = weaponDamage;
@@ -20,7 +19,7 @@ package zork;
         public void setDamage(String weaponDamage) {
             this.weaponDamage = weaponDamage;
         }
-
+     
         public String getDamage(String weaponDamage) {
           return weaponDamage;
       }

@@ -38,7 +38,7 @@ public class Game {
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
       //initNotes("src\\zork\\data\\notes.json");
-      currentRoom = roomMap.get("Outside Entrance");
+      currentRoom = roomMap.get("Armory");
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -174,6 +174,8 @@ public class Game {
         weapon.setDescription(weaponDescription);
         weapon.setWeight(weaponWeight);
         weapon.setDamage(weaponDamage);
+        roomMap.get(weaponStartingRoom).addItem(weapon);
+
       }
   }
 
