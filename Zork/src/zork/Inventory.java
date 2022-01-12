@@ -172,7 +172,6 @@ public class Inventory {
 
       System.out.println();
       System.out.println(blue + "100% Carrying Capacity Left" + white);
-      System.out.println();
 
     }else{
 
