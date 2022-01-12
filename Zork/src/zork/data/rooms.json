@@ -168,7 +168,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "Southeast",
+          "direction": "West",
           "adjacentRoom": "Bathroom (Sink)"
         }
       ]
@@ -190,7 +190,7 @@
         }, 
         {
             "isLocked": false,
-            "direction": "Northwest",
+            "direction": "East",
             "adjacentRoom": "Bedroom 1"
           }
       ]
@@ -224,7 +224,7 @@
         },
         {
           "isLocked": false,
-          "direction": "Northwest",
+          "direction": "North",
           "adjacentRoom": "Bedroom 2"
         }
       ]
@@ -236,7 +236,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "Southeast",
+          "direction": "South",
           "adjacentRoom": "Bathroom (Bathtub)"
         },
         {
