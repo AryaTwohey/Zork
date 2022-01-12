@@ -192,6 +192,18 @@ public class Game {
       try {
         command = parser.getCommand();
         finished = processCommand(command);
+        if(currentRoom.getRoomName().equals("Bedroom 4")){
+          if(playerInventory.makeMasterKey()){
+            playerInventory.remove("key 1");
+            currentRoom.removeItem("key 1");  
+            playerInventory.remove("key 2");
+            currentRoom.removeItem("key 2");  
+            playerInventory.remove("key 3"); 
+            currentRoom.removeItem("key 3");
+            Item masterKey =  new Item(50, "Master Key", false, "Master Key made with the 3 keys previously found"); 
+            playerInventory.add(masterKey);  
+          }
+        }
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -445,7 +457,7 @@ public class Game {
       System.out.println();
     }
 
-    if (commandWord.equals("fred")) {
+    else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
 

@@ -285,7 +285,7 @@
       "description": "Sitting in front of you is a bed with a key placed neatly on the duvets. This is either really suspicious or you are getting really lucky right now",
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         },

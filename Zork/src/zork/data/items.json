@@ -34,12 +34,14 @@
         "Weight" : "50"
       },
       {
-        "starting location": "Bedroom 4",
+        
+        "starting location": "Cellar",
         "id": "Master Key",
         "name": "master key",
         "description": "Master key was created with all three keys. Use the key to unlock the cellar to save your friend.",
         "isOpenable" : "False",
         "Weight" : "50"
+        
       },
       {
         "starting location": "Bedroom 3",
