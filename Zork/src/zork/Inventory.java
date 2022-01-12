@@ -149,6 +149,7 @@ public class Inventory {
   }
 
   public void inventorySpace(){
+    
  /* * * * * * * * * * * * * * * * * * * * *
   * Calculates the total inventory space  *
   * The user has LEFT not how much space  *
