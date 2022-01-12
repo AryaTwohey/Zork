@@ -69,6 +69,7 @@ public class Inventory {
     System.out.println();
 
     for (Item i : items) {
+      
       System.out.println(blue + "- " + white + i.getName() + " ");
     }
   }
@@ -146,6 +147,41 @@ public class Inventory {
     }
     return false; 
   }
+
+  public void inventorySpace(){
+ /* * * * * * * * * * * * * * * * * * * * *
+  * Calculates the total inventory space  *
+  * The user has LEFT not how much space  *
+  * They have USED                        *
+  * * * * * * * * * * * * * * * * * * * * */ 
+    
+    int sum = 0;
+    int part = 0;
+    int total = 6475;
+
+    if(items.size() == 0){
+
+      System.out.println();
+      System.out.println(blue + "100% Carrying Capacity" + white);
+      System.out.println();
+
+    }else{
+
+    for(int i = 0; i < items.size(); i++){
+
+     int value = items.get(i).getWeight();
+
+     sum += value;
+    }
+    part = total - sum;
+    part = ((part * 100)) / total;
+
+    System.out.println();
+    System.out.println("Total Inventory Space Left: " + blue + part +"%" + white);
+
+  }
+}
+
   public String toString() {
     String msg = "";
 

@@ -38,14 +38,21 @@ public class Game {
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
       //initNotes("src\\zork\\data\\notes.json");
-      currentRoom = roomMap.get("Bedroom 4");
+      currentRoom = roomMap.get("Armory");
 
     } catch (Exception e) {
       e.printStackTrace();
-    }
+    } 
     parser = new Parser();
-    playerInventory = new Inventory(Integer.MAX_VALUE);
 
+    /* * * * * * * * * * * *  * * * * * * * * * * * * *
+     * 8633g - - > Sum of all items weights           *
+     * 6475 - - > Approximatley 75% of max capacity   *
+     * I (Arya) think that this should be the max-    *
+     * carrying capacity for a inventory              *
+     * * * * * * * * * * * * * * * * * * * * * * * * *    
+    */
+    playerInventory = new Inventory(6475);
   }
 
   private void reset() {
@@ -59,7 +66,7 @@ public class Game {
       e.printStackTrace();
     }
     parser = new Parser();
-    playerInventory = new Inventory(1000);
+    playerInventory = new Inventory(6475);
 
   }
 
@@ -151,8 +158,6 @@ public class Game {
 
     }
   }
-
-
 
     private void initWeapons(String fileName) throws Exception {
       Path path = Path.of(fileName);
@@ -361,8 +366,11 @@ public class Game {
       System.out.println(); 
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
       displayInventory();
-    } else if (commandWord.equals("restart") || commandWord.equals("Restart") || commandWord.equals("reset")
-        || commandWord.equals("Reset")) {
+    }else if (commandWord.equals("space")) {
+      inventorySpace(command);
+      System.out.println(currentRoom.exits());
+    
+    } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
       System.out.println("Your game is being reset...");
@@ -568,6 +576,9 @@ public class Game {
         System.out.println();
       }
     }
+  }
+  private void inventorySpace(Command command){
+    playerInventory.inventorySpace();
   }
 
   private void search(Command command) throws InterruptedException {
