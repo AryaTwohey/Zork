@@ -38,7 +38,7 @@ public class Game {
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
       //initNotes("src\\zork\\data\\notes.json");
-      currentRoom = roomMap.get("Armory");
+      currentRoom = roomMap.get("Outside Entrance");
 
     } catch (Exception e) {
       e.printStackTrace();
