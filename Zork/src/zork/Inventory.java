@@ -130,6 +130,14 @@ public class Inventory {
     return("Unable to read this item"); 
   }
 
+  public boolean makeMasterKey(){
+    if(inInventory("key 1") && inInventory("key 2") && inInventory("key 2")){
+      return true; 
+    }else{
+      return false; 
+    }
+  }
+
   public boolean inInventory(String name){
     for (Item i : items) {
       if(i.getName().equals(name)){

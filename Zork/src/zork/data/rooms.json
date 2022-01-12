@@ -249,7 +249,7 @@
     {
       "id": "Bedroom 3",
       "name": "Bedroom 3",
-      "description": "You walk into a third bedroom, with a strange riddle under a painting. Solve the riddle to find the sword, and save your friend.",
+      "description": "You walk into a third bedroom, search around, you might find something.",
       "exits": [
         {
           "isLocked": false,
@@ -266,15 +266,15 @@
     {
       "id": "Bedroom 4",
       "name": "Bedroom 4",
-      "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to receive a missing key to save yourself and your friend.",
+      "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to move on - remember that knife?.",
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Bedroom 4 (key)"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         }, 
@@ -291,7 +291,7 @@
       "description": "Sitting in front of you is a bed with a key placed neatly on the duvets. This is either really suspicious or you are getting really lucky right now",
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         },
@@ -305,7 +305,7 @@
     {
       "id": "Bedroom 4 (trapdoor)",
       "name": "Bedroom 4",
-      "description": "You have collected all the keys to create the master key. The one to open the ancient trap door and open the cellar within the house. Hurry time is running out! ",
+      "description": " Hurry use the trapdoor to go to the next room time is running out! ",
       "exits": [
         {
           "isLocked": false,
