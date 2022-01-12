@@ -9,11 +9,44 @@
         "Weight" : "800" 
       },
       {
-        
+        "starting location": "Library (Doll Case)",
+        "id": "Lamp",
+        "name": "lamp",
+        "description": "This lamp is found in this room.",
+        "isOpenable" : "False",
+        "isNote" : "False", 
+        "Weight" : "700"
+      
+      },
+      {
         "starting location": "Bathroom (Bathtub)",
         "id": "Key 1",
         "name": "key1",
         "description": "You have found 1 of the 3 keys that lie in this house. Find the other 2 keys to unlock the passage to the cellar and save your friend from the horrors within the house.",
+        "isOpenable" : "False",
+        "Weight" : "50"
+      },
+      {
+        "starting location": "Bedroom 1",
+        "id": "Mirror",
+        "name": "mirror",
+        "description": "This mirror is found in the bedroom. Take a second to look at yourself",
+        "isOpenable" : "False",
+        "Weight" : "1000"
+      },
+      {
+        "starting location": "Bathroom (Sink)",
+        "id": "Toothbrush",
+        "name": "toothbrush",
+        "description": "You found a toothbrush in the bathroom.",
+        "isOpenable" : "False",
+        "Weight" : "50"
+      },
+      {
+        "starting location": "Bathroom (Sink)",
+        "id": "Toothpaste",
+        "name": "toothpaste",
+        "description": "You found toothpaste in the bathroom.",
         "isOpenable" : "False",
         "Weight" : "50"
       },
@@ -24,6 +57,14 @@
         "description": "This key is one of the last to find, hurry to save your friend in time!",
         "isOpenable" : "False",
         "Weight" : "50"
+      },
+      {
+        "starting location": "Bedroom 3",
+        "id": "Standing Fan",
+        "name": "standing fan",
+        "description": "You found a standing fan in the bedroom.",
+        "isOpenable" : "False",
+        "Weight" : "900"
       },
       {
         "starting location": "Bedroom 4",
@@ -50,7 +91,8 @@
         "isOpenable" : "False",
         "isNote" : "True", 
         "Weight" : "5"
-      }      
+      
+      }   
 
     ]
   }
