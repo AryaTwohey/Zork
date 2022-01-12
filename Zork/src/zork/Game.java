@@ -593,8 +593,7 @@ public class Game {
     playerInventory.displayInventory();
   }
 
-  // FIX NEEDED
-  // If item is not valid code breaks
+ 
   private void takeItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -615,6 +614,7 @@ public class Game {
       if (item == null) {
         System.out.println();
         System.out.println("This " + itemName + " does not exist in this room.");
+        System.out.println("Or try typing 'search' to find name of the item");
       } else {
         if (!playerInventory.add(item)) 
           currentRoom.addItem(item);
