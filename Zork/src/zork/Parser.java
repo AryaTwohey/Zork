@@ -42,7 +42,7 @@ public class Parser extends CommandWords {
       return new Command("go", words); 
     }
     
-    while(!isCommand(words.get(0)) && words.size() > 0){
+    while(!isCommand(words.get(0)) && words.size() > 1){
       words.remove(0); 
     }
     

@@ -138,7 +138,10 @@ public class Game {
       String charName = (String) ((JSONObject) charObj).get("name");
       String charId = (String) ((JSONObject) charObj).get("id");
       String charDescription = (String) ((JSONObject) charObj).get("description");
+      String charLocation = (String) ((JSONObject) charObj).get("starting location");
       int health = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
+      
+      character.setLocation(charLocation); 
       character.setDescription(charDescription);
       character.setName(charName);
       character.setHealth(health);
@@ -338,7 +341,7 @@ public class Game {
     } else if (commandWord.equals("drop")) {
       dropItem(command);
     } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
-        || commandWord.equals("hit") || commandWord.equals("stab")) {
+        || commandWord.equals("hit") || commandWord.equals("stab") || commandWord.equals("use")) {
       System.out.println();
       attack(command);
       System.out.println(currentRoom.exits());
@@ -498,13 +501,18 @@ public class Game {
         } else {
           weaponName = command.getExtraWords().get(0);
         }
-
-        if (!validWeapon(weaponName)) {
-          System.out.println();
-          System.out.println(weaponName + " is not a valid weapon.");
-          System.out.println();
+        if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
+          
         } else {
-          System.out.println("In progress");
+          if(!validWeapon(weaponName)){
+            System.out.println();
+            System.out.println(weaponName + " is not a valid weapon.");
+            System.out.println();
+          }else{
+            System.out.println();
+            System.out.println(weaponName + " is not in your inventory.");
+            System.out.println();
+          }
         }
       }
     } else {

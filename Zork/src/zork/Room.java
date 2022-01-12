@@ -144,7 +144,7 @@ public class Room {
   }
 
   public boolean hasEnemy(String roomName){
-    //how to do - ask tmmr; 
+    //how todo  
     return true; 
   }
 }

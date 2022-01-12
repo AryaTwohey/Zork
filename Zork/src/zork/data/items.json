@@ -20,7 +20,7 @@
       {
         "starting location": "Bedroom 3",
         "id": "Key 2",
-        "name": "key",
+        "name": "key 2",
         "description": "This key is one of the last to find, hurry to save your friend in time!",
         "isOpenable" : "False",
         "Weight" : "50"
@@ -28,7 +28,7 @@
       {
         "starting location": "Bedroom 4",
         "id": "Key 3",
-        "name": "key",
+        "name": "key 3",
         "description": "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what’s next.",
         "isOpenable" : "False",
         "Weight" : "50"
@@ -36,7 +36,7 @@
       {
         "starting location": "Bedroom 4",
         "id": "Master Key",
-        "name": "key",
+        "name": "master key",
         "description": "Master key was created with all three keys. Use the key to unlock the cellar to save your friend.",
         "isOpenable" : "False",
         "Weight" : "50"
@@ -63,7 +63,7 @@
         "starting location": "Bedroom 1",
         "id": "Explanation note",
         "name": "paper",
-        "description": "To win and help save your friend, you must collect three keys. These are the only things that you can do.",
+        "description": "To win and help save your friend, you must collect three keys. Search the rooms carefully.",
         "isOpenable" : "False",
         "isNote" : "True", 
         "Weight" : "5"
