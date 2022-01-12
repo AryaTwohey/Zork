@@ -56,7 +56,7 @@
         "weight" : "130" 
       },
       {
-        "starting location": "Bedroom 3",
+        "starting location": "Armory",
         "id": "Sword",
         "name": "sword",
         "damage": "70",
