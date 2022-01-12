@@ -260,7 +260,7 @@
     {
       "id": "Bedroom 4",
       "name": "Bedroom 4",
-      "description": "You have entered the fourth bedroom, with a doll’s cousin to greet you. Defeat this doll to receive a missing key to save yourself and your friend.",
+      "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to receive a missing key to save yourself and your friend.",
       "exits": [
         {
           "isLocked": false,
