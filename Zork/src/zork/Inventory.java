@@ -140,7 +140,7 @@ public class Inventory {
   }
 
   public boolean hasAllKeys(){
-    if(inInventory("key1") && inInventory("key2") && inInventory("key2")){
+    if(inInventory("key 1") && inInventory("key 2") && inInventory("key 3")){
       return true; 
     }else{
       return false; 

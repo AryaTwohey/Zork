@@ -74,18 +74,20 @@ public class Room {
    * Return the room that is reached if we go from this room in direction
    * "direction". If there is no room in that direction, return null.
    */
-  public Room nextRoom(String direction) {
+  public Room nextRoom(String direction, boolean hasAllKeys) {
     try {
       for (Exit exit : exits) {
 
         if (exit.getDirection().equalsIgnoreCase(direction)) {
-          if(exit.isLocked()){
+          if(exit.isLocked() && !hasAllKeys){
             System.out.println();
             System.out.println("The door is locked.");
             System.out.println();
             return null; 
+          }else if(hasAllKeys && exit.isLocked()) {
+            System.out.println("Since you collected all three keys you now have access to all the rooms");
           }
-          String adjacentRoom = exit.getAdjacentRoom();
+          String adjacentRoom = exit.getAdjacentRoom(); 
 
           return Game.roomMap.get(adjacentRoom);
         }
@@ -171,6 +173,13 @@ public class Room {
   public void removeCharacter() {
 
     characters.remove(0); 
+  }
+
+  public boolean noMoreEnemies(){
+    if(characters.size() == 0){
+      return true; 
+    }
+    return false; 
   }
 
   public void addCharacter(Character character) {

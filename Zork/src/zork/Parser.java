@@ -67,7 +67,6 @@ public class Parser extends CommandWords {
   }
 
   private void translateDirections(ArrayList<String> words) {
-    String validDirections = "neswnenwsesw";    //used for shorter movement commands
 
     for(int i = 0; i <= words.size() - 1; i++){
 
@@ -98,13 +97,7 @@ public class Parser extends CommandWords {
         System.out.println();
         System.out.println("Time is ticking, make your choice...");
         System.out.println();
-      }                                                             //this length limit is so that it doesnt mix up other commands with directions
-      else if(validDirections.indexOf(i) < 0 && words.get(i).length() == 1 || words.get(i).length() < 3 && words.get(i).length() == 0){ //shows the invalid direction being inputted
-
-        System.out.println();
-        System.out.println(words.get(i).toString() + " is not a valid direction");    //this shows the shortened 
-        System.out.println();                                                         //direction like ne (northeast) or s (south)
-      }                                                                               //if it is valid or invalid
+      }                                                                                            //if it is valid or invalid
     }
   }
 

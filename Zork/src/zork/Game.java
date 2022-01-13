@@ -208,31 +208,8 @@ public class Game {
         e.printStackTrace();
       }
     }
-    String quit = blue + "Thank you for playing. Good Bye." + white;
-    String threeDots = "...";
-    System.out.println();
-    System.out.println();
-    System.out.println();
-    for (int i = 0; i < quit.length(); i++) {
-      System.out.printf("%c", quit.charAt(i));
-      Thread.sleep(15);
-    }
-    System.out.println();
-    System.out.println();
-    System.out.println();
-    System.out.println();
-    System.out.print("TERMINATING COMPILER");
-
-    for (int i = 0; i < threeDots.length(); i++) {
-
-      System.out.printf("%c", threeDots.charAt(i));
-      Thread.sleep(1500);
-    }
-
-    System.out.println();
-
-    System.out.println("TERMINATION COMPLETE");
-    System.out.println();
+    credits();
+    quit(); 
   }
 
   /**
@@ -340,7 +317,7 @@ public class Game {
     else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run"))
       goRoom(command);
     else if (commandWord.equals("quit")) {
-      return true; // signal that we want to quit
+      quit(); // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println();
       System.out.println("Eat?!? Are you serious?!");
@@ -493,22 +470,44 @@ public class Game {
         System.out.println();
         System.out.println("     -Greg Winson 2011-2021");
       }
-
-      if (playerInventory.hasAllKeys()) {
-        System.out.println(
-            "Since you collected all three keys you now have access to the cellar - go to the next room and use the trapdoor");
-        // gotta figure out how to unlock doors ask Mr. Deslauriers
-        /***************************************************************************************************
-         * OVER HERE IS THE QUESTION
-         * ***************************************************************************************************
-         */
+    }
+    if(currentRoom.getRoomName().equals("Cellar")){
+      if(currentRoom.noMoreEnemies()){
+        return true;
       }
-
     }
     return false;
   }
 
   // implementations of user commands:
+
+  private void quit() throws InterruptedException {
+    String quit = blue + "Thank you for playing. Good Bye." + white;
+    String threeDots = "...";
+    System.out.println();
+    System.out.println();
+    System.out.println();
+    for (int i = 0; i < quit.length(); i++) {
+      System.out.printf("%c", quit.charAt(i));
+      Thread.sleep(15);
+    }
+    System.out.println();
+    System.out.println();
+    System.out.println();
+    System.out.println();
+    System.out.print("TERMINATING COMPILER");
+
+    for (int i = 0; i < threeDots.length(); i++) {
+
+      System.out.printf("%c", threeDots.charAt(i));
+      Thread.sleep(1500);
+    }
+
+    System.out.println();
+
+    System.out.println("TERMINATION COMPLETE");
+    System.out.println();
+  }
 
   private void attack(Command command) throws InterruptedException {
     if (currentRoom.hasEnemy()) {
@@ -533,14 +532,7 @@ public class Game {
 
           System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName()
               + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now "
-              + playerHealth + " and " + currentRoom.getCharacter().getName() + currentRoom.assessCharacterQuote());
-
-          if (currentRoom.getCharacter() == null) {
-
-
-           //  currentRoom.nextRoom(direction);
-
-          }
+              + playerHealth + " and " + currentRoom.getCharacter().getName() + " says " + currentRoom.assessCharacterQuote());
 
           if (playerHealth <= 0) {
             System.out.println();
@@ -572,10 +564,10 @@ public class Game {
             }else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null && currentRoom.getCharacter().getName() != "Shreck") {
               System.out.println(currentRoom.getCharacter().getDescription());
   
-            }else if (!currentRoom.getRoomName().equals("Cell")) {
+            }else if (!currentRoom.getRoomName().equals("Cell") && !currentRoom.getRoomName().equals("Cellar")) {
               System.out.println();
               System.out.println("You now receive key 3");
-              Item key3 = new Item(50, "key3", false,
+              Item key3 = new Item(50, "key 3", false,
                   "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
               playerInventory.add(key3);
             }
@@ -770,7 +762,7 @@ public class Game {
     String direction = rest.get(0);
 
     // Try to leave current room.
-    Room nextRoom = currentRoom.nextRoom(direction);
+    Room nextRoom = currentRoom.nextRoom(direction, playerInventory.hasAllKeys());
 
     if (nextRoom == null) {
       System.out.println();
@@ -778,9 +770,11 @@ public class Game {
     } else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.longDescription());
+      if(nextRoom.getRoomName().equals("Cellar")){
+        System.out.println(currentRoom.getCharacter().getDescription()); 
+      }
     }
   }
-
   private void credits() {
 
   }
