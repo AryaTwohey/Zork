@@ -15,7 +15,7 @@
         "id": "Bat",
         "name": "bat",
         "damage": "30",
-        "description": "You have chosen the baseball bat. It looks like it’s pretty old, maybe from the 1900s.",
+        "description": "You have chosen the baseball bat. It looks like it's pretty old, maybe from the 1900s.",
         "isOpenable" : "False",
         "weight" : "880"
       },
@@ -48,8 +48,8 @@
       },
       {
         "starting location": "Kitchen",
-        "id": "Bloody Knife",
-        "name": "bloody knife",
+        "id": "Knife",
+        "name": "knife",
         "damage": "50",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",

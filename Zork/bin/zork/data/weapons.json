@@ -48,8 +48,8 @@
       },
       {
         "starting location": "Kitchen",
-        "id": "Bloody Knife",
-        "name": "bloody knife",
+        "id": "Knife",
+        "name": "knife",
         "damage": "75",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",

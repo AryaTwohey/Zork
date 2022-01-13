@@ -301,18 +301,14 @@ public class Game {
     String firstScentence = "In front of you there is a large house with no lights on.";
     String secondScentence = "The windows are boarded up and you can hear squeaking and faint screaming.";
     String thirdScentence = "To the North of you there is an open door covered in ";
-    String forthScentence = "...the ";
-    String fifthScentence = " of your friend.";
-    String blood = red + "blood" + white;
+    String blood = red + "blood" + white + "...";
     String exits = "Exits: North ";
 
     System.out.println(firstScentence);
     System.out.println(secondScentence);
     System.out.print(thirdScentence);
     System.out.print(blood);
-    System.out.print(forthScentence);
-    System.out.print(blood);
-    System.out.println(fifthScentence);
+    System.out.println();
     System.out.println();
     System.out.println(exits);
     System.out.println();
@@ -370,6 +366,12 @@ public class Game {
     }else if (commandWord.equals("space")) {
       inventorySpace(command);
       System.out.println(currentRoom.exits());
+     } else if(commandWord.equals("inspect")){
+
+    //  inspectTheItem(command);
+
+
+
     
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
@@ -610,13 +612,25 @@ public class Game {
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
-
+  
   /**
    * Print out some help information and a list of the command words.
    * 
    * @throws InterruptedException // this is for the printed message it doesnt do
    *                              anything
    */
+/*  private void inspectTheItem(Command command){
+
+    if(playerInventory.getCurrentWeight() == 0){
+      System.out.println("You have no items");
+    }else{
+    
+  playerInventory.inspectInventoryWeapon(itemName);
+  }
+
+}
+*/
+
   private void printHelp() throws InterruptedException {
     String helperMessage = "Your command words are below, use them to win the game ";
 
@@ -638,7 +652,6 @@ public class Game {
     System.out.println();
 
   }
-
   public void displayInventory() throws InterruptedException {
     playerInventory.displayInventory();
   }

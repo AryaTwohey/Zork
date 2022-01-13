@@ -8,7 +8,11 @@ public class CommandWords {
   public static final String yellow = "\u001B[33m";      //for the square brackets in print help
   public static final String white = "\u001B[0m";        //for square brakcets
 
+<<<<<<< HEAD
   private static final String validCommands[] = { "go", "move", "quit", "help", "eat", "take", "drop", "search", "read", "run", "shoot", "hit", "stab", "fire", "use", "inventory", "display", "reset", "restart", "space", "fred", "winson", ""};
+=======
+  private static final String validCommands[] = { "go", "move", "quit", "help", "eat", "take", "drop", "kill", "search", "read", "run", "shoot", "hit", "stab", "fire", "use", "attack", "inventory", "display", "reset", "restart", "space", "inspect", "fred", "winson", ""};
+>>>>>>> ff501fd1adb317671b030d476931cdda635d3eb9
   //some of these commands are not included in printhelp, so they are hidden from the basic knowledge of the game
 
   /**                                                                                                                                                            

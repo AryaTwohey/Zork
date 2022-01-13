@@ -198,6 +198,27 @@ public class Inventory {
 
   }
 }
+/*
+public void inspectInventoryWeapon(String itemName){
+  
+
+
+for(int i = 0; i < items.size(); i++){
+
+  if(items.get(i).getName().equals(itemName)){
+
+    System.out.println();
+    items.get(i).getDescription();
+    System.out.println();
+    
+  }else{
+    System.out.println("You do not have a " + itemName + " in your inventory");
+  }
+}
+}
+
+*/
+
 
   public String toString() {
     String msg = "";
