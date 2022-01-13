@@ -21,6 +21,7 @@ public class Game {
   Inventory playerInventory;
   Item item;
   String weapons[] = { "pistol", "bat", "a.k. 47", "pitchfork", "plastic spoon", "bloody knife", "sword" };
+  int playerHealth = 500; 
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
@@ -158,7 +159,7 @@ public class Game {
 
     }
   }
-
+    
     private void initWeapons(String fileName) throws Exception {
       Path path = Path.of(fileName);
       String stringJson = Files.readString(path);
@@ -168,13 +169,13 @@ public class Game {
       JSONArray weaponsJson = (JSONArray) json.get("weapons");
 
       for (Object weaponobj : weaponsJson) {
-        Weapons weapon = new Weapons();
+        Weapon weapon = new Weapon();
         String weaponName = (String) ((JSONObject) weaponobj).get("name");
         String weaponId = (String) ((JSONObject) weaponobj).get("id");
         int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight"));
         String weaponDescription = (String) ((JSONObject) weaponobj).get("description");
         String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
-        String weaponDamage = (String) ((JSONObject) weaponobj).get("damage");
+        Integer weaponDamage = (Integer) ((JSONObject) weaponobj).get("damage");
 
         weapon.setName(weaponName);
         weapon.setDescription(weaponDescription);
@@ -193,7 +194,6 @@ public class Game {
 
   public void play() throws InterruptedException {
     printWelcome();
-
     boolean finished = false;
     while (!finished) {
       Command command;
@@ -523,7 +523,9 @@ public class Game {
           weaponName = command.getExtraWords().get(0);
         }
         if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
-          
+          Weapon weapon = (Weapon) playerInventory.findItem(weaponName); 
+          currentRoom.getCharacter().setHealth(currentRoom.getCharacter().getHealth() - weapon.getDamage());
+          System.out.println();
         } else {
           if(!validWeapon(weaponName)){
             System.out.println();
@@ -638,7 +640,7 @@ public class Game {
       if (item == null) {
         System.out.println();
         System.out.print("This " + itemName + " does not exist in this room. ");
-        System.out.println("Or try typing " + blue + "search " + white + "to find the name of the item");
+        System.out.println("Or try typing " + blue + "search " + white + "to find the proper name of the item");
       } else {
         if (!playerInventory.add(item)) 
           currentRoom.addItem(item);

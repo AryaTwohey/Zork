@@ -156,6 +156,15 @@ public class Inventory {
     return false; 
   }
 
+  public Item findItem(String itemName) {
+    for(Item i : items){
+      if(i.getName().equals(itemName)){
+        return i; 
+      }
+    }
+    return null; 
+  }
+
   public void inventorySpace(){
     
  /* * * * * * * * * * * * * * * * * * * * *

@@ -1,26 +1,26 @@
 package zork; 
 
-    public class Weapons extends Item{ 
+    public class Weapon extends Item{ 
         private int weight;
         private String name;
         private boolean isOpenable;
         private String description;
-        private String weaponDamage; 
+        private int weaponDamage; 
 
-        public Weapons(int weight, String name, boolean isOpenable, String description, String weaponDamage) {
+        public Weapon(int weight, String name, boolean isOpenable, String description, int weaponDamage) {
           super(weight, name, isOpenable, description); 
           this.weaponDamage = weaponDamage;
         }
 
         
-        public Weapons() {
+        public Weapon() {
         }
 
-        public void setDamage(String weaponDamage) {
+        public void setDamage(int weaponDamage) {
             this.weaponDamage = weaponDamage;
         }
      
-        public String getDamage(String weaponDamage) {
+        public int getDamage() {
           return weaponDamage;
       }
         
