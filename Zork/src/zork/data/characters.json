@@ -13,48 +13,48 @@
         "id": "Freddy Krueger",
         "name": "Freddy Krueger",
         "description": "Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand.",
-        "Health" : "300",
-        "Damage" : "25"
+        "Health" : "275",
+        "Damage" : "50"
       },
       {
         "starting location": "Cellar",
         "id": "Ghostface",
         "name": "Ghostface",
         "description": "Level 2: Ghostface - \"if you want to be in a hospital, I'd be happy to put you there...\"",
-        "Health" : "450", 
-        "Damage" : "25"
+        "Health" : "300", 
+        "Damage" : "75"
       },
       {
         "starting location": "Cellar",
         "id": "Pennywise",
         "name": "Pennywise",
         "description": "Level 3: Pennywise - \"Tasty, tasty, beautiful fear\", beware of Pennywise, but don't be sacred, he feeds on fear.",
-        "Health" : "650", 
-        "Damage" : "25"
+        "Health" : "400", 
+        "Damage" : "90"
       },
       {
         "starting location": "Cellar",
         "id": "Micheal Myers",
         "name": "Micheal Myers ",
         "description": "Level 4: Micheal Myers - \"Turn around...\" - you can run but you can't hide.",
-        "Health" : "750", 
-        "Damage" : "25"
+        "Health" : "450", 
+        "Damage" : "105"
       },
       {
         "starting location": "Cellar",
         "id": "Shreck",
         "name": "Shreck",
         "description": "Level 5: Shreck - \"GET OUT OF ME SWAMP!!!\"",
-        "Health" : "900", 
-        "Damage" : "25"
+        "Health" : "500", 
+        "Damage" : "115"
       },
       {
         "starting location": "Cellar",
         "id": "Boss Doll",
         "name": "Boss Doll",
         "description": "FINAL LEVEL: The Doll - Your whole journey has led to this, good luck.",
-        "Health" : "1050", 
-        "Damage" : "25"
+        "Health" : "600", 
+        "Damage" : "130"
       }
     ]
     
