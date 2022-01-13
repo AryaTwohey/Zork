@@ -2,8 +2,8 @@
     "items": [
       {
         "starting location": "Library (Doll Case)",
-        "id": "Creepy doll",
-        "name": "creepy doll",
+        "id": "doll",
+        "name": "doll",
         "description": "You see a weird looking doll, sitting on a chair in the middle of the room. Perhaps putting it somewhere will reveal the secrets of this house",
         "isOpenable" : "False",
         "Weight" : "800" 
