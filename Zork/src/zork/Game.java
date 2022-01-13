@@ -1,12 +1,14 @@
 package zork;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.CharBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import org.json.simple.JSONArray;
@@ -23,6 +25,9 @@ public class Game {
   Item item;
   String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" };
   int playerHealth = 500;
+  int playerXp = 0;
+  //This ArrayList contains everything the player has done and picked up 
+  TreeSet<String> all = new TreeSet<String>(); 
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
@@ -325,6 +330,8 @@ public class Game {
       takeItem(command);
     } else if (commandWord.equals("drop")) {
       dropItem(command);
+    } else if(commandWord.equals("heal")){
+      heal(); 
     } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
         || commandWord.equals("hit") || commandWord.equals("stab") || commandWord.equals("use")) {
       System.out.println();
@@ -342,7 +349,7 @@ public class Game {
       System.out.println(currentRoom.exits());
       System.out.println();
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
-      displayInventory();
+      displayInventory(commandWord);
     } else if (commandWord.equals("space")) {
       inventorySpace(command);
       System.out.println(currentRoom.exits());
@@ -449,6 +456,11 @@ public class Game {
 
       }
       System.out.println();
+      if(!all.contains("fred")){
+        System.out.println("Fred is hot, but you are not, here is some XP in return - you can only do this once");
+        playerXp += 500; 
+      }
+      all.add("fred"); 
       System.out.println();
     } else if (commandWord.equals("winson")) {
 
@@ -463,16 +475,25 @@ public class Game {
         System.out.println();
         System.out.println("...however, I think math");
         System.out.println();
-        System.out.println("    -Greg Winson 2011-2021");
+        System.out.println("    -Greg Winson 2011-2022");
       } else {
         System.out.println();
         System.out.println("Remember, the most common mistakes in Math is arithmetic involving negative numbers.");
         System.out.println();
-        System.out.println("     -Greg Winson 2011-2021");
+        System.out.println("     -Greg Winson 2011-2022");
       }
+
+      System.out.println();
+      if(!all.contains("winson")){
+        playerXp += 500; 
+        System.out.println("You found the secret XP - you can only this once"); 
+      }
+      all.add("winson");
     }
     if(currentRoom.getRoomName().equals("Cellar")){
       if(currentRoom.noMoreEnemies()){
+        playerXp += 10000; 
+        System.out.println(blue + "PLAYER XP + 10000" + white);
         return true;
       }
     }
@@ -480,6 +501,44 @@ public class Game {
   }
 
   // implementations of user commands:
+
+  private void heal() {
+    Scanner in = new Scanner(System.in); 
+    
+    System.out.println();
+    System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");
+    String option = in.nextLine().toLowerCase();
+    if(option.equals("full") || option.equals("full restore")){
+      System.out.println("Purchase Confirmed: Price 200xp");
+      playerHealth = 500;
+      System.out.println(green + "current health: " + playerHealth + white);
+      System.out.println(blue + "current xp :" + playerXp + white);
+    } 
+    if(option.equals("half") || option.equals("half restore")){
+      System.out.println("Purchase Confirmed: Price 150xp");
+      playerHealth += 250;
+      if(playerHealth > 500){
+        playerHealth = 500; 
+      } 
+      System.out.println(green + "current health: " + playerHealth + white);
+      System.out.println(blue + "current xp :" + playerXp + white);
+    } 
+    if(option.equals("100") || option.equals("100 health")){
+      System.out.println("Purchase Confirmed: Price 75xp");
+      playerHealth += 100;
+      if(playerHealth > 500){
+        playerHealth = 500; 
+      } 
+      System.out.println(green + "current health: " + playerHealth + white);
+      System.out.println(blue + "current xp :" + playerXp + white);
+    } 
+    if(option.equals("cancel")){
+      System.out.println("You left the shop");
+    }
+    else{
+      System.out.println("Sorry didn't understand that - call heal again if you still want to purchase meds");
+    }
+  }
 
   private void quit() throws InterruptedException {
     String quit = blue + "Thank you for playing. Good Bye." + white;
@@ -545,18 +604,11 @@ public class Game {
             System.out.println("You have defeated " + currentRoom.getCharacter().getName());
             System.out.println();
             currentRoom.removeCharacter();
-
-            String healthMessage = blue + "Your health has been restored to 500HP" + white;
-
-            for (int i = 0; i < healthMessage.length(); i++) {
-              System.out.printf("%c", healthMessage.charAt(i));
-              Thread.sleep(30);
-            }
             System.out.println();
-            System.out.println();
-
-            playerHealth = 500;
-
+            
+            playerXp += 100; 
+            System.out.println(blue + "PLAYER XP + 100" + white);
+        
             if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
 
               System.out.println(green + currentRoom.getCharacter().getDescription() + white);
@@ -564,12 +616,18 @@ public class Game {
             }else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null && currentRoom.getCharacter().getName() != "Shreck") {
               System.out.println(currentRoom.getCharacter().getDescription());
   
-            }else if (!currentRoom.getRoomName().equals("Cell") && !currentRoom.getRoomName().equals("Cellar")) {
+            }else if (!currentRoom.getRoomName().equals("Cellar")) {
               System.out.println();
-              System.out.println("You now receive key 3");
+              System.out.println("You now receive key 3, here's some xp for finding all keys");
               Item key3 = new Item(50, "key 3", false,
                   "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
               playerInventory.add(key3);
+              if(!all.contains(key3.getName())){
+                playerXp += 75; 
+                System.out.println(blue + "PLAYER XP + 75" + white);
+              }
+              all.add(key3.getName()); 
+              
             }
 
           }
@@ -675,8 +733,14 @@ public class Game {
 
   }
 
-  public void displayInventory() throws InterruptedException {
+  public void displayInventory(String commandWord) throws InterruptedException {
     playerInventory.displayInventory();
+    if(commandWord.equals("display")){
+      System.out.println();
+      System.out.println(blue + "player xp: " + playerXp);
+      System.out.println();
+      System.out.println(green + "player health: " + playerHealth);
+    }
   }
 
   private void takeItem(Command command) {
@@ -705,6 +769,15 @@ public class Game {
           currentRoom.addItem(item);
         else {
           System.out.println();
+          if(!all.contains(item.getName()) && !validWeapon(item.getName())){
+            playerXp += 15; 
+            System.out.println(blue + "PLAYER XP + 15" + white);
+          }
+          if(!all.contains(item.getName()) && validWeapon(item.getName())){
+            playerXp -= 50;
+            System.out.println("PLAYER XP - 50"); 
+          }
+          all.add(item.getName()); 
           System.out.println("You took the " + itemName);
         }
       }
@@ -769,6 +842,11 @@ public class Game {
       System.out.println("Can't go there!");
     } else {
       currentRoom = nextRoom;
+      if(!all.contains(currentRoom.getRoomName())){
+        playerXp += 5; 
+        System.out.println(blue + "PLAYER XP + 5" + white);
+      }
+      all.add(currentRoom.getRoomName());
       System.out.println(currentRoom.longDescription());
       if(nextRoom.getRoomName().equals("Cellar")){
         System.out.println(currentRoom.getCharacter().getDescription()); 
