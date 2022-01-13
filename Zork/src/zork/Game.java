@@ -459,9 +459,9 @@ public class Game {
       if(!all.contains("fred")){
         System.out.println("Fred is hot, but you are not, here is some XP in return - you can only do this once");
         playerXp += 500; 
+        System.out.println(blue + "PLAYER XP + 500" + white); 
       }
-      all.add("fred"); 
-      System.out.println();
+      all.add("fred");
     } else if (commandWord.equals("winson")) {
 
       int ran = (int) (Math.random() * 2);
@@ -486,7 +486,8 @@ public class Game {
       System.out.println();
       if(!all.contains("winson")){
         playerXp += 500; 
-        System.out.println("You found the secret XP - you can only this once"); 
+        System.out.println("You found the secret XP - you can only this once \n - Mr. Deslauriers Best Friend (You know who it is)"); 
+        System.out.println(blue + "PLAYER XP + 500" + white);
       }
       all.add("winson");
     }
@@ -507,6 +508,7 @@ public class Game {
     
     System.out.println();
     System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");
+    System.out.println("What do you want: ");
     String option = in.nextLine().toLowerCase();
     if(option.equals("full") || option.equals("full restore")){
       System.out.println("Purchase Confirmed: Price 200xp");
@@ -514,7 +516,7 @@ public class Game {
       System.out.println(green + "current health: " + playerHealth + white);
       System.out.println(blue + "current xp :" + playerXp + white);
     } 
-    if(option.equals("half") || option.equals("half restore")){
+    else if(option.equals("half") || option.equals("half restore")){
       System.out.println("Purchase Confirmed: Price 150xp");
       playerHealth += 250;
       if(playerHealth > 500){
@@ -523,7 +525,7 @@ public class Game {
       System.out.println(green + "current health: " + playerHealth + white);
       System.out.println(blue + "current xp :" + playerXp + white);
     } 
-    if(option.equals("100") || option.equals("100 health")){
+    else if(option.equals("100") || option.equals("100 health")){
       System.out.println("Purchase Confirmed: Price 75xp");
       playerHealth += 100;
       if(playerHealth > 500){
@@ -532,7 +534,7 @@ public class Game {
       System.out.println(green + "current health: " + playerHealth + white);
       System.out.println(blue + "current xp :" + playerXp + white);
     } 
-    if(option.equals("cancel")){
+    else if(option.equals("cancel")){
       System.out.println("You left the shop");
     }
     else{
@@ -774,9 +776,9 @@ public class Game {
             playerXp += 15; 
             System.out.println(blue + "PLAYER XP + 15" + white);
           }
-          if(!all.contains(item.getName()) && validWeapon(item.getName())){
+          if(!all.contains(item.getName()) && validWeapon(item.getName()) && !item.getName().equals("knife")){
             playerXp -= 50;
-            System.out.println("PLAYER XP - 50"); 
+            System.out.println(red + "PLAYER XP - 50" + white); 
           }
           all.add(item.getName()); 
           System.out.println("You took the " + itemName);
