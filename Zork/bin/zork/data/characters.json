@@ -1,55 +1,61 @@
 {
     "characters": [
       {
-        "starting location": "Cellar",
-        "id": "Boss Doll",
-        "name": "Boss Doll",
-        "description": "This is the final doll that must be killed in order to win the game",
-        "Health" : "1050" 
-      },
-      {
         "starting location": "Bedroom 4",
         "id": "Cousin Doll",
         "name": "Cousin Doll",
-        "description": "Killing this doll is how you get the fourth key to save your friend",
-        "Health" : "200" 
+        "description": "Killing this doll is how you get the third key to save your friend",
+        "Health" : "200", 
+        "Damage" : "25"
       }, 
       {
         "starting location": "Cellar",
         "id": "Freddy Krueger",
         "name": "Freddy Krueger",
         "description": "Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand.",
-        "Health" : "300" 
+        "Health" : "300",
+        "Damage" : "25"
       },
       {
         "starting location": "Cellar",
         "id": "Ghostface",
         "name": "Ghostface",
         "description": "Level 2: Ghostface - \"if you want to be in a hospital, I'd be happy to put you there...\"",
-        "Health" : "450" 
+        "Health" : "450", 
+        "Damage" : "25"
       },
       {
         "starting location": "Cellar",
-        "id": "Pennywise.",
-        "name": "Pennywise.",
-        "description": "Level 3: Pennywise - \"Tasty, tasty, beautiful fear/\", beware of Pennywise, but don't be sacred, he feeds on fear.",
-        "Health" : "650" 
+        "id": "Pennywise",
+        "name": "Pennywise",
+        "description": "Level 3: Pennywise - \"Tasty, tasty, beautiful fear\", beware of Pennywise, but don't be sacred, he feeds on fear.",
+        "Health" : "650", 
+        "Damage" : "25"
       },
       {
         "starting location": "Cellar",
         "id": "Micheal Myers",
         "name": "Micheal Myers ",
         "description": "Level 4: Micheal Myers - \"Turn around...\" - you can run but you can't hide.",
-        "Health" : "750" 
+        "Health" : "750", 
+        "Damage" : "25"
       },
       {
         "starting location": "Cellar",
         "id": "Ghost of AP",
         "name": "Ghost of AP",
         "description": "Level 5: The Ghost of AP - This is the final villain before the boss, kill the ghost and you might have a change at getting your friend back.",
-        "Health" : "900" 
+        "Health" : "900", 
+        "Damage" : "25"
+      },
+      {
+        "starting location": "Cell",
+        "id": "Boss Doll",
+        "name": "Boss Doll",
+        "description": "This is the final doll that must be killed in order to win the game",
+        "Health" : "1050", 
+        "Damage" : "25"
       }
-
     ]
     
   }
