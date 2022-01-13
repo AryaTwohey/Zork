@@ -2,8 +2,8 @@
     "characters": [
       {
         "starting location": "Bedroom 4",
-        "id": "Cousin Doll",
-        "name": "Cousin Doll",
+        "id": "Minion Doll",
+        "name": "Minion Doll",
         "description": "Killing this doll is how you get the third key to save your friend",
         "Health" : "200", 
         "Damage" : "25"
@@ -42,8 +42,8 @@
       },
       {
         "starting location": "Cellar",
-        "id": "Ghost of AP",
-        "name": "Ghost of AP",
+        "id": "Ghost of AP Classroom",
+        "name": "Ghost of AP Classroom",
         "description": "Level 5: The Ghost of AP - This is the final villain before the boss, kill the ghost and you might have a change at getting your friend back.",
         "Health" : "900", 
         "Damage" : "25"
