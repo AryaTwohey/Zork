@@ -42,9 +42,9 @@
       },
       {
         "starting location": "Cellar",
-        "id": "Ghost of AP Classroom",
-        "name": "Ghost of AP Classroom",
-        "description": "Level 5: The Ghost of AP - This is the final villain before the boss, kill the ghost and you might have a change at getting your friend back.",
+        "id": "Shreck",
+        "name": "Shreck",
+        "description": "Level 5: Shreck - \"GET OUT OF ME SWAMP!!!\"",
         "Health" : "900", 
         "Damage" : "25"
       },

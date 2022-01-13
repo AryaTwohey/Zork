@@ -23,7 +23,7 @@
         "starting location": "Armory",
         "id": "A.K 47",
         "name": "ak 47",
-        "damage": "100",
+        "damage": "10000",
         "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
         "isOpenable" : "False",
         "weight" : "3800"

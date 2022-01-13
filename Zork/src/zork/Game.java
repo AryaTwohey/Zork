@@ -1,6 +1,7 @@
 package zork;
 
 import java.io.IOException;
+import java.nio.CharBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class Game {
   public static final String white = "\u001B[0m"; // also for the welcome message
   public static final String blue = "\u001B[34m"; // for quit message
   public static final String red = "\u001B[31m"; // for red coloured text (blood)
+  public static final String green = "\u001B[32m";
+
 
   /**
    * Create the game and initialize its internal map.
@@ -38,7 +41,7 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      currentRoom = roomMap.get("Outside Entrance");
+      currentRoom = roomMap.get("Armory");
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -528,9 +531,11 @@ public class Game {
         }
         if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
           Weapon weapon = (Weapon) playerInventory.findItem(weaponName); 
+
+        
           currentRoom.getCharacter().setHealth(currentRoom.getCharacter().getHealth() - weapon.getDamage());
           playerHealth -= currentRoom.getCharacter().getDamage(); 
-          System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName() + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now " + playerHealth + " and " + currentRoom.getCharacter().getName() + " says " + currentRoom.assessCharacterQuote());
+          System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName() + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now " + playerHealth + " and " + currentRoom.getCharacter().getName() + currentRoom.assessCharacterQuote());
           if(playerHealth <= 0){
             System.out.println();
             System.out.println(red + "YOU DIED, better luck next time..." + white);
@@ -543,7 +548,7 @@ public class Game {
             System.out.println("You have defeated " + currentRoom.getCharacter().getName());
             System.out.println();
             currentRoom.removeCharacter(); 
-            String healthMessage = blue + "Your health has been restored to 500H.P" + white;
+            String healthMessage = blue + "Your health has been restored to 500HP" + white;
 
               for(int i = 0; i < healthMessage.length(); i++){
                 System.out.printf("%c", healthMessage.charAt(i));
@@ -554,8 +559,13 @@ public class Game {
 
             playerHealth = 500;
 
-            if(currentRoom.getRoomName().equals("Cellar")){
+          }  if(currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")){
+
+            System.out.println(green + currentRoom.getCharacter().getDescription() + white);
+
+            }  else if(currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter().getName() != "Shreck"){
               System.out.println(currentRoom.getCharacter().getDescription());
+
             }else{
               System.out.println();
               System.out.println("You now receive key 3");
@@ -563,7 +573,7 @@ public class Game {
               playerInventory.add(key3); 
             }
           } 
-        } else {
+         else {
           if(!validWeapon(weaponName)){
             System.out.println();
             System.out.println(weaponName + " is not a valid weapon.");

@@ -170,6 +170,6 @@ public class Room {
   }
 
   public String assessCharacterQuote() {
-    return "not finished"; 
+    return ""; 
   }
 }
