@@ -567,10 +567,12 @@ public class Game {
               System.out.println(currentRoom.getCharacter().getDescription());
 
             }else{
-              System.out.println();
-              System.out.println("You now receive key 3");
-              Item key3 =  new Item(50, "key3", false, "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next."); 
-              playerInventory.add(key3); 
+              if(!currentRoom.getRoomName().equals("Cell")){
+                System.out.println();
+                System.out.println("You now receive key 3");
+                Item key3 =  new Item(50, "key3", false, "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next."); 
+                playerInventory.add(key3); 
+              }
             }
           } 
          else {
