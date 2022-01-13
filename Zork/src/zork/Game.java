@@ -777,7 +777,6 @@ public class Game {
       }
     }
   }
-<<<<<<< HEAD
 
   private void credits() throws InterruptedException {
 
@@ -837,9 +836,8 @@ public class Game {
       Thread.sleep(20);
     }
     System.out.println();
-=======
-  private void credits() {
->>>>>>> 0a7cf6b1f7e03e4afbf453a803a85b8b363b2cdd
+  
+
 
     for (int i = 0; i < armanRole.length(); i++) {
       System.out.printf("%c", armanRole.charAt(i));
