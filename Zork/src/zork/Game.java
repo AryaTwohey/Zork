@@ -565,20 +565,21 @@ public class Game {
 
             playerHealth = 500;
 
-          }
-          if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
+            if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
 
-            System.out.println(green + currentRoom.getCharacter().getDescription() + white);
+              System.out.println(green + currentRoom.getCharacter().getDescription() + white);
+  
+            }else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null && currentRoom.getCharacter().getName() != "Shreck") {
+              System.out.println(currentRoom.getCharacter().getDescription());
+  
+            }else if (!currentRoom.getRoomName().equals("Cell")) {
+              System.out.println();
+              System.out.println("You now receive key 3");
+              Item key3 = new Item(50, "key3", false,
+                  "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
+              playerInventory.add(key3);
+            }
 
-          } else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null && currentRoom.getCharacter().getName() != "Shreck") {
-            System.out.println(currentRoom.getCharacter().getDescription());
-
-          } else if (!currentRoom.getRoomName().equals("Cell")) {
-            System.out.println();
-            System.out.println("You now receive key 3");
-            Item key3 = new Item(50, "key3", false,
-                "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
-            playerInventory.add(key3);
           }
         } else {
           if (!validWeapon(weaponName)) {

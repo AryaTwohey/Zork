@@ -269,7 +269,7 @@
       "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to move on - remember that knife?.",
       "exits": [
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         }, 
