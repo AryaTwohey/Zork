@@ -511,7 +511,7 @@ public class Game {
 
   // implementations of user commands:
 
-  private void attack(Command command) {
+  private void attack(Command command) throws InterruptedException {
     if (currentRoom.hasEnemy()) {
       if (!command.hasExtraWords()) {
         System.out.println();
@@ -543,6 +543,17 @@ public class Game {
             System.out.println("You have defeated " + currentRoom.getCharacter().getName());
             System.out.println();
             currentRoom.removeCharacter(); 
+            String healthMessage = blue + "Your health has been restored to 500H.P" + white;
+
+              for(int i = 0; i < healthMessage.length(); i++){
+                System.out.printf("%c", healthMessage.charAt(i));
+                Thread.sleep(30);
+              }
+              System.out.println();
+              System.out.println();
+
+            playerHealth = 500;
+
             if(currentRoom.getRoomName().equals("Cellar")){
               System.out.println(currentRoom.getCharacter().getDescription());
             }else{
