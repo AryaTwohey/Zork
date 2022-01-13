@@ -159,7 +159,17 @@ public class Room {
     return characters.get(0); 
   }
 
+  
+  public void removeCharacter() {
+
+    characters.remove(0); 
+  }
+
   public void addCharacter(Character character) {
     characters.add(character); 
+  }
+
+  public String assessCharacterQuote() {
+    return "not finished"; 
   }
 }

@@ -6,13 +6,15 @@ public class Character {
   private boolean isOpenable;
   private String description; 
   private String location; 
+  private int damage; 
 
   
   public Character(int health, String name, boolean isOpenable, String location) {
     this.health = health;
     this.name = name;
     this.isOpenable = isOpenable;
-    this.location = location; 
+    this.location = location;
+    this.damage = damage; 
   }
   
 
@@ -57,6 +59,15 @@ public class Character {
 
   public void setOpenable(boolean isOpenable) {
     this.isOpenable = isOpenable;
+  }
+
+
+  public void setDamage(int charDamage) {
+    this.damage = charDamage; 
+  }
+
+  public int getDamage() {
+    return damage; 
   }
 
 }

@@ -139,8 +139,8 @@ public class Inventory {
     return("Unable to read this item"); 
   }
 
-  public boolean makeMasterKey(){
-    if(inInventory("key 1") && inInventory("key 2") && inInventory("key 2")){
+  public boolean hasAllKeys(){
+    if(inInventory("key1") && inInventory("key2") && inInventory("key2")){
       return true; 
     }else{
       return false; 

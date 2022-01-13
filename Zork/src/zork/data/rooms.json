@@ -269,12 +269,7 @@
       "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to move on - remember that knife?.",
       "exits": [
         {
-          "isLocked": true,
-          "direction": "East",
-          "adjacentRoom": "Bedroom 4 (key)"
-        },
-        {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         }, 
@@ -284,45 +279,23 @@
           "adjacentRoom": "Bedroom 3"
         }
       ]
-    }, 
-    {
-      "id": "Bedroom 4 (key)",
-      "name": "Bedroom 4",
-      "description": "Sitting in front of you is a bed with a key placed neatly on the duvets. This is either really suspicious or you are getting really lucky right now",
-      "exits": [
-        {
-          "isLocked": true,
-          "direction": "South",
-          "adjacentRoom": "Bedroom 4 (trapdoor)"
-        },
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Bedroom 4"
-        }        
-      ]
-    }, 
+    },  
     {
       "id": "Bedroom 4 (trapdoor)",
       "name": "Bedroom 4",
-      "description": " Hurry use the trapdoor to go to the next room time is running out! ",
+      "description": "Hurry use the trapdoor to go to the next room time is running out! ",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Armory"
-        },
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Bedroom 4 (key)"
-        }        
+        }     
       ]
     }, 
     {
       "id": "Armory", 
       "name": "Armory",
-      "description": "You enter an armory - you see a pitchfork, a bat, an AK-47, a pistol … and for some strange reason there is a plastic spoon. We have gone very far together my friend, but there is nothing much I can help you do now. Choose carefully, your weapon is your way out.",
+      "description": "You enter an armory - you see a pitchfork, a bat, an AK-47, a pistol and for some strange reason there is a plastic spoon. We have gone very far together my friend, but there is nothing much I can help you do now. Choose carefully, your weapon is your way out.",
       "exits": [
         {
           "isLocked": false,
@@ -334,7 +307,7 @@
     {
       "id": "Cellar", 
       "name": "Cellar",
-      "description": "You have now entered a room filled to the brim with dolls. Will you survive? That is for you to decide. Just remember every room has its purpose",
+      "description": "You have entered a room filled with past horror movie villains starting with Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand. - defeat theses villains and try not to die.",
       "exits": [
         {
           "isLocked": true,

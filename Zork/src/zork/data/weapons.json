@@ -14,7 +14,7 @@
         "starting location": "Armory",
         "id": "Bat",
         "name": "bat",
-        "damage": "50",
+        "damage": "30",
         "description": "You have chosen the baseball bat. It looks like it’s pretty old, maybe from the 1900s.",
         "isOpenable" : "False",
         "weight" : "880"
@@ -22,8 +22,8 @@
       {
         "starting location": "Armory",
         "id": "A.K 47",
-        "name": "a.k 47",
-        "damage": "80",
+        "name": "ak 47",
+        "damage": "100",
         "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
         "isOpenable" : "False",
         "weight" : "3800"
@@ -50,7 +50,7 @@
         "starting location": "Kitchen",
         "id": "Bloody Knife",
         "name": "bloody knife",
-        "damage": "75",
+        "damage": "50",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",
         "weight" : "130" 
@@ -59,7 +59,7 @@
         "starting location": "Armory",
         "id": "Sword",
         "name": "sword",
-        "damage": "70",
+        "damage": "80",
         "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
         "isOpenable" : "False",
         "weight" : "1000"

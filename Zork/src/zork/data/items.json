@@ -67,14 +67,6 @@
         "Weight" : "900"
       },
       {
-        "starting location": "Bedroom 4",
-        "id": "Key 3",
-        "name": "key3",
-        "description": "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.",
-        "isOpenable" : "False",
-        "Weight" : "50"
-      },
-      {
         "starting location": "Library (Doll Case)",
         "id": "Introductory note",
         "name": "letter",

@@ -20,7 +20,7 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  String weapons[] = { "pistol", "bat", "a.k. 47", "pitchfork", "plastic spoon", "bloody knife", "sword" };
+  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "bloody knife", "sword" };
   int playerHealth = 500; 
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
@@ -38,7 +38,6 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      //initNotes("src\\zork\\data\\notes.json");
       currentRoom = roomMap.get("Outside Entrance");
 
     } catch (Exception e) {
@@ -147,12 +146,14 @@ public class Game {
       String charId = (String) ((JSONObject) charObj).get("id");
       String charDescription = (String) ((JSONObject) charObj).get("description");
       String charLocation = (String) ((JSONObject) charObj).get("starting location");
-      int health = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
+      int charHealth = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
+      int charDamage = Integer.parseInt((String) ((JSONObject) charObj).get("Damage"));
       
       character.setLocation(charLocation); 
       character.setDescription(charDescription);
       character.setName(charName);
-      character.setHealth(health);
+      character.setHealth(charHealth);
+      character.setDamage(charDamage); 
       roomMap.get(charLocation).addCharacter(character);
 
       // add characters to room - like items see init items
@@ -175,7 +176,7 @@ public class Game {
         int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight"));
         String weaponDescription = (String) ((JSONObject) weaponobj).get("description");
         String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
-        Integer weaponDamage = (Integer) ((JSONObject) weaponobj).get("damage");
+        Integer weaponDamage = Integer.parseInt((String) ((JSONObject) weaponobj).get("damage"));
 
         weapon.setName(weaponName);
         weapon.setDescription(weaponDescription);
@@ -491,16 +492,17 @@ public class Game {
         System.out.println("     -Greg Winson 2011-2021");
       }
 
-    }
-    if(currentRoom.getRoomName().equals("Bedroom 4")){
-      if(playerInventory.makeMasterKey()){
-        playerInventory.remove("key 1");
-        playerInventory.remove("key 2");
-        playerInventory.remove("key 3"); 
-        Item masterKey =  new Item(50, "Master Key", false, "Master Key made with the 3 keys previously found"); 
-        playerInventory.add(masterKey);  
-        System.out.println("You now have the master key and can go through all locked doors");
-      }
+      
+      if(playerInventory.hasAllKeys()){
+        System.out.println("Since you collected all three keys you now have access to the cellar - go to the next room and use the trapdoor");
+        //gotta figure out how to unlock doors ask Mr. Deslauriers 
+        /***************************************************************************************************
+         * OVER HERE IS THE QUESTION
+         * ***************************************************************************************************
+         */
+      } 
+      
+
     }
     return false;
   }
@@ -525,7 +527,29 @@ public class Game {
         if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
           Weapon weapon = (Weapon) playerInventory.findItem(weaponName); 
           currentRoom.getCharacter().setHealth(currentRoom.getCharacter().getHealth() - weapon.getDamage());
-          System.out.println();
+          playerHealth -= currentRoom.getCharacter().getDamage(); 
+          System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName() + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now " + playerHealth + " and " + currentRoom.getCharacter().getName() + " says " + currentRoom.assessCharacterQuote());
+          if(playerHealth <= 0){
+            System.out.println();
+            System.out.println(red + "YOU DIED, better luck next time..." + white);
+            System.out.println("''Sometimes, the things you see in the shadows are more than just shadows.''");
+            System.out.println();
+            reset();
+          }
+          if(currentRoom.getCharacter().getHealth() <= 0){
+            System.out.println();
+            System.out.println("You have defeated " + currentRoom.getCharacter().getName());
+            System.out.println();
+            currentRoom.removeCharacter(); 
+            if(currentRoom.getRoomName().equals("Cellar")){
+              System.out.println(currentRoom.getCharacter().getDescription());
+            }else{
+              System.out.println();
+              System.out.println("You now receive key 3");
+              Item key3 =  new Item(50, "key3", false, "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next."); 
+              playerInventory.add(key3); 
+            }
+          } 
         } else {
           if(!validWeapon(weaponName)){
             System.out.println();
