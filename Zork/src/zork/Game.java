@@ -20,7 +20,7 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "bloody knife", "sword" };
+  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" };
   int playerHealth = 500; 
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
