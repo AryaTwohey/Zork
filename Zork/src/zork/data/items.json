@@ -21,7 +21,7 @@
       {
         "starting location": "Bathroom (Bathtub)",
         "id": "Key 1",
-        "name": "key1",
+        "name": "key 1",
         "description": "You have found 1 of the 3 keys that lie in this house. Find the other 2 keys to unlock the passage to the cellar and save your friend from the horrors within the house.",
         "isOpenable" : "False",
         "Weight" : "50"
@@ -53,7 +53,7 @@
       {
         "starting location": "Bedroom 3",
         "id": "Key 2",
-        "name": "key2",
+        "name": "key 2",
         "description": "This key is one of the last to find, hurry to save your friend in time!",
         "isOpenable" : "False",
         "Weight" : "50"

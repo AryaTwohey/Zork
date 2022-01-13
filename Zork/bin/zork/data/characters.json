@@ -5,7 +5,7 @@
         "id": "Minion Doll",
         "name": "Minion Doll",
         "description": "Killing this doll is how you get the third key to save your friend",
-        "Health" : "200", 
+        "Health" : "150", 
         "Damage" : "25"
       }, 
       {
@@ -49,10 +49,10 @@
         "Damage" : "25"
       },
       {
-        "starting location": "Cell",
+        "starting location": "Cellar",
         "id": "Boss Doll",
         "name": "Boss Doll",
-        "description": "This is the final doll that must be killed in order to win the game",
+        "description": "FINAL LEVEL: The Doll - Your whole journey has led to this, good luck.",
         "Health" : "1050", 
         "Damage" : "25"
       }
