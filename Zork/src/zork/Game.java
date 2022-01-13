@@ -40,7 +40,7 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      currentRoom = roomMap.get("Armory");
+      currentRoom = roomMap.get("Outside Entrance");
 
     } catch (Exception e) {
       e.printStackTrace();
