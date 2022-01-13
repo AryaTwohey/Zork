@@ -788,6 +788,8 @@ public class Game {
     String armanRole = "Arman: Parser, Game Class & Combat";
     String laraRole = "Lara: Map Creation";
     String murielRole = "Muriel: Map Creation";
+    
+    //add a message displaying how much xp u got 
 
     System.out.println();
     System.out.println();
