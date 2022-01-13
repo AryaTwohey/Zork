@@ -269,7 +269,7 @@
       "description": "You have entered the fourth bedroom, with a dolls cousin to greet you. Defeat this doll to move on - remember that knife?.",
       "exits": [
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Bedroom 4 (trapdoor)"
         }, 
@@ -307,7 +307,7 @@
     {
       "id": "Cellar", 
       "name": "Cellar",
-      "description": "You have entered a room filled with past horror movie villains starting with Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand. - defeat theses villains and try not to die.",
+      "description": "You have entered a room filled with past horror movie villains starting with... \n \nLevel 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand. - defeat theses villains and try not to die.",
       "exits": [
         {
           "isLocked": true,
