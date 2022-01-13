@@ -22,14 +22,13 @@ public class Game {
   Inventory playerInventory;
   Item item;
   String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" };
-  int playerHealth = 500; 
+  int playerHealth = 500;
 
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
   public static final String blue = "\u001B[34m"; // for quit message
   public static final String red = "\u001B[31m"; // for red coloured text (blood)
   public static final String green = "\u001B[32m";
-
 
   /**
    * Create the game and initialize its internal map.
@@ -41,20 +40,21 @@ public class Game {
       initItems("src\\zork\\data\\items.json");
       initCharacters("src\\zork\\data\\characters.json");
       initWeapons("src\\zork\\data\\weapons.json");
-      currentRoom = roomMap.get("Outside Entrance");
+      currentRoom = roomMap.get("Armory");
 
     } catch (Exception e) {
       e.printStackTrace();
-    } 
+    }
     parser = new Parser();
 
-    /* * * * * * * * * * * *  * * * * * * * * * * * * *
-     * 8633g - - > Sum of all items weights           *
-     * 6475 - - > Approximatley 75% of max capacity   *
-     * I (Arya) think that this should be the max-    *
-     * carrying capacity for a inventory              *
-     * * * * * * * * * * * * * * * * * * * * * * * * *    
-    */
+    /*
+     * * * * * * * * * * * * * * * * * * * * * * * * *
+     * 8633g - - > Sum of all items weights *
+     * 6475 - - > Approximatley 75% of max capacity *
+     * I (Arya) think that this should be the max- *
+     * carrying capacity for a inventory *
+     * * * * * * * * * * * * * * * * * * * * * * * * *
+     */
     playerInventory = new Inventory(6475);
   }
 
@@ -93,8 +93,8 @@ public class Game {
       item.setName(itemName);
       item.setDescription(itemDescription);
       item.setWeight(itemWeight);
-      if(sIsNote != null){
-        item.setIsNote(Boolean.parseBoolean(sIsNote)); 
+      if (sIsNote != null) {
+        item.setIsNote(Boolean.parseBoolean(sIsNote));
       }
       roomMap.get(itemStartingRoom).addItem(item);
 
@@ -151,43 +151,43 @@ public class Game {
       String charLocation = (String) ((JSONObject) charObj).get("starting location");
       int charHealth = Integer.parseInt((String) ((JSONObject) charObj).get("Health"));
       int charDamage = Integer.parseInt((String) ((JSONObject) charObj).get("Damage"));
-      
-      character.setLocation(charLocation); 
+
+      character.setLocation(charLocation);
       character.setDescription(charDescription);
       character.setName(charName);
       character.setHealth(charHealth);
-      character.setDamage(charDamage); 
+      character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
 
       // add characters to room - like items see init items
 
     }
   }
-    
-    private void initWeapons(String fileName) throws Exception {
-      Path path = Path.of(fileName);
-      String stringJson = Files.readString(path);
-      JSONParser parser = new JSONParser();
-      JSONObject json = (JSONObject) parser.parse(stringJson);
 
-      JSONArray weaponsJson = (JSONArray) json.get("weapons");
+  private void initWeapons(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String stringJson = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(stringJson);
 
-      for (Object weaponobj : weaponsJson) {
-        Weapon weapon = new Weapon();
-        String weaponName = (String) ((JSONObject) weaponobj).get("name");
-        String weaponId = (String) ((JSONObject) weaponobj).get("id");
-        int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight"));
-        String weaponDescription = (String) ((JSONObject) weaponobj).get("description");
-        String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
-        Integer weaponDamage = Integer.parseInt((String) ((JSONObject) weaponobj).get("damage"));
+    JSONArray weaponsJson = (JSONArray) json.get("weapons");
 
-        weapon.setName(weaponName);
-        weapon.setDescription(weaponDescription);
-        weapon.setWeight(weaponWeight);
-        weapon.setDamage(weaponDamage);
-        roomMap.get(weaponStartingRoom).addItem(weapon);
+    for (Object weaponobj : weaponsJson) {
+      Weapon weapon = new Weapon();
+      String weaponName = (String) ((JSONObject) weaponobj).get("name");
+      String weaponId = (String) ((JSONObject) weaponobj).get("id");
+      int weaponWeight = Integer.parseInt((String) ((JSONObject) weaponobj).get("weight"));
+      String weaponDescription = (String) ((JSONObject) weaponobj).get("description");
+      String weaponStartingRoom = (String) ((JSONObject) weaponobj).get("starting location");
+      Integer weaponDamage = Integer.parseInt((String) ((JSONObject) weaponobj).get("damage"));
 
-      }
+      weapon.setName(weaponName);
+      weapon.setDescription(weaponDescription);
+      weapon.setWeight(weaponWeight);
+      weapon.setDamage(weaponDamage);
+      roomMap.get(weaponStartingRoom).addItem(weapon);
+
+    }
   }
 
   /**
@@ -363,19 +363,16 @@ public class Game {
       System.out.println();
       read(command);
       System.out.println(currentRoom.exits());
-      System.out.println(); 
+      System.out.println();
     } else if (commandWord.equals("inventory") || commandWord.equals("display")) {
       displayInventory();
-    }else if (commandWord.equals("space")) {
+    } else if (commandWord.equals("space")) {
       inventorySpace(command);
       System.out.println(currentRoom.exits());
-     } else if(commandWord.equals("inspect")){
+    } else if (commandWord.equals("inspect")) {
 
-    //  inspectTheItem(command);
+      // inspectTheItem(command);
 
-
-
-    
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
@@ -497,16 +494,15 @@ public class Game {
         System.out.println("     -Greg Winson 2011-2021");
       }
 
-      
-      if(playerInventory.hasAllKeys()){
-        System.out.println("Since you collected all three keys you now have access to the cellar - go to the next room and use the trapdoor");
-        //gotta figure out how to unlock doors ask Mr. Deslauriers 
+      if (playerInventory.hasAllKeys()) {
+        System.out.println(
+            "Since you collected all three keys you now have access to the cellar - go to the next room and use the trapdoor");
+        // gotta figure out how to unlock doors ask Mr. Deslauriers
         /***************************************************************************************************
          * OVER HERE IS THE QUESTION
          * ***************************************************************************************************
          */
-      } 
-      
+      }
 
     }
     return false;
@@ -530,57 +526,66 @@ public class Game {
           weaponName = command.getExtraWords().get(0);
         }
         if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
-          Weapon weapon = (Weapon) playerInventory.findItem(weaponName); 
+          Weapon weapon = (Weapon) playerInventory.findItem(weaponName);
 
-        
           currentRoom.getCharacter().setHealth(currentRoom.getCharacter().getHealth() - weapon.getDamage());
-          playerHealth -= currentRoom.getCharacter().getDamage(); 
-          System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName() + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now " + playerHealth + " and " + currentRoom.getCharacter().getName() + currentRoom.assessCharacterQuote());
-          if(playerHealth <= 0){
+          playerHealth -= currentRoom.getCharacter().getDamage();
+
+          System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName()
+              + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now "
+              + playerHealth + " and " + currentRoom.getCharacter().getName() + currentRoom.assessCharacterQuote());
+
+          if (currentRoom.getCharacter() == null) {
+
+
+           //  currentRoom.nextRoom(direction);
+
+          }
+
+          if (playerHealth <= 0) {
             System.out.println();
             System.out.println(red + "YOU DIED, better luck next time..." + white);
             System.out.println("''Sometimes, the things you see in the shadows are more than just shadows.''");
             System.out.println();
-            reset();
           }
-          if(currentRoom.getCharacter().getHealth() <= 0){
+          if (currentRoom.getCharacter().getHealth() <= 0) {
             System.out.println();
             System.out.println("You have defeated " + currentRoom.getCharacter().getName());
             System.out.println();
-            currentRoom.removeCharacter(); 
+            currentRoom.removeCharacter();
+
             String healthMessage = blue + "Your health has been restored to 500HP" + white;
 
-              for(int i = 0; i < healthMessage.length(); i++){
-                System.out.printf("%c", healthMessage.charAt(i));
-                Thread.sleep(30);
-              }
-              System.out.println();
-              System.out.println();
+            for (int i = 0; i < healthMessage.length(); i++) {
+              System.out.printf("%c", healthMessage.charAt(i));
+              Thread.sleep(30);
+            }
+            System.out.println();
+            System.out.println();
 
             playerHealth = 500;
 
-          }  if(currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")){
+          }
+          if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
 
             System.out.println(green + currentRoom.getCharacter().getDescription() + white);
 
-            }  else if(currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter().getName() != "Shreck"){
-              System.out.println(currentRoom.getCharacter().getDescription());
+          } else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null && currentRoom.getCharacter().getName() != "Shreck") {
+            System.out.println(currentRoom.getCharacter().getDescription());
 
-            }else{
-              if(!currentRoom.getRoomName().equals("Cell")){
-                System.out.println();
-                System.out.println("You now receive key 3");
-                Item key3 =  new Item(50, "key3", false, "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next."); 
-                playerInventory.add(key3); 
-              }
-            }
-          } 
-         else {
-          if(!validWeapon(weaponName)){
+          } else if (!currentRoom.getRoomName().equals("Cell")) {
+            System.out.println();
+            System.out.println("You now receive key 3");
+            Item key3 = new Item(50, "key3", false,
+                "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
+            playerInventory.add(key3);
+          }
+        } else {
+          if (!validWeapon(weaponName)) {
             System.out.println();
             System.out.println(weaponName + " is not a valid weapon.");
             System.out.println();
-          }else{
+          } else {
             System.out.println();
             System.out.println(weaponName + " is not in your inventory.");
             System.out.println();
@@ -602,9 +607,9 @@ public class Game {
   }
 
   private void read(Command command) {
-    if(!command.hasExtraWords()){
+    if (!command.hasExtraWords()) {
       System.out.println("read what?");
-    }else{
+    } else {
       String itemName;
 
       if (command.getExtraWords().size() > 1) {
@@ -619,8 +624,7 @@ public class Game {
         System.out.println();
         System.out.println("I can't read " + itemName + " because it is not in your inventory");
         System.out.println();
-      }
-      else{
+      } else {
         String description = playerInventory.readItem(itemName);
         System.out.println();
         System.out.println(description);
@@ -628,31 +632,33 @@ public class Game {
       }
     }
   }
-  private void inventorySpace(Command command){
+
+  private void inventorySpace(Command command) {
     playerInventory.inventorySpace();
   }
 
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
-  
+
   /**
    * Print out some help information and a list of the command words.
    * 
    * @throws InterruptedException // this is for the printed message it doesnt do
    *                              anything
    */
-/*  private void inspectTheItem(Command command){
-
-    if(playerInventory.getCurrentWeight() == 0){
-      System.out.println("You have no items");
-    }else{
-    
-  playerInventory.inspectInventoryWeapon(itemName);
-  }
-
-}
-*/
+  /*
+   * private void inspectTheItem(Command command){
+   * 
+   * if(playerInventory.getCurrentWeight() == 0){
+   * System.out.println("You have no items");
+   * }else{
+   * 
+   * playerInventory.inspectInventoryWeapon(itemName);
+   * }
+   * 
+   * }
+   */
 
   private void printHelp() throws InterruptedException {
     String helperMessage = "Your command words are below, use them to win the game ";
@@ -675,11 +681,11 @@ public class Game {
     System.out.println();
 
   }
+
   public void displayInventory() throws InterruptedException {
     playerInventory.displayInventory();
   }
 
- 
   private void takeItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -702,9 +708,9 @@ public class Game {
         System.out.print("This " + itemName + " does not exist in this room. ");
         System.out.println("Or try typing " + blue + "search " + white + "to find the proper name of the item");
       } else {
-        if (!playerInventory.add(item)) 
+        if (!playerInventory.add(item))
           currentRoom.addItem(item);
-        else{
+        else {
           System.out.println();
           System.out.println("You took the " + itemName);
         }
@@ -773,4 +779,9 @@ public class Game {
       System.out.println(currentRoom.longDescription());
     }
   }
+
+  private void credits() {
+
+  }
+
 }

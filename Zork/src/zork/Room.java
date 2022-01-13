@@ -155,8 +155,16 @@ public class Room {
     return characters.size() > 0;  
   }
 
+
+
+
   public Character getCharacter(){
-    return characters.get(0); 
+    if(characters.size()>0){
+      return characters.get(0); 
+
+    }else{
+      return null;
+    }
   }
 
   
