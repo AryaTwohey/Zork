@@ -509,7 +509,6 @@ public class Game {
     System.out.println();
     System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");
     System.out.print("What do you want: ");
-    System.out.println();
     String option = in.nextLine().toLowerCase();
     if(option.equals("full") || option.equals("full restore")){
       if(playerXp - 200 < 0){
@@ -624,7 +623,7 @@ public class Game {
             System.out.println(red + "YOU DIED, better luck next time..." + white);
             System.out.println("''Sometimes, the things you see in the shadows are more than just shadows.''");
             System.out.println();
-            reset();
+            quit(); 
           }
           if (currentRoom.getCharacter().getHealth() <= 0) {
             System.out.println();
