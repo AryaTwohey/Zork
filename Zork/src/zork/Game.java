@@ -217,7 +217,9 @@ public class Game {
       }
     }
     credits();
-    quit(); 
+    System.out.println();
+    System.out.println();
+    System.exit(0);
   }
 
   /**
@@ -325,7 +327,6 @@ public class Game {
     }else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run")){
       goRoom(command);
     } else if (commandWord.equals("quit")) {
-
     return true;
 
     } else if (commandWord.equals("eat")) {
@@ -630,8 +631,10 @@ public class Game {
             System.out.println(red + " YOU DIED, better luck next time..." + white);
             System.out.println();
             System.out.println(blue + "''Sometimes, the things you see in the shadows are more than just shadows.''" + white);
-            System.out.println();
             quit();
+            System.out.println();
+            System.exit(0);
+            System.out.println();
             return true;
 
           }
