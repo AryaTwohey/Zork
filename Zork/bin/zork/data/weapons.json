@@ -50,7 +50,7 @@
         "starting location": "Kitchen",
         "id": "Knife",
         "name": "knife",
-        "damage": "50",
+        "damage": "25",
         "description": "This thing is sharp and' pointy, could probably be used as a weapon",
         "isOpenable" : "False",
         "weight" : "130" 
