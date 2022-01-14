@@ -185,8 +185,4 @@ public class Room {
   public void addCharacter(Character character) {
     characters.add(character); 
   }
-
-  public String assessCharacterQuote() {
-    return ""; 
-  }
 }
