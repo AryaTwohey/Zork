@@ -26,7 +26,7 @@
         "damage": "100",
         "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
         "isOpenable" : "False",
-        "weight" : "3800"
+        "weight" : "2000"
       },
       {
         "starting location": "Armory",
