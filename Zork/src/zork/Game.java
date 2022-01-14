@@ -109,6 +109,14 @@ public class Game {
     }
   }
 
+  /** 
+   * initializes the rooms in the game, with their given attributes  from the rooms.json file and compiles it to play 
+   * states the exists of the rooms and whether or not it's open or locked 
+   * sets the name of the room
+   * sets the exits of that room
+   * sets the room id in the roomMap
+  */
+
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -167,10 +175,20 @@ public class Game {
       character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
 
-      // add characters to room - like items see init items
+
 
     }
   }
+  
+  /**
+   * initializes the weapons 
+   * takes the weapon plus their attributes from the weapons.json
+   * compiles them into our game in the respective location/rooms 
+   * sets the name of the different weapons
+   * sets the description of the weapon
+   * sets how much damage that weapon can do 
+   * sets the starting room of where that weapon will be when the game starts 
+   */
 
   private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -197,6 +215,7 @@ public class Game {
 
     }
   }
+  
 
   /**
    * Required for printable messges, doesnt do anything else
