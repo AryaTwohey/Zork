@@ -15,7 +15,7 @@
     {
       "id": "Foyer",
       "name": "Foyer",
-      "description": "You have entered the foyer. It is very dark and there are keys on a table.",
+      "description": "You have entered the foyer. It is very dark.",
       "exits": [
         {
           "isLocked": false,
