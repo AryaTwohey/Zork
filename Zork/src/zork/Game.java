@@ -81,6 +81,11 @@ public class Game {
 
   }
 
+    /**
+     * initializes the items 
+     * takes items and their characteristics in items.json and allows them to be used in our game
+     * places the item into the room it belongs in
+     */
   private void initItems(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String stringJson = Files.readString(path);
@@ -107,11 +112,7 @@ public class Game {
       roomMap.get(itemStartingRoom).addItem(item);
 
     }
-    /**
-     * initializes the items 
-     * takes items and their characteristics in items.json and allows them to be used in our game
-     * places the item into the room it belongs in
-     */
+  
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -148,6 +149,12 @@ public class Game {
     }
   }
 
+   /**
+   * initializes the characters to be used in the games
+   * allows us to set their location, health etc. and use those characteristics and the actual character
+   * places characters in their locations 
+   */
+
   private void initCharacters(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -174,11 +181,7 @@ public class Game {
 
     }
   }
-  /**
-   * initializes the characters to be used in the games
-   * allows us to set their location, health etc. and use those characteristics and the actual character
-   * places characters in their locations 
-   */
+ 
 
   private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
