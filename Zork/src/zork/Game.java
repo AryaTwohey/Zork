@@ -807,7 +807,7 @@ public class Game {
           currentRoom.addItem(item);
         else {
           System.out.println();
-          if(!all.contains(item.getName()) && !validWeapon(item.getName())){  //bug on car keys, isnt subtracting 50 XP
+          if(!all.contains(item.getName()) && !validWeapon(item.getName())){  
             playerXp += 15; 
             System.out.println(blue + "Item picked up -> PLAYER XP + 15" + white);
           }
