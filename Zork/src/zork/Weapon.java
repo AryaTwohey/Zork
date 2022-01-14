@@ -8,6 +8,10 @@ package zork;
         private int weaponDamage; 
 
         public Weapon(int weight, String name, boolean isOpenable, String description, int weaponDamage) {
+          /**
+           * constructors within the game
+           * weight, name, if openable and description
+           */
           super(weight, name, isOpenable, description); 
           this.weaponDamage = weaponDamage;
         }
@@ -17,10 +21,16 @@ package zork;
         }
 
         public void setDamage(int weaponDamage) {
+          /**
+           * the constructors for the weapon damage
+           */
             this.weaponDamage = weaponDamage;
         }
      
         public int getDamage() {
+          /** 
+           * returns the weapon damage 
+           */
           return weaponDamage;
       }
         

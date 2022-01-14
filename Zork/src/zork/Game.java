@@ -81,6 +81,11 @@ public class Game {
 
   }
 
+    /**
+     * initializes the items 
+     * takes items and their characteristics in items.json and allows them to be used in our game
+     * places the item into the room it belongs in
+     */
   private void initItems(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String stringJson = Files.readString(path);
@@ -107,12 +112,16 @@ public class Game {
       roomMap.get(itemStartingRoom).addItem(item);
 
     }
-    /**
-     * initializes the items 
-     * takes items and their characteristics in items.json and allows them to be used in our game
-     * places the item into the room it belongs in
-     */
+  
   }
+
+  /** 
+   * initializes the rooms in the game, with their given attributes  from the rooms.json file and compiles it to play 
+   * states the exists of the rooms and whether or not it's open or locked 
+   * sets the name of the room
+   * sets the exits of that room
+   * sets the room id in the roomMap
+  */
 
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -148,6 +157,12 @@ public class Game {
     }
   }
 
+   /**
+   * initializes the characters to be used in the games
+   * allows us to set their location, health etc. and use those characteristics and the actual character
+   * places characters in their locations 
+   */
+
   private void initCharacters(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -172,13 +187,22 @@ public class Game {
       character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
 
+<<<<<<< HEAD
+
+
     }
   }
+  
   /**
-   * initializes the characters to be used in the games
-   * allows us to set their location, health etc. and use those characteristics and the actual character
-   * places characters in their locations 
+   * initializes the weapons 
+   * takes the weapon plus their attributes from the weapons.json
+   * compiles them into our game in the respective location/rooms 
+   * sets the name of the different weapons
+   * sets the description of the weapon
+   * sets how much damage that weapon can do 
+   * sets the starting room of where that weapon will be when the game starts 
    */
+
 
   private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -205,6 +229,7 @@ public class Game {
 
     }
   }
+  
 
   /**
    * Required for printable messges, doesnt do anything else
