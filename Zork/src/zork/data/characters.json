@@ -18,9 +18,9 @@
       },
       {
         "starting location": "Cellar",
-        "id": "Jason Voorhees",
-        "name": "Jason Voorhees",
-        "description": "Level 2: Jason Voorhees - \"You think you're gonna last all week?\"",
+        "id": "Ghostface",
+        "name": "Ghostface",
+        "description": "Level 2: Ghostface - \"if you want to be in a hospital, I'd be happy to put you there...\"",
         "Health" : "300", 
         "Damage" : "75"
       },
