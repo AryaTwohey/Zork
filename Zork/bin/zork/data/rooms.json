@@ -295,7 +295,7 @@
     {
       "id": "Armory", 
       "name": "Armory",
-      "description": "You enter an armory - you see a pitchfork, a bat, an AK-47, a pistol and for some strange reason there is a plastic spoon. We have gone very far together my friend, but there is nothing much I can help you do now. Choose carefully, your weapon is your way out.",
+      "description": "You enter an armory - you see a pitchfork, a bat, an AK-47, a pistol and for some strange reason there is a plastic spoon. You will lose 50xp for every weapon that you take. We have gone very far together my friend, but there is nothing much I can help you do now. Choose carefully, your weapon is your way out.",
       "exits": [
         {
           "isLocked": false,

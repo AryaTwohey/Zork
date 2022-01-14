@@ -5,7 +5,7 @@
         "id": "Minion Doll",
         "name": "Minion Doll",
         "description": "Killing this doll is how you get the third key to save your friend",
-        "Health" : "150", 
+        "Health" : "100", 
         "Damage" : "25"
       }, 
       {
