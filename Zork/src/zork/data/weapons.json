@@ -1,14 +1,6 @@
 {
     "weapons": [
-      {
-        "starting location": "Foyer",
-        "id": "Keys",
-        "name": "keys",
-        "damage": "15",
-        "description": "These are the keys to a car, looks to be for a Mercedes, if you get out, lets go for a ride",
-        "isOpenable": "false",
-        "weight": "50"
-      },
+      
      {
         "starting location": "Armory",
         "id": "Pistol",
