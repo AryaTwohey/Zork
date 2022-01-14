@@ -39,21 +39,6 @@ public class Inventory {
     }
     return false;
   }
-
-  // not needed but keeping for now
-  public boolean hasItem() {
-
-    if (items.size() == 0) {
-      System.out.println();
-      System.out.println("This room has no items");
-      System.out.println();
-    }
-    for (int i = 0; i < items.size(); i++) {
-      System.out.println(i + " ");
-    }
-    return true;
-  }
-
   public void displayInventory() throws InterruptedException {
 
     String message = blue + "Displaying Inventory" + white;

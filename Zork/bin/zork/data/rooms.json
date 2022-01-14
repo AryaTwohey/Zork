@@ -15,7 +15,7 @@
     {
       "id": "Foyer",
       "name": "Foyer",
-      "description": "You have entered the foyer. It is very dark.",
+      "description": "You have entered the foyer. It is very dark and there are keys on a table.",
       "exits": [
         {
           "isLocked": false,
@@ -49,7 +49,7 @@
     {
       "id": "Library (Bookshelf)",
       "name": "Library",
-      "description": "To the right of you is a bookshelf, it is filled with dusty books and cobwebs",
+      "description": "To the right of you is a bookshelf, it is filled with tons of books",
       "exits": [
         {
           "isLocked": false,

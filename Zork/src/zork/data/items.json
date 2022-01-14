@@ -84,7 +84,34 @@
         "isNote" : "True", 
         "Weight" : "5"
       
-      }   
+      },
+      {
+        "starting location": "Library (Bookshelf)",
+        "id": "Harry Potter",
+        "name": "harry potter",
+        "description": "''Harry did you put your name in the Goblet of fire???''",
+        "isOpenable": "false",
+        "isNote": "True",
+        "Weight": "5"
+      },
+      {
+        "starting location": "Library (Bookshelf)",
+        "id": "Godfather 1",
+        "name": "godfather 1",
+        "description": "''I'm gonna make em an offer he can't refuse''",
+        "isOpenable": "false",
+        "isNote": "True",
+        "Weight": "5"
+      },
+      {
+        "starting location": "Library (Bookshelf)",
+        "id": "5StepsToA5",
+        "name": "5stepstoa5",
+        "description": "''be smart''",
+        "isOpenable": "false",
+        "isNote": "True",
+        "Weight": "5"
+      }
 
     ]
   }

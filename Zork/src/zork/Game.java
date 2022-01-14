@@ -55,12 +55,12 @@ public class Game {
     /*
      * * * * * * * * * * * * * * * * * * * * * * * * *
      * 8633g - - > Sum of all items weights *
-     * 6475 - - > Approximatley 75% of max capacity *
+     * 4317 - - > Approximatley 50% of max capacity *
      * I (Arya) think that this should be the max- *
      * carrying capacity for a inventory *
      * * * * * * * * * * * * * * * * * * * * * * * * *
      */
-    playerInventory = new Inventory(6475);
+    playerInventory = new Inventory(4317);
   }
 
   private void reset() {
@@ -74,7 +74,10 @@ public class Game {
       e.printStackTrace();
     }
     parser = new Parser();
-    playerInventory = new Inventory(6475);
+    playerInventory = new Inventory(4317);
+    playerHealth = 500;
+    playerXp = 0;
+    
 
   }
 
@@ -317,12 +320,14 @@ public class Game {
 
     String commandWord = command.getCommandWord();
 
-    if (commandWord.equals("help"))
+    if (commandWord.equals("help")){
       printHelp();
-    else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run"))
+    }else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run")){
       goRoom(command);
-    else if (commandWord.equals("quit")) {
-      quit(); // signal that we want to quit
+    } else if (commandWord.equals("quit")) {
+
+    return true;
+
     } else if (commandWord.equals("eat")) {
       System.out.println();
       System.out.println("Eat?!? Are you serious?!");
@@ -570,7 +575,7 @@ public class Game {
     System.out.println();
   }
 
-  private void attack(Command command) throws InterruptedException {
+  private boolean attack(Command command) throws InterruptedException {
     if (currentRoom.hasEnemy()) {
       if (!command.hasExtraWords()) {
         System.out.println();
@@ -597,9 +602,15 @@ public class Game {
 
           if (playerHealth <= 0) {
             System.out.println();
-            System.out.println(red + "YOU DIED, better luck next time..." + white);
-            System.out.println("''Sometimes, the things you see in the shadows are more than just shadows.''");
+            System.out.println("_______________________________________________________________________________________________________________________________________");
             System.out.println();
+            System.out.println(red + " YOU DIED, better luck next time..." + white);
+            System.out.println();
+            System.out.println(blue + "''Sometimes, the things you see in the shadows are more than just shadows.''" + white);
+            System.out.println();
+            quit();
+            return true;
+
           }
           if (currentRoom.getCharacter().getHealth() <= 0) {
             System.out.println();
@@ -649,6 +660,7 @@ public class Game {
     } else {
       System.out.println("There is nothing to attack/kill in this space.");
     }
+    return false;
   }
 
   private boolean validWeapon(String weaponName) {
@@ -863,10 +875,7 @@ public class Game {
     String thankYouMessage = "                                                CONGRADULATIONS YOU HAVE ESCAPED DEATH DOLL";
     String friend = "                                                     You and your friend are now free";
     String creators = "A text-adventure game created by Arya, Arman, Lara & Muriel";
-    String aryaRole = "Arya: Inventory, game class & Combat";
-    String armanRole = "Arman: Parser, Game Class & Combat";
-    String laraRole = "Lara: Map Creation";
-    String murielRole = "Muriel: Map Creation";
+   
     
     //add a message displaying how much xp u got 
 
@@ -912,41 +921,6 @@ public class Game {
     System.out.println();
     System.out.println();
 
-    for (int i = 0; i < aryaRole.length(); i++) {
-      System.out.printf("%c", aryaRole.charAt(i));
-      Thread.sleep(20);
-    }
-    System.out.println();
-  
-
-
-    for (int i = 0; i < armanRole.length(); i++) {
-      System.out.printf("%c", armanRole.charAt(i));
-      Thread.sleep(20);
-    }
-
-    System.out.println();
-
-    for (int i = 0; i < laraRole.length(); i++) {
-      System.out.printf("%c", laraRole.charAt(i));
-      Thread.sleep(20);
-    }
-
-    System.out.println();
-
-    for (int i = 0; i < murielRole.length(); i++) {
-      System.out.printf("%c", murielRole.charAt(i));
-      Thread.sleep(20);
-    }
-    System.out.println();
-    System.out.println();
-
-    for (int i = 0; i < dots.length(); i++) {
-      System.out.printf("%c", dots.charAt(i));
-      Thread.sleep(5);
-    }
-    System.out.println();
-    System.out.println();
   }
 
 }
