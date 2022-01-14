@@ -81,6 +81,11 @@ public class Game {
 
   }
 
+    /**
+     * initializes the items 
+     * takes items and their characteristics in items.json and allows them to be used in our game
+     * places the item into the room it belongs in
+     */
   private void initItems(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String stringJson = Files.readString(path);
@@ -107,6 +112,7 @@ public class Game {
       roomMap.get(itemStartingRoom).addItem(item);
 
     }
+  
   }
 
   /** 
@@ -151,6 +157,12 @@ public class Game {
     }
   }
 
+   /**
+   * initializes the characters to be used in the games
+   * allows us to set their location, health etc. and use those characteristics and the actual character
+   * places characters in their locations 
+   */
+
   private void initCharacters(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -175,6 +187,7 @@ public class Game {
       character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
 
+<<<<<<< HEAD
 
 
     }
@@ -189,6 +202,7 @@ public class Game {
    * sets how much damage that weapon can do 
    * sets the starting room of where that weapon will be when the game starts 
    */
+
 
   private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -641,7 +655,7 @@ public class Game {
 
           System.out.println("You did " + weapon.getDamage() + " damage on " + currentRoom.getCharacter().getName()
               + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now "
-              + playerHealth + " and " + currentRoom.getCharacter().getName() + " says " + currentRoom.assessCharacterQuote());
+              + playerHealth + " and " + currentRoom.getCharacter().getName() + " says ''" + quotes() + "''");
 
           if (playerHealth <= 0) {
             System.out.println();
@@ -921,10 +935,27 @@ public class Game {
     }
   }
 
+  private String quotes() {
+    ArrayList<String> quotes = new ArrayList<String>(Arrays.asList("Be afraid. Be very afraid.", "We all go a little mad sometimes.", "To a new world of gods and monsters.", 
+    "If you had learned a little from me, you would not beg to live.", "If you wish to see strange things, I have the power to show them to you.", "Thrill me!", 
+    "I guess everyone's entitled to one good scare", "Don't look back.", "Movies don't create psychos; movies make psychos more creative.", 
+    "When there is no more room in hell, the dead will walk the earth.", "Swallow This.", "You want to see pain? I can show you.", 
+    "I see dead people", "Do you want to play a game.", "That was a mistake...", "Here's Johnny!", "Who do you think you are.", "You think you know suffering?", 
+    "I will show you pain in ways you couldn't even imagine.", "You can scream all you want, it won't save you.", "Your not ready for what's next.", 
+    "You've made it too far, I'm going to put an end to that.", "Wanna play?", "I'm gonna put you to sleep", "You look delicious", 
+    "I'm every nightmare you've ever had", "I'm your worst dream come true.", "I'm everything you ever were afraid of.", "Wendy, I'm home!", "I'm a messenger of God", 
+    "You're doomed if you stay here!", "This place is cursed.", "Do you think I fear you!!", "You don't know fear like I do", "Have you ever been this scared?",
+    "If you kill me, your no worse of a person than I am", "This society shuns people like us.", "Why so serious", "I'm a symbol of fear", "we're just getting started", 
+    "There's nothing to fear, except for me", "I'm intrigued to see how much we can make you bleed", "And you thought ghosts weren't real."));
+
+    int random = (int) (Math.random() * quotes.size()); 
+    return quotes.get(random); 
+  }
+
   private void credits() throws InterruptedException {
 
     String dots = "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
-    String thankYouMessage = "                                                CONGRADULATIONS YOU HAVE ESCAPED DEATH DOLL";
+    String thankYouMessage = "                                                CONGRATULATIONS YOU HAVE ESCAPED DEATH DOLL";
     String friend = "                                                     You and your friend are now free";
     String creators = "A text-adventure game created by Arya, Arman, Lara & Muriel";
    
