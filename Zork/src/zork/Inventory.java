@@ -165,7 +165,7 @@ public class Inventory {
     
     int sum = 0;
     int part = 0;
-    int total = 6475;
+    int total = 4317;
 
     if(items.size() == 0){
 
