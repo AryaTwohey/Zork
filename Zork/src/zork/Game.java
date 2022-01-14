@@ -186,12 +186,13 @@ public class Game {
       character.setHealth(charHealth);
       character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
-
-<<<<<<< HEAD
-
-
     }
   }
+
+
+    
+    
+  
   
   /**
    * initializes the weapons 
