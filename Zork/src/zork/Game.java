@@ -335,7 +335,7 @@ public class Game {
       takeItem(command);
     } else if (commandWord.equals("drop")) {
       dropItem(command);
-    } else if(commandWord.equals("heal")){
+    } else if(commandWord.equals("heal") || commandWord.equals("restore")){
       heal(); 
     } else if (commandWord.equals("kill") || commandWord.equals("shoot") || commandWord.equals("fire")
         || commandWord.equals("hit") || commandWord.equals("stab") || commandWord.equals("use")) {
@@ -513,31 +513,53 @@ public class Game {
     
     System.out.println();
     System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");
-    System.out.println("What do you want: ");
+    System.out.print("What do you want: ");
     String option = in.nextLine().toLowerCase();
     if(option.equals("full") || option.equals("full restore")){
-      System.out.println("Purchase Confirmed: Price 200xp");
-      playerHealth = 500;
-      System.out.println(green + "current health: " + playerHealth + white);
-      System.out.println(blue + "current xp :" + playerXp + white);
+      if(playerXp - 200 < 0){
+        System.out.println("You do not have enough xp for this purchase");
+        System.out.println("200xp needed and you have " + playerXp + " xp");
+      }
+      else{
+        playerXp -= 200; 
+        System.out.println("Purchase Confirmed: Price 200xp");
+        playerHealth = 500;
+        System.out.println(green + "current health: " + playerHealth + white);
+        System.out.println(blue + "current xp :" + playerXp + white);
+      }
+      
     } 
     else if(option.equals("half") || option.equals("half restore")){
-      System.out.println("Purchase Confirmed: Price 150xp");
-      playerHealth += 250;
-      if(playerHealth > 500){
-        playerHealth = 500; 
-      } 
-      System.out.println(green + "current health: " + playerHealth + white);
-      System.out.println(blue + "current xp :" + playerXp + white);
+      if(playerXp - 150 < 0){
+        System.out.println("You do not have enough xp for this purchase");
+        System.out.println("150xp needed and you have " + playerXp + " xp");
+      }
+      else{
+        playerXp -= 150; 
+        System.out.println("Purchase Confirmed: Price 150xp");
+        playerHealth += 250;
+        if(playerHealth > 500){
+          playerHealth = 500; 
+        } 
+        System.out.println(green + "current health: " + playerHealth + white);
+        System.out.println(blue + "current xp :" + playerXp + white);
+      }
     } 
     else if(option.equals("100") || option.equals("100 health")){
-      System.out.println("Purchase Confirmed: Price 75xp");
-      playerHealth += 100;
-      if(playerHealth > 500){
-        playerHealth = 500; 
-      } 
-      System.out.println(green + "current health: " + playerHealth + white);
-      System.out.println(blue + "current xp :" + playerXp + white);
+      if(playerXp - 75 < 0){
+        System.out.println("You do not have enough xp for this purchase");
+        System.out.println("75xp needed and you have " + playerXp + " xp");
+      }
+      else{
+        playerXp -= 75; 
+        System.out.println("Purchase Confirmed: Price 75xp");
+        playerHealth += 100;
+        if(playerHealth > 500){
+          playerHealth = 500; 
+        } 
+        System.out.println(green + "current health: " + playerHealth + white);
+        System.out.println(blue + "current xp :" + playerXp + white);
+      }
     } 
     else if(option.equals("cancel")){
       System.out.println("You left the shop");
@@ -545,6 +567,7 @@ public class Game {
     else{
       System.out.println("Sorry didn't understand that - call heal again if you still want to purchase meds");
     }
+    currentRoom.exits(); 
   }
 
   private void quit() throws InterruptedException {
@@ -620,7 +643,7 @@ public class Game {
             System.out.println();
             
             playerXp += 100; 
-            System.out.println(blue + "PLAYER XP + 100" + white);
+            System.out.println(blue + "Enemy defeated - PLAYER XP + 100" + white);
         
             if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
 
@@ -786,11 +809,18 @@ public class Game {
           System.out.println();
           if(!all.contains(item.getName()) && !validWeapon(item.getName())){
             playerXp += 15; 
-            System.out.println(blue + "PLAYER XP + 15" + white);
+            System.out.println(blue + "Item picked up - PLAYER XP + 15" + white);
           }
-          if(!all.contains(item.getName()) && validWeapon(item.getName()) && !item.getName().equals("knife")){
-            playerXp -= 50;
-            System.out.println(red + "PLAYER XP - 50" + white); 
+          if(!all.contains(item.getName()) && validWeapon(item.getName())){
+            if(playerXp - 50 < 0){
+              System.out.println("You do not have enough xp to take this weapon");
+              playerInventory.remove(itemName); 
+              currentRoom.addItem(item); 
+            }
+            else{
+              playerXp -= 50;
+              System.out.println(red + "PLAYER XP - 50" + white);
+            } 
           }
           all.add(item.getName()); 
           System.out.println("You took the " + itemName);
@@ -859,7 +889,7 @@ public class Game {
       currentRoom = nextRoom;
       if(!all.contains(currentRoom.getRoomName())){
         playerXp += 5; 
-        System.out.println(blue + "PLAYER XP + 5" + white);
+        System.out.println(blue + "Explored a new room - PLAYER XP + 5" + white);
       }
       all.add(currentRoom.getRoomName());
       System.out.println(currentRoom.longDescription());
