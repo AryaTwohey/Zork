@@ -807,9 +807,9 @@ public class Game {
           currentRoom.addItem(item);
         else {
           System.out.println();
-          if(!all.contains(item.getName()) && !validWeapon(item.getName())){
+          if(!all.contains(item.getName()) && !validWeapon(item.getName())){  //bug on car keys, isnt subtracting 50 XP
             playerXp += 15; 
-            System.out.println(blue + "Item picked up - PLAYER XP + 15" + white);
+            System.out.println(blue + "Item picked up -> PLAYER XP + 15" + white);
           }
           if(!all.contains(item.getName()) && validWeapon(item.getName())){
             if(playerXp - 50 < 0){
@@ -819,7 +819,7 @@ public class Game {
             }
             else{
               playerXp -= 50;
-              System.out.println(red + "PLAYER XP - 50" + white);
+              System.out.println(red + "Weapon picked up -> PLAYER XP - 50" + white);
             } 
           }
           all.add(item.getName()); 
