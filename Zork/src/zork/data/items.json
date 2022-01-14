@@ -70,7 +70,7 @@
         "starting location": "Library (Doll Case)",
         "id": "Introductory note",
         "name": "letter",
-        "description": "We have your friend. To find your friend you must collect items around the house and decide which ones can be used. Remember, if you fail, we come for you.",
+        "description": "We have your friend. To find your friend you must collect items around the house and decide which ones can be used. You can gain xp by exploring new rooms and collecting items. You can use this xp to restore your health and buy weapons. Remember, if you fail, we come for you.",
         "isOpenable" : "False",
         "isNote" : "True", 
         "Weight" : "5"

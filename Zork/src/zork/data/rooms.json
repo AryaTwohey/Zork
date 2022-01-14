@@ -301,7 +301,12 @@
           "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Cellar"
-        }       
+        },      
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Bedroom 4 (trapdoor)"
+        }
       ]
     }, 
     {
