@@ -8,7 +8,9 @@ public class Character {
   private String location; 
   private int damage; 
 
-  
+  /**
+   * one constructor of character
+   */
   public Character(int health, String name, boolean isOpenable, String location) {
     this.health = health;
     this.name = name;
@@ -18,10 +20,13 @@ public class Character {
   }
   
 
+  /**
+   * another constructor of character
+   */
   public Character() {
   }
 
-/**
+   /**
    * gets the health of each character
    */
   public int getHealth() {
