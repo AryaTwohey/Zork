@@ -863,7 +863,7 @@ public class Game {
     String thankYouMessage = "                                                CONGRADULATIONS YOU HAVE ESCAPED DEATH DOLL";
     String friend = "                                                     You and your friend are now free";
     String creators = "A text-adventure game created by Arya, Arman, Lara & Muriel";
-    String aryaRole = "Arya: Inventory, game class & combat";
+    String aryaRole = "Arya: Inventory, game class & Combat";
     String armanRole = "Arman: Parser, Game Class & Combat";
     String laraRole = "Lara: Map Creation";
     String murielRole = "Muriel: Map Creation";
