@@ -107,6 +107,11 @@ public class Game {
       roomMap.get(itemStartingRoom).addItem(item);
 
     }
+    /**
+     * initializes the items 
+     * takes items and their characteristics in items.json and allows them to be used in our game
+     * places the item into the room it belongs in
+     */
   }
 
   private void initRooms(String fileName) throws Exception {
@@ -167,10 +172,13 @@ public class Game {
       character.setDamage(charDamage);
       roomMap.get(charLocation).addCharacter(character);
 
-      // add characters to room - like items see init items
-
     }
   }
+  /**
+   * initializes the characters to be used in the games
+   * allows us to set their location, health etc. and use those characteristics and the actual character
+   * places characters in their locations 
+   */
 
   private void initWeapons(String fileName) throws Exception {
     Path path = Path.of(fileName);
@@ -905,7 +913,7 @@ public class Game {
   private void credits() throws InterruptedException {
 
     String dots = "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
-    String thankYouMessage = "                                                CONGRADULATIONS YOU HAVE ESCAPED DEATH DOLL";
+    String thankYouMessage = "                                                CONGRATULATIONS YOU HAVE ESCAPED DEATH DOLL";
     String friend = "                                                     You and your friend are now free";
     String creators = "A text-adventure game created by Arya, Arman, Lara & Muriel";
    
