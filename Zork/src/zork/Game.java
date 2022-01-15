@@ -526,7 +526,7 @@ public class Game {
       System.out.println();
       if(!all.contains("winson")){
         playerXp += 500; 
-        System.out.println("You found the secret XP - you can only this once \n - Mr. Deslauriers Best Friend (You know who it is)"); 
+        System.out.println("You found the secret XP - you can only do this once \n - Mr. Deslauriers Best Friend (You know who it is)"); 
         System.out.println(blue + "PLAYER XP + 500" + white);
       }
       all.add("winson");
