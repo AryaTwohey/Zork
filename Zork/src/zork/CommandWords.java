@@ -9,7 +9,7 @@ public class CommandWords {
   public static final String white = "\u001B[0m";        //for square brakcets
 
   private static final String validCommands[] = { "go", "move", "quit", "help", "eat", "take", "drop", "search", "read", "run", "shoot", "hit", "stab", "fire", "use", "inventory", "display", "reset", "restart", "space", "fred", "winson", "", "heal", "restore", "kill"};
-  //some of these commands are not included in printhelp, so they are hidden from the basic knowledge of the game
+  //some of these commands are not included in printhelp, so they are hidden from the basic knowledge of the game - this is done to reate cool easter eggs such as command words Fred and Winson
 
   /**                                                                                                                                                            
    * 
@@ -28,7 +28,7 @@ public class CommandWords {
       if (c.equals(aString))
         return true;
     }
-    // if we get here, the string was not found in the commands
+    // if we are out of the for loop and the string still hasn't been found it means that it is not a valid command, therefor it returns false
     return false;
   }
 

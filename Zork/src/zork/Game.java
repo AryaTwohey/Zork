@@ -342,11 +342,12 @@ public class Game {
    * Given a command, process (that is: execute) the command. If this command ends
    * the game, true is returned, otherwise false is returned.
    * 
-   * @throws InterruptedException //this is for the printhelp message, dont worry
+   * @throws InterruptedException this is for the printhelp message, dont worry
    *                              it doenst do anything bad
    */
   private boolean processCommand(Command command) throws InterruptedException {
 
+    //if it doesn't understand the command it will simply return false and exit processCommand
     if (command.isUnknown()) {
 
       System.out.println();
@@ -354,8 +355,10 @@ public class Game {
       return false;
     }
 
+    //grabs the commandWord from the comand the user inputted 
     String commandWord = command.getCommandWord();
 
+    //through these if statements it checks whether the commandWord matches any of these and will do a specific method based on which command word it matches
     if (commandWord.equals("help")){
       printHelp();
     }else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run")){
@@ -393,10 +396,6 @@ public class Game {
     } else if (commandWord.equals("space")) {
       inventorySpace(command);
       System.out.println(currentRoom.exits());
-    } else if (commandWord.equals("inspect")) {
-
-      // inspectTheItem(command);
-
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
@@ -483,6 +482,13 @@ public class Game {
       System.out.println();
     }
 
+    /**
+     * if the command word is fred
+     * it will print out fred is hot 
+     * and give the player 500xp (simple easter egg)
+     * it will only give the player the xp once as it adds the word "fred" to a treeSet 
+     * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
+     */
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -502,7 +508,15 @@ public class Game {
         System.out.println(blue + "PLAYER XP + 500" + white); 
       }
       all.add("fred");
-    } else if (commandWord.equals("winson")) {
+    } 
+    /**
+     * if the command word is winson
+     * it will print out a famous Mr. Winson quote  
+     * and give the player 500xp (simple easter egg)
+     * it will only give the player the xp once as it adds the word "winson" to a treeSet 
+     * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
+     */
+    else if (commandWord.equals("winson")) {
 
       int ran = (int) (Math.random() * 2);
       if (ran == 0) {
@@ -543,6 +557,9 @@ public class Game {
 
   // implementations of user commands:
 
+  /**
+   * 
+   */
   private void heal() {
     Scanner in = new Scanner(System.in); 
     
