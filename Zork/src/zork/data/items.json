@@ -2,9 +2,9 @@
     "items": [
       {
         "starting location": "Library (Doll Case)",
-        "id": "doll",
-        "name": "doll",
-        "description": "You see a weird looking doll, sitting on a chair in the middle of the room. Perhaps putting it somewhere will reveal the secrets of this house",
+        "id": "stuffed animal",
+        "name": "stuffed animal",
+        "description": "You see a weird looking stuffed animal. Do you think it means anything?",
         "isOpenable" : "False",
         "Weight" : "800" 
       },
@@ -16,7 +16,15 @@
         "isOpenable" : "False",
         "isNote" : "False", 
         "Weight" : "700"
-      
+      },
+      {
+        "starting location": "Library (Bookshelf)",
+        "id": "bookshelf",
+        "name": "bookshelf",
+        "description": "This is a bookshelf, which stores all the books in this library.",
+        "isOpenable" : "False",
+        "isNote" : "False", 
+        "Weight" : "10000"
       },
       {
         "starting location": "Bathroom (Bathtub)",
@@ -93,7 +101,6 @@
         "isOpenable" : "False",
         "isNote" : "false", 
         "Weight" : "5000"
-
       },
       {
         "starting location": "Library (Bookshelf)",
@@ -121,7 +128,8 @@
         "isOpenable": "false",
         "isNote": "True",
         "Weight": "5"
-      }, {
+      }, 
+      {
         "starting location": "Kitchen",
         "id": "fridge",
         "name": "fridge",

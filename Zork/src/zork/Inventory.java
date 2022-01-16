@@ -39,7 +39,7 @@ public class Inventory {
 
     } else {
       System.out.println();
-      System.out.println("There is no room to add this item");
+      System.out.println("You cannot take this item. Either you have no space or this item is not able to be taken.");
       System.out.println();
     }
     return false;
