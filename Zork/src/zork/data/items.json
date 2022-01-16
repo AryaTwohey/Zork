@@ -86,6 +86,16 @@
       
       },
       {
+      "starting location": "Bedroom 1",
+        "id": "tv",
+        "name": "tv",
+        "description": "''Tonight our top story, a man does not know the purpose of a constructor!?!''",
+        "isOpenable" : "False",
+        "isNote" : "false", 
+        "Weight" : "5000"
+
+      },
+      {
         "starting location": "Library (Bookshelf)",
         "id": "Harry Potter",
         "name": "harry potter",
@@ -111,6 +121,13 @@
         "isOpenable": "false",
         "isNote": "True",
         "Weight": "5"
+      }, {
+        "starting location": "Kitchen",
+        "id": "fridge",
+        "name": "fridge",
+        "description": "Half-eaten baloney sandwich, mustard and undercooked lasanga",
+        "isOpenable" : "true",
+        "Weight" : "10000" 
       }
 
     ]

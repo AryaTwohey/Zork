@@ -396,6 +396,11 @@ public class Game {
     } else if (commandWord.equals("space")) {
       inventorySpace(command);
       System.out.println(currentRoom.exits());
+    
+    }else if (commandWord.equals("inspect")) {
+
+      stuff(command);
+
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
@@ -649,6 +654,19 @@ public class Game {
     System.out.println("TERMINATION COMPLETE");
     System.out.println();
   }
+
+  private void stuff(Command command){
+  if(!command.hasExtraWords()){
+
+    System.out.println();
+    System.out.println("Inspect What?");
+    System.out.println();
+
+  }else{
+  String itemName = command.getExtraWords().get(0);
+  currentRoom.inspectItem(itemName);
+  }
+}
 
   private boolean attack(Command command) throws InterruptedException {
     if (currentRoom.hasEnemy()) {
@@ -952,6 +970,8 @@ public class Game {
       }
     }
   }
+
+ 
 
   private String quotes() {
     ArrayList<String> quotes = new ArrayList<String>(Arrays.asList("Be afraid. Be very afraid.", "We all go a little mad sometimes.", "To a new world of gods and monsters.", 

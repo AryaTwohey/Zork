@@ -190,13 +190,20 @@ public class Room {
     return inventory.add(item);
   }
 
+ 
+  
+
   public boolean hasEnemy(){
     /** 
      * determines if this character has an enemy
      */
     return characters.size() > 0;  
   }
+public void inspectItem(String itemName){
 
+
+  inventory.inspectRoomItem(itemName);
+}
 
 
 
@@ -245,3 +252,4 @@ public class Room {
     return ""; 
   }
 }
+
