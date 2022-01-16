@@ -71,7 +71,25 @@ public class Inventory {
   }
 }
 
-  public void searchRoom() throws InterruptedException {
+public void inspectRoomItem(String itemName){
+
+for(Item i:items){
+
+  if(i.getName().equals(itemName)){
+
+    System.out.println();
+    System.out.println(itemName + ": " + i.getDescription());
+    System.out.println();
+    
+  }else{
+  System.out.println();
+   System.out.println("item not found");
+   System.out.println();
+  }    
+  }
+  }
+
+ public void searchRoom() throws InterruptedException {
 
     String noItems = red + "Keep Searching..." + white;
     String youFound = blue + "You Found: " + white;
@@ -201,5 +219,14 @@ public class Inventory {
       msg = msg.substring(msg.length() - 2);
     }
     return msg;
+  }
+
+  public void takeAll() {
+  
+  for(int i = 0; i < items.size(); i++){
+    items.remove(i);
+  }
+  System.out.println("All items have been removed");
+
   }
 }
