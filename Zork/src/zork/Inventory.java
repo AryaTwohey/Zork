@@ -91,12 +91,12 @@ for(Item i:items){
 
  public void searchRoom() throws InterruptedException {
 
-    String noItems = red + "Keep Searching..." + white;
-    String youFound = blue + "You Found: " + white;
+    String noItems = red + "Keep Searching..." + white; //printable message for when no items are found
+    String youFound = blue + "You Found: " + white;     //printable message for when items are found
 
     if (items.size() == 0) {
       System.out.println();
-      for (int i = 0; i < noItems.length(); i++) {
+      for (int i = 0; i < noItems.length(); i++) {    //prints "keep searching..." message when the rooms inventory.size() returns 0
         System.out.printf("%c", noItems.charAt(i));
         Thread.sleep(20);
       }
@@ -105,28 +105,34 @@ for(Item i:items){
 
     } else {
       System.out.println();
-      for (int i = 0; i < youFound.length(); i++) {
+      for (int i = 0; i < youFound.length(); i++) {   //Prints "you found" message, followed by the items
         System.out.printf("%c", youFound.charAt(i));
         Thread.sleep(20);
       }
 
-      for (int i = 0; i < items.size(); i++) {
+      for (int i = 0; i < items.size(); i++) {    //uses to determine where the final item is to insert "and" text
         if (i == items.size() - 2) {
           System.out.print(items.get(i).getName() + " and ");
-        } else if (i == items.size() - 1) {
+        } else if (i == items.size() - 1) { //if the items.size() returns 1, then no "and message occurs, and a single item is printed"
           System.out.print(items.get(i).getName());
         } else {
-          System.out.print(items.get(i).getName() + ", ");
+          System.out.print(items.get(i).getName() + ", ");  //"used to display commas after every item name, until the last item"
         }
       }
+
       System.out.println();
       System.out.println();
 
     }
   }
-
+  /**Key Method For ZORK, which allows for items to removed from a specific inventory
+   */
   public Item remove(String itemName) {
 
+    /** Each room has an arraylist<> of items
+      * This method iterates through that list to find the item name that matches the variable passed in
+      * In this case, the method is looking for a item with the same name as itemName  */
+    
     for (int i = items.size() - 1; i >= 0; i--) {
 
       Item item = items.get(i);
@@ -137,23 +143,28 @@ for(Item i:items){
     }
     return null;
   }
-
+  /**Allows the user to read the descriptions of notes */
   public String readItem(String itemName){
     for (Item item : items) {
-      if (item.isNote() && item.getName().equals(itemName)) {
+      if (item.isNote() && item.getName().equals(itemName)) { //Has a checker to see if a item is a note using isNote(), while also checking to see if the name of that item is the same as itemname
         return item.getDescription();
       }
     }
-    return("Unable to read this item"); 
+    return("Unable to read this item");     //is the item is not a note, print a message
   }
 
-  public boolean hasAllKeys(){
+  /**hasAllKeys is used to determine whether the lock on the trapdoor is now unlocked
+   * Using the inInventory method, a check is made to see if the user has key 1, key 2 & key 3
+   */
+  public boolean hasAllKeys(){  
     if(inInventory("key 1") && inInventory("key 2") && inInventory("key 3")){
       return true; 
     }else{
       return false; 
     }
   }
+  /**By Passing in the variable name, this method iterates,
+   * through a list of items, to check if any i.getName() returns the same name */
 
   public boolean inInventory(String name){
     for (Item i : items) {
@@ -181,32 +192,32 @@ for(Item i:items){
   * They have USED                        *
   * * * * * * * * * * * * * * * * * * * * */ 
     
-    int sum = 0;
-    int part = 0;
-    int total = 4317;
+    int sum = 0;  //sum will be used to determine the total weight of all the items in your inventory
+    int part = 0; //part will be used to determine the percentage of space left in playerInventory
+    int total = 4317; //total inventory space passed in with constructor in game class
 
-    if(items.size() == 0){
+    if(items.size() == 0){  //If items.size() returns zero, you have 100% capacity left
 
       System.out.println();
       System.out.println(blue + "100% Carrying Capacity Left" + white);
 
     }else{
 
-    for(int i = 0; i < items.size(); i++){
+    for(Item i: items){    //If not, iterate through list of items and add each 
 
-     int value = items.get(i).getWeight();
+     int value = i.getWeight(); //value is each items weight
 
-     sum += value;
-    }
-    part = total - sum;
-    part = ((part * 100)) / total;
+     sum += value;    //add the value of "value" sum
+    }   
+    part = total - sum;   //part = difference of whole to sum
+    part = ((part * 100)) / total;    //final calculation to find percentage
 
     System.out.println();
     System.out.println("Total Inventory Space Left: " + blue + part +"%" + white);
 
   }
 }
-
+/**Basic toString method that every iventory has */
 
   public String toString() {
     String msg = "";
@@ -221,12 +232,4 @@ for(Item i:items){
     return msg;
   }
 
-  public void takeAll() {
-  
-  for(int i = 0; i < items.size(); i++){
-    items.remove(i);
-  }
-  System.out.println("All items have been removed");
-
-  }
 }
