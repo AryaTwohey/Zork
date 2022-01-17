@@ -14,7 +14,7 @@
         "name": "Freddy Krueger",
         "description": "Level 1: Freddy Krueger - \"One, two, Freddy's coming for you\", Freddy has a burned disfigured face, dirty striped clothing and a brown fedora, beware of his bladed leather glove on his right hand.",
         "Health" : "275",
-        "Damage" : "50"
+        "Damage" : "30"
       },
       {
         "starting location": "Cellar",
@@ -22,7 +22,7 @@
         "name": "Ghostface",
         "description": "Level 2: Ghostface - \"if you want to be in a hospital, I'd be happy to put you there...\"",
         "Health" : "300", 
-        "Damage" : "75"
+        "Damage" : "50"
       },
       {
         "starting location": "Cellar",
@@ -30,7 +30,7 @@
         "name": "Pennywise",
         "description": "Level 3: Pennywise - \"Tasty, tasty, beautiful fear\", beware of Pennywise, but don't be sacred, he feeds on fear.",
         "Health" : "400", 
-        "Damage" : "90"
+        "Damage" : "75"
       },
       {
         "starting location": "Cellar",
@@ -38,7 +38,7 @@
         "name": "Micheal Myers ",
         "description": "Level 4: Micheal Myers - \"Turn around...\" - you can run but you can't hide.",
         "Health" : "450", 
-        "Damage" : "105"
+        "Damage" : "90"
       },
       {
         "starting location": "Cellar",
@@ -46,7 +46,7 @@
         "name": "Shreck",
         "description": "Level 5: Shreck - \"GET OUT OF ME SWAMP!!!\"",
         "Health" : "500", 
-        "Damage" : "115"
+        "Damage" : "100"
       },
       {
         "starting location": "Cellar",
@@ -54,7 +54,7 @@
         "name": "Boss Doll",
         "description": "FINAL LEVEL: The Doll - Your whole journey has led to this, good luck.",
         "Health" : "600", 
-        "Damage" : "130"
+        "Damage" : "115"
       }
     ]
     
