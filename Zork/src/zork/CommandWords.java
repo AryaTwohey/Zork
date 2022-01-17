@@ -34,7 +34,10 @@ public class CommandWords {
 
   /*
    * Print all valid commands to System.out.
+   * If commands are hidden, the forEach loop ignores them
    */
+
+
   public void showAll() {
     String openBracket = yellow + "[" + white;
     String closeBracket = yellow + "]" + white;

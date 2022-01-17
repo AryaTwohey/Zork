@@ -74,8 +74,8 @@ public class Game {
       e.printStackTrace();
     }
     parser = new Parser();
-    playerInventory = new Inventory(4317);
-    playerHealth = 500;
+    playerInventory = new Inventory(4317);  //half of sum of all items weight, player can only pick up 50% of items
+    playerHealth = 500; 
     playerXp = 0;
     
 
@@ -263,16 +263,18 @@ public class Game {
    */
   private void printWelcome() throws InterruptedException {
 
+    /**This is the welcome message a user gets when running the game
+     * It uses System.out.printf and Thread.sleep to have a typewriter effect
+     */
+
     String welcome = "Welcome To Zork!!!";
     String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
     String help = "Type 'help' to see the commands";
     String line = yellow + "________________________________________________________________" + white;
 
-    // Cool Printable Message
 
     System.out.println();
     System.out.println();
-    // line
 
     for (int i = 0; i < line.length(); i++) {
 
@@ -318,8 +320,7 @@ public class Game {
     System.out.println();
 
     /**
-     * Sorry for all the strings
-     * I just wanted to have the "blood" text coloured in red
+     * Hard coded to get text coloured in red
      */
 
     String firstScentence = "In front of you there is a large house with no lights on.";
@@ -364,8 +365,10 @@ public class Game {
     }else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run")){
       goRoom(command);
     } else if (commandWord.equals("quit")) {
-    return true;
-
+    quit();
+    System.out.println();
+    System.out.println();
+    System.exit(0);
     } else if (commandWord.equals("eat")) {
       System.out.println();
       System.out.println("Eat?!? Are you serious?!");
@@ -492,6 +495,8 @@ public class Game {
      * it will only give the player the xp once as it adds the word "fred" to a treeSet 
      * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
      */
+
+     /**Hiden Commands that give players extra points */
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -569,26 +574,31 @@ public class Game {
    * Once the purchase is confirmed xp corresponding with the price of the item will be removed and the player's health and xp will be displayed
    */
   private void heal() {
-    Scanner in = new Scanner(System.in); 
+    Scanner in = new Scanner(System.in); //Use of scanner to get user input 
     
     System.out.println();
-    System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");
+    System.out.println("Heal buying options: full restore (Price: 200xp), half restore (Price: 150xp), 100 health (Price: 75xp)");  //display options
     System.out.print("What do you want: ");
     String option = in.nextLine().toLowerCase();
-    if(option.equals("full") || option.equals("full restore")){
-      if(playerXp - 200 < 0){
+    if(option.equals("full") || option.equals("full restore")){ //if player types full restore, HP is automatically set to 500
+      if(playerXp - 200 < 0){   //Check to see if player has enough XP for full restore
         System.out.println("You do not have enough xp for this purchase");
         System.out.println("200xp needed and you have " + playerXp + " xp");
       }
       else{
-        playerXp -= 200; 
+        playerXp -= 200;  //If they meet the XP requirement, subtrace the cost of full restore from their playerXP
         System.out.println("Purchase Confirmed: Price 200xp");
         playerHealth = 500;
-        System.out.println(green + "current health: " + playerHealth + white);
-        System.out.println(blue + "current xp :" + playerXp + white);
+        System.out.println(green + "current health: " + playerHealth + white);    //display currentHealth after healing
+        System.out.println(blue + "current xp :" + playerXp + white);   //display current XP 
       }
       
-    } 
+    }   
+    /**These if statements follow the exact same
+     * Procedures as "full restore", but instead
+     * of healing to 500 HP, 250HP is added to health 
+     * instead, hence the "half-restore"
+     */
     else if(option.equals("half") || option.equals("half restore")){
       if(playerXp - 150 < 0){
         System.out.println("You do not have enough xp for this purchase");
@@ -621,15 +631,20 @@ public class Game {
         System.out.println(blue + "current xp :" + playerXp + white);
       }
     } 
-    else if(option.equals("cancel")){
+    else if(option.equals("cancel")){ //If a player decides that they do not wan't to spend XP, they hit cancel 
+      System.out.println();
       System.out.println("You left the shop");
+      System.out.println();
     }
     else{
+      System.out.println();
       System.out.println("Sorry didn't understand that - call heal again if you still want to purchase meds");
+      System.out.println();
     }
-    currentRoom.exits(); 
+    currentRoom.exits(); //display the exits, so the user does not have to scroll up a few lines to find them
   }
-
+  /**This is a quit method that prints a quit message, 
+   * before System.exit terminates the compiler */
   private void quit() throws InterruptedException {
     String quit = blue + "Thank you for playing. Good Bye." + white;
     String threeDots = "...";
@@ -739,9 +754,8 @@ public class Game {
                 System.out.println(blue + "PLAYER XP + 75" + white);
               }
               all.add(key3.getName()); 
-              
+             
             }
-
           }
         } else {
           if (!validWeapon(weaponName)) {
@@ -760,7 +774,6 @@ public class Game {
     }
     return false;
   }
-
   /**
    * @param weaponName takes in a weaponName
    * searches through the array of weapons to see if the weaponName exists there
@@ -775,7 +788,6 @@ public class Game {
     }
     return false;
   }
-
   /**
    * @param command take in the command that the player inputted
    * if the command has only one word then we don't know what to read 
@@ -816,30 +828,16 @@ public class Game {
   private void inventorySpace(Command command) {
     playerInventory.inventorySpace();
   }
-
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
-
   /**
    * Print out some help information and a list of the command words.
    * 
    * @throws InterruptedException // this is for the printed message it doesnt do
    *                              anything
    */
-  /*
-   * private void inspectTheItem(Command command){
-   * 
-   * if(playerInventory.getCurrentWeight() == 0){
-   * System.out.println("You have no items");
-   * }else{
-   * 
-   * playerInventory.inspectInventoryWeapon(itemName);
-   * }
-   * 
-   * }
-   */
-
+ 
   private void printHelp() throws InterruptedException {
     String helperMessage = "Your command words are below, use them to win the game ";
 
@@ -861,7 +859,6 @@ public class Game {
     System.out.println();
 
   }
-
   public void displayInventory(String commandWord) throws InterruptedException {
     playerInventory.displayInventory();
     if(commandWord.equals("display")){
@@ -871,7 +868,6 @@ public class Game {
       System.out.println(green + "player health: " + playerHealth);
     }
   }
-
   private void takeItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -919,10 +915,8 @@ public class Game {
       }
       System.out.print(currentRoom.exits());
       System.out.println();
-
     }
   }
-
   private void dropItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -1019,10 +1013,9 @@ public class Game {
     String thankYouMessage = "                                                CONGRATULATIONS YOU HAVE ESCAPED DEATH DOLL";
     String friend = "                                                     You and your friend are now free";
     String creators = "A text-adventure game created by Arya, Arman, Lara & Muriel";
-   
     
-    //add a message displaying how much xp u got 
-
+   
+  
     System.out.println();
     System.out.println();
 
@@ -1064,7 +1057,17 @@ public class Game {
     }
     System.out.println();
     System.out.println();
+    
+    String displayXP = blue + "XP COLLECTED: " + String.valueOf(white + yellow + playerXp + white);
+    System.out.println();
+    System.out.println();
 
+    for(int i = 0; i < displayXP.length(); i++){
+      System.out.printf("%c", displayXP.charAt(i));
+      Thread.sleep(20);
+    }
+    System.out.println();
+    System.out.println();
   }
 
 }
