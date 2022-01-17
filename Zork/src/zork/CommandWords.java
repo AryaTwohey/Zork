@@ -28,7 +28,7 @@ public class CommandWords {
       if (c.equals(aString))
         return true;
     }
-    // if we get here, the string was not found in the commands
+    // if we are out of the for loop and the string still hasn't been found it means that it is not a valid command, therefor it returns false
     return false;
   }
 

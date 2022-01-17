@@ -39,7 +39,7 @@ public class Inventory {
 
     } else {
       System.out.println();
-      System.out.println("There is no room to add this item");
+      System.out.println("You cannot take this item. Either you have no space or this item is not able to be taken.");
       System.out.println();
     }
     return false;
@@ -158,7 +158,12 @@ for(Item i:items){  //iterate through arraylist<> of items
   /**hasAllKeys is used to determine whether the lock on the trapdoor is now unlocked
    * Using the inInventory method, a check is made to see if the user has key 1, key 2 & key 3
    */
-  public boolean hasAllKeys(){  
+  /**
+   * checks if the player has all three keys in their inventory (using the inInventory method, which is explained below)
+   * @return true if player has all keys 
+   * @return false if the player does not have all keys 
+   */
+  public boolean hasAllKeys(){
     if(inInventory("key 1") && inInventory("key 2") && inInventory("key 3")){
       return true; 
     }else{
@@ -168,6 +173,12 @@ for(Item i:items){  //iterate through arraylist<> of items
   /**By Passing in the variable name, this method iterates,
    * through a list of items, to check if any i.getName() returns the same name */
 
+  /**
+   * @param name the name of an item 
+   * searches through player inventory using enhanced for loop
+   * @return true if it finds that item
+   * @return false if it doesn't find it 
+   */
   public boolean inInventory(String name){
     for (Item i : items) {
       if(i.getName().equals(name)){
@@ -177,6 +188,12 @@ for(Item i:items){  //iterate through arraylist<> of items
     return false; 
   }
 
+  /**
+   * searches through the items using an enhanced for loop
+   * @param itemName takes in the name of an item
+   * @return if it found an item with a name corresponding to its parameter it will return the item
+   * Otherwise it return null
+   */
   public Item findItem(String itemName) {
     for(Item i : items){
       if(i.getName().equals(itemName)){
@@ -186,6 +203,9 @@ for(Item i:items){  //iterate through arraylist<> of items
     return null; 
   }
 
+  /**
+   * calculates the total inventory space that the user has left (not how much they have used)
+   */
   public void inventorySpace(){
     
  /* * * * * * * * * * * * * * * * * * * * *

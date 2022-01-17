@@ -342,11 +342,12 @@ public class Game {
    * Given a command, process (that is: execute) the command. If this command ends
    * the game, true is returned, otherwise false is returned.
    * 
-   * @throws InterruptedException //this is for the printhelp message, dont worry
+   * @throws InterruptedException this is for the printhelp message, dont worry
    *                              it doenst do anything bad
    */
   private boolean processCommand(Command command) throws InterruptedException {
 
+    //if it doesn't understand the command it will simply return false and exit processCommand
     if (command.isUnknown()) {
 
       System.out.println();
@@ -354,8 +355,10 @@ public class Game {
       return false;
     }
 
+    //grabs the commandWord from the comand the user inputted 
     String commandWord = command.getCommandWord();
 
+    //through these if statements it checks whether the commandWord matches any of these and will do a specific method based on which command word it matches
     if (commandWord.equals("help")){
       printHelp();
     }else if (commandWord.equals("go") || commandWord.equals("move") || commandWord.equals("run")){
@@ -395,9 +398,7 @@ public class Game {
       System.out.println(currentRoom.exits());
     
     }else if (commandWord.equals("inspect")) {
-
       stuff(command);
-
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
@@ -484,6 +485,13 @@ public class Game {
       System.out.println();
     }
 
+    /**
+     * if the command word is fred
+     * it will print out fred is hot 
+     * and give the player 500xp (simple easter egg)
+     * it will only give the player the xp once as it adds the word "fred" to a treeSet 
+     * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
+     */
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -503,7 +511,15 @@ public class Game {
         System.out.println(blue + "PLAYER XP + 500" + white); 
       }
       all.add("fred");
-    } else if (commandWord.equals("winson")) {
+    } 
+    /**
+     * if the command word is winson
+     * it will print out a famous Mr. Winson quote  
+     * and give the player 500xp (simple easter egg)
+     * it will only give the player the xp once as it adds the word "winson" to a treeSet 
+     * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
+     */
+    else if (commandWord.equals("winson")) {
 
       int ran = (int) (Math.random() * 2);
       if (ran == 0) {
@@ -544,6 +560,14 @@ public class Game {
 
   // implementations of user commands:
 
+  /**
+   * This is a void method that allows the player to heal when fighting enemies
+   * This method uses a scanner to keep track of what the player is requesting 
+   * It asks the player what heal option they would like and the player types their response 
+   * If the response is not understood it prompts the player to call heal again if they would like to restore their health 
+   * If the player has requested a certain type of heal (eg. full restore) but does not have enough xp to purchase it, they will not be able to purchase it 
+   * Once the purchase is confirmed xp corresponding with the price of the item will be removed and the player's health and xp will be displayed
+   */
   private void heal() {
     Scanner in = new Scanner(System.in); 
     
@@ -737,6 +761,12 @@ public class Game {
     return false;
   }
 
+  /**
+   * @param weaponName takes in a weaponName
+   * searches through the array of weapons to see if the weaponName exists there
+   * @return true if it is a valid weapon
+   * @return false if it is not a valid weapon
+   */
   private boolean validWeapon(String weaponName) {
     for (String s : weapons) {
       if (s.equals(weaponName)) {
@@ -746,6 +776,16 @@ public class Game {
     return false;
   }
 
+  /**
+   * @param command take in the command that the player inputted
+   * if the command has only one word then we don't know what to read 
+   * if the command does have extra words we go do what's in the else statement 
+   * if there is more than one extra word in the command we know that what we want to read is potentially more than one word long 
+   * so we grab the first two extra words and make them into one string - itemName 
+   * else we know that what we want to read is only one word long so we set the item name to the first index of extraWords
+   * if the item that the user inputted is not in their inventory (check using inInventory) then we cannot read it 
+   * else we can read it and the method prints out the items description
+   */
   private void read(Command command) {
     if (!command.hasExtraWords()) {
       System.out.println("read what?");
@@ -951,7 +991,11 @@ public class Game {
   }
 
  
-
+  /**
+   * created a long ArrayList of different famous quotes from horror movies 
+   * generates a random number between 0 and the size of the ArrayList of quotes
+   * @return a quote from the ArrayList of strings using the random number
+   */
   private String quotes() {
     ArrayList<String> quotes = new ArrayList<String>(Arrays.asList("Be afraid. Be very afraid.", "We all go a little mad sometimes.", "To a new world of gods and monsters.", 
     "If you had learned a little from me, you would not beg to live.", "If you wish to see strange things, I have the power to show them to you.", "Thrill me!", 

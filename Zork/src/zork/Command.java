@@ -25,8 +25,7 @@ public class Command {
   }
 
   /**
-   * Return the second word of this command. Returns null if there was no second
-   * word.
+   * Return the rest of the words of this command. Returns null if there are no other words
    */
   public ArrayList<String> getExtraWords() {
     return extraWords;
@@ -40,7 +39,7 @@ public class Command {
   }
 
   /**
-   * Return true if the command has a second word.
+   * Return true if the command has more than one word
    */
   public boolean hasExtraWords() {
     return (extraWords.size() != 0);

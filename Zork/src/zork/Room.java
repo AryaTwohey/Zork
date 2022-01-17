@@ -244,12 +244,5 @@ public void inspectItem(String itemName){
      */
     characters.add(character); 
   }
-
-  public String assessCharacterQuote() {
-    /**
-     * return the quote for the character
-     */
-    return ""; 
-  }
 }
 
