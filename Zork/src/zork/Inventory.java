@@ -31,19 +31,33 @@ public class Inventory {
     return currentWeight;
   }
 
+  /**
+   * @param item the item that the player wishes to add to their inventory 
+   * checks if the player has enough space to add the item to their inventory 
+   * if they do it adds the item to the player's inventory and returns true 
+   * if the item that the player wanted to pick up weighs more than the inventory max weight we know that this item is not able to be taken 
+   * else we print that the player does not have enough space to pick up the item
+   * @return true if successful, false if not successful in adding item to their inventory
+   */
   public boolean add(Item item) {
 
     if (item.getWeight() + getCurrentWeight() <= maxWeight) {
 
       return items.add(item);
 
-    } else {
+    } else if(item.getWeight() > maxWeight){
       System.out.println();
-      System.out.println("You cannot take this item. Either you have no space or this item is not able to be taken.");
+      System.out.println("This item is not able to be taken");
+      System.out.println();
+    } 
+    else {
+      System.out.println();
+      System.out.println("You do not have enough space to take this item");
       System.out.println();
     }
     return false;
   }
+
   public void displayInventory() throws InterruptedException {
 
     String message = blue + "Displaying Inventory" + white;

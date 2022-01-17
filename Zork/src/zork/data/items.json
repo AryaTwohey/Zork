@@ -100,7 +100,7 @@
         "description": "''Tonight our top story, a man does not know the purpose of a constructor!?!''",
         "isOpenable" : "False",
         "isNote" : "false", 
-        "Weight" : "5000"
+        "Weight" : "10000"
       },
       {
         "starting location": "Library (Bookshelf)",
