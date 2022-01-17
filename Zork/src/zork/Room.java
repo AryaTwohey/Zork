@@ -199,13 +199,13 @@ public class Room {
      */
     return characters.size() > 0;  
   }
+  /**Makes a call to inspectRoomItem
+   */
 public void inspectItem(String itemName){
 
 
   inventory.inspectRoomItem(itemName);
 }
-
-
 
   public Character getCharacter(){
     /**
