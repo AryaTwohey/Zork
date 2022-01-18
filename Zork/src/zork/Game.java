@@ -760,8 +760,8 @@ public class Game {
       }
       /**
       * if it does not satisfy the if statement
-      * print is not a valid weapon if it is not a valid weapon
-      * print is not in your inventory if it is not in the player's inventory 
+      * print - is not a valid weapon if it is not a valid weapon
+      * print - is not in your inventory if it is not in the player's inventory 
       */
     } else {
       System.out.println("There is nothing to attack/kill in this space.");
