@@ -46,7 +46,7 @@ public class CommandWords {
     System.out.print(openBracket + "  ");
 
     for (String c : validCommands) {                                                                //for the time is ticking message
-      if(!(c.equals("winson") || c.equals("fred") || c.equals("display") || c.equals("restart") || c.equals("")))
+      if(!(c.equals("winson") || c.equals("fred") || c.equals("display") || c.equals("restart") || c.equals("") || c.equals("restore")))
         System.out.print(c + yellowComma + "  ");
     }
     System.out.print(closeBracket);
