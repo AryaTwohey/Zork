@@ -1,3 +1,6 @@
+/**
+ * Arman edited this to work for ArrayLists
+ */
 package zork;
 
 import java.util.ArrayList;

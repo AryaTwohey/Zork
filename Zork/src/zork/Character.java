@@ -1,3 +1,4 @@
+//Lara and Muriel did this
 package zork;
 
 public class Character {
@@ -11,7 +12,7 @@ public class Character {
   /**
    * one constructor of character
    */
-  public Character(int health, String name, boolean isOpenable, String location) {
+  public Character(int health, String name, boolean isOpenable, String location, int damage) {
     this.health = health;
     this.name = name;
     this.isOpenable = isOpenable;

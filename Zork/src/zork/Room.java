@@ -1,3 +1,4 @@
+//Lara and Muriel (Main) - Arman and Arya (Helped)
 package zork;
 
 import java.util.ArrayList;
@@ -81,6 +82,7 @@ public class Room {
   }
 
   /**
+   * Arman made some changes here
    * Return the room that is reached if we go from this room in direction
    * "direction". If there is no room in that direction, return null.
    */

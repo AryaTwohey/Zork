@@ -1,3 +1,4 @@
+//Lara and Muriel
 package zork; 
 
     public class Weapon extends Item{ 

@@ -63,6 +63,7 @@ public class Game {
     playerInventory = new Inventory(4317);
   }
 
+  //Arya did reset
   private void reset() {
     try {
       initRooms("src\\zork\\data\\rooms.json");
@@ -82,6 +83,7 @@ public class Game {
   }
 
     /**
+     * Muriel did initItems as well as items.json
      * initializes the items 
      * takes items and their characteristics in items.json and allows them to be used in our game
      * places the item into the room it belongs in
@@ -116,6 +118,7 @@ public class Game {
   }
 
   /** 
+   * Lara did the rooms.json 
    * initializes the rooms in the game, with their given attributes  from the rooms.json file and compiles it to play 
    * states the exists of the rooms and whether or not it's open or locked 
    * sets the name of the room
@@ -158,6 +161,7 @@ public class Game {
   }
 
    /**
+    * lara and muriel did this
    * initializes the characters to be used in the games
    * allows us to set their location, health etc. and use those characteristics and the actual character
    * places characters in their locations 
@@ -195,6 +199,7 @@ public class Game {
   
   
   /**
+   * lara and muriel did this
    * initializes the weapons 
    * takes the weapon plus their attributes from the weapons.json
    * compiles them into our game in the respective location/rooms 
@@ -257,6 +262,7 @@ public class Game {
   }
 
   /**
+   * Arya did this
    * Print out the opening message for the player.
    * 
    * @throws InterruptedException
@@ -489,6 +495,7 @@ public class Game {
     }
 
     /**
+     * Arman and Arya did this 
      * if the command word is fred
      * it will print out fred is hot 
      * and give the player 500xp (simple easter egg)
@@ -496,7 +503,7 @@ public class Game {
      * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
      */
 
-     /**Hiden Commands that give players extra points */
+     //Hidden Commands that give players extra xp
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -518,6 +525,7 @@ public class Game {
       all.add("fred");
     } 
     /**
+     * Arman and Arya did this
      * if the command word is winson
      * it will print out a famous Mr. Winson quote  
      * and give the player 500xp (simple easter egg)
@@ -566,6 +574,7 @@ public class Game {
   // implementations of user commands:
 
   /**
+   * Arman did this method
    * This is a void method that allows the player to heal when fighting enemies
    * This method uses a scanner to keep track of what the player is requesting 
    * It asks the player what heal option they would like and the player types their response 
@@ -643,7 +652,9 @@ public class Game {
     }
     currentRoom.exits(); //display the exits, so the user does not have to scroll up a few lines to find them
   }
-  /**This is a quit method that prints a quit message, 
+  /**
+   * Arya did this method
+   * This is a quit method that prints a quit message, 
    * before System.exit terminates the compiler */
   private void quit() throws InterruptedException {
     String quit = blue + "Thank you for playing. Good Bye." + white;
@@ -686,6 +697,7 @@ public class Game {
   }
 }
   /**
+   * Arman did this method
    * this method is used for attacking enemies in the rooms
    * @param command the players command
    * @throws InterruptedException for quit method
@@ -756,6 +768,7 @@ public class Game {
     }
   }
   /**
+   * Arman did this method
    * this method is called when the health of the enemy that the player was attacking becomes 0
    * first it prints out that the player has defeated the enemy and displays the enemy's name 
    * removes the enemy from the room 
@@ -808,6 +821,7 @@ public class Game {
     }
   }
   /**
+   * Arman did this method
    * prints out a death message and then quits the game
    * @throws InterruptedException for the quit method
    */
@@ -826,6 +840,7 @@ public class Game {
   }
 
   /**
+   * Arman did this method
    * @param weaponName takes in a weaponName
    * searches through the array of weapons to see if the weaponName exists there
    * @return true if it is a valid weapon
@@ -840,6 +855,7 @@ public class Game {
     return false;
   }
   /**
+   * Arman did this method
    * @param command take in the command that the player inputted
    * if the command has only one word then we don't know what to read 
    * if the command does have extra words we go do what's in the else statement 
@@ -876,13 +892,16 @@ public class Game {
     }
   }
 
+  //Arya did this method - display space
   private void inventorySpace(Command command) {
     playerInventory.inventorySpace();
   }
+  //Arya did this method - searches room and displays items
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
   /**
+   * Arya did this 
    * Print out some help information and a list of the command words.
    * 
    * @throws InterruptedException // this is for the printed message it doesnt do
@@ -910,6 +929,9 @@ public class Game {
     System.out.println();
 
   }
+
+  //Arya and Arman did this
+  //displays the players inventory as well as their xp and health 
   public void displayInventory(String commandWord) throws InterruptedException {
     playerInventory.displayInventory();
     if(commandWord.equals("display")){
@@ -919,6 +941,8 @@ public class Game {
       System.out.println(green + "player health: " + playerHealth);
     }
   }
+
+  //Arya did this Arman helped
   private void takeItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -968,6 +992,8 @@ public class Game {
       System.out.println();
     }
   }
+
+  //Arya did this - Arman helped
   private void dropItem(Command command) {
 
     if (!command.hasExtraWords()) {
@@ -1000,6 +1026,7 @@ public class Game {
   }
 
   /**
+   * Arman and Arya made some changes to this
    * Try to go to one direction. If there is an exit, enter the new room,
    * otherwise print an error message.
    */
@@ -1037,6 +1064,7 @@ public class Game {
 
  
   /**
+   * Arman did this
    * created a long ArrayList of different famous quotes from horror movies 
    * generates a random number between 0 and the size of the ArrayList of quotes
    * @return a quote from the ArrayList of strings using the random number
@@ -1058,6 +1086,7 @@ public class Game {
     return quotes.get(random); 
   }
 
+  //Arya did this
   private void credits() throws InterruptedException {
 
     /**Method that is only called when the player has won

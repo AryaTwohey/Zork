@@ -1,3 +1,6 @@
+/**
+ * Arman made some changes to Command Words to make it work with current version of game
+ */
 package zork;
 
 import java.util.Arrays;
@@ -37,7 +40,10 @@ public class CommandWords {
    * If commands are hidden, the forEach loop ignores them
    */
 
-
+   
+  /**
+   * Arya and Arman worked on showAll 
+   */
   public void showAll() {
     String openBracket = yellow + "[" + white;
     String closeBracket = yellow + "]" + white;

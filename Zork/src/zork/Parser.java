@@ -1,3 +1,6 @@
+/**
+ * Arman did parser to make it work for ArrayLists (Arman did all methods here)
+ */
 package zork;
 
 import java.util.ArrayList;

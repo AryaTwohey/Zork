@@ -1,3 +1,6 @@
+/**
+ * Arman and Arya worked on inventory
+ */
 package zork;
 
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class Inventory {
   }
 
   /**
+   * Arya did this, Arman helped with some parts of it
    * @param item the item that the player wishes to add to their inventory 
    * checks if the player has enough space to add the item to their inventory 
    * if they do it adds the item to the player's inventory and returns true 
@@ -58,6 +62,11 @@ public class Inventory {
     return false;
   }
 
+  /**
+   * Arya did this
+   * displays the players inventory
+   * @throws InterruptedException
+   */
   public void displayInventory() throws InterruptedException {
 
     String message = blue + "Displaying Inventory" + white;
@@ -84,27 +93,29 @@ public class Inventory {
     }
   }
 }
-/**This method is used to see the description of items
- * That are too heavy to pick up, for example a TV or Fridge
- */
-public void inspectRoomItem(String itemName){
+  /**
+   * Arya did this 
+   * This method is used to see the description of items
+   * That are too heavy to pick up, for example a TV or Fridge
+   */
+  public void inspectRoomItem(String itemName){
+    for(Item i:items){  //iterate through arraylist<> of items
 
-for(Item i:items){  //iterate through arraylist<> of items
+      if(i.getName().equals(itemName)){   //grab the name of each item and check if it matches itemName
 
-  if(i.getName().equals(itemName)){   //grab the name of each item and check if it matches itemName
-
-    System.out.println();
-    System.out.println(itemName + ": " + i.getDescription()); //if the names match, print the description
-    System.out.println();
-    
-  }else{
-  System.out.println();
-   System.out.println("* Currently Not Inspecting *");  //if the names do not match, then display message
-   System.out.println();
-  }    
-  }
-  }
-
+        System.out.println();
+        System.out.println(itemName + ": " + i.getDescription()); //if the names match, print the description
+        System.out.println();
+        
+      }else{
+      System.out.println();
+      System.out.println("* Currently Not Inspecting *");  //if the names do not match, then display message
+      System.out.println();
+      }    
+      }
+    }
+  
+    //Arya did this
  public void searchRoom() throws InterruptedException {
 
     String noItems = red + "Keep Searching..." + white; //printable message for when no items are found
@@ -141,6 +152,8 @@ for(Item i:items){  //iterate through arraylist<> of items
 
     }
   }
+
+  //Arya did this Arman helped
   /**Key Method For ZORK, which allows for items to removed from a specific inventory
    */
   public Item remove(String itemName) {
@@ -159,6 +172,8 @@ for(Item i:items){  //iterate through arraylist<> of items
     }
     return null;
   }
+
+  //Arman did this
   /**Allows the user to read the descriptions of notes */
   public String readItem(String itemName){
     for (Item item : items) {
@@ -166,13 +181,11 @@ for(Item i:items){  //iterate through arraylist<> of items
         return item.getDescription();
       }
     }
-    return("Unable to read this item");     //is the item is not a note, print a message
+    return("Unable to read this item");     //if the item is not a note, print a message
   }
 
-  /**hasAllKeys is used to determine whether the lock on the trapdoor is now unlocked
-   * Using the inInventory method, a check is made to see if the user has key 1, key 2 & key 3
-   */
   /**
+   * Arman did this
    * checks if the player has all three keys in their inventory (using the inInventory method, which is explained below)
    * @return true if player has all keys 
    * @return false if the player does not have all keys 
@@ -184,10 +197,9 @@ for(Item i:items){  //iterate through arraylist<> of items
       return false; 
     }
   }
-  /**By Passing in the variable name, this method iterates,
-   * through a list of items, to check if any i.getName() returns the same name */
 
   /**
+   * Arman did this
    * @param name the name of an item 
    * searches through player inventory using enhanced for loop
    * @return true if it finds that item
@@ -203,6 +215,7 @@ for(Item i:items){  //iterate through arraylist<> of items
   }
 
   /**
+   * Arman did this
    * searches through the items using an enhanced for loop
    * @param itemName takes in the name of an item
    * @return if it found an item with a name corresponding to its parameter it will return the item
@@ -217,13 +230,11 @@ for(Item i:items){  //iterate through arraylist<> of items
     return null; 
   }
 
+   /**
+    * Arya did this
+   * calculates the total inventory space that the user has left (not how much they have used)
+   */
   public void inventorySpace(){
-    
- /* * * * * * * * * * * * * * * * * * * * *
-  * Calculates the total inventory space  *
-  * The user has LEFT not how much space  *
-  * They have USED                        *
-  * * * * * * * * * * * * * * * * * * * * */ 
     
     int sum = 0;  //sum will be used to determine the total weight of all the items in your inventory
     int part = 0; //part will be used to determine the percentage of space left in playerInventory
@@ -250,7 +261,7 @@ for(Item i:items){  //iterate through arraylist<> of items
 
   }
 }
-/**Basic toString method that every iventory has */
+/**Basic toString method that every inventory has */
 
   public String toString() {
     String msg = "";
