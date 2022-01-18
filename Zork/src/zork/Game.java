@@ -268,7 +268,7 @@ public class Game {
      * It uses System.out.printf and Thread.sleep to have a typewriter effect
      */
 
-    String welcome = "Welcome To Zork!!!";
+    String welcome = "Welcome To Death Doll!!!";
     String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
     String help = "Type 'help' to see the commands";
     String line = yellow + "________________________________________________________________" + white;
@@ -797,27 +797,27 @@ public class Game {
      */
     if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck")
         && currentRoom.getRoomName().equals("Cellar")) {
-      System.out.println(green + currentRoom.getCharacter().getDescription() + white);
+        System.out.println(green + currentRoom.getCharacter().getDescription() + white);
     } else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null
         && currentRoom.getCharacter().getName() != "Shreck") {
-      System.out.println(currentRoom.getCharacter().getDescription());
+        System.out.println(currentRoom.getCharacter().getDescription());
 
     } else if (!currentRoom.getRoomName().equals("Cellar")) {
-      Item key3 = new Item(50, "key 3", false,
-          "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
-      System.out.println();
-      if(playerInventory.hasAllKeys()){
-        System.out.println("You now receive key 3, here's some xp for finding all keys");
-        if (!all.contains(key3.getName())) {
-          playerXp += 75;
-          System.out.println(blue + "PLAYER XP + 75" + white);
+        Item key3 = new Item(50, "key 3", false,
+            "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
+        playerInventory.add(key3);
+        System.out.println();
+        if(playerInventory.hasAllKeys()){
+          System.out.println("You now receive key 3, here's some xp for finding all keys");
+          if (!all.contains(key3.getName())) {
+            playerXp += 75;
+            System.out.println(blue + "PLAYER XP + 75" + white);
+          }
+          all.add(key3.getName());
         }
-        all.add(key3.getName());
-      }
-      else{
-        System.out.println("You now receive key 3, go find the missing key(s) to move on");
-      }
-      playerInventory.add(key3);
+        else{
+          System.out.println("You now receive key 3, go find the missing key(s) to move on");
+        }
     }
   }
   /**
