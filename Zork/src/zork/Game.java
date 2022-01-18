@@ -23,10 +23,9 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" }; //array of all valid weapons
-  int playerHealth = 500; //player's health 
-  int playerXp = 0; //player's xp
-  int xpKeyCounter = 0; //makes sure that player only gets xp once for collecting all keys
+  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" };
+  int playerHealth = 500; //total player health
+  int playerXp = 0;   //total playerXP before accomplishing tasks
   //This ArrayList contains everything the player has done and picked up 
   TreeSet<String> all = new TreeSet<String>(); 
 
@@ -375,15 +374,6 @@ public class Game {
       System.out.println("Eat?!? Are you serious?!");
     } else if (commandWord.equals("take")) {
       takeItem(command);
-      //gives player xp for collecting all keys - only does this once
-      if(playerInventory.hasAllKeys() && xpKeyCounter == 0){
-        System.out.println();
-        System.out.println("You now have all the keys - here's some xp");
-        xpKeyCounter++; 
-        playerXp += 75; 
-        System.out.println();
-        System.out.println(blue + "PLAYER XP + 75" + white);
-      }
     } else if (commandWord.equals("drop")) {
       dropItem(command);
     } else if(commandWord.equals("heal") || commandWord.equals("restore")){
@@ -506,7 +496,7 @@ public class Game {
      * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
      */
 
-     /**Hidden Commands that give players extra points */
+     /**Hiden Commands that give players extra points */
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -684,26 +674,25 @@ public class Game {
   }
 
   private void stuff(Command command){
-    if(!command.hasExtraWords()){
+  if(!command.hasExtraWords()){
 
-      System.out.println();
-      System.out.println("Inspect What?");
-      System.out.println();
+    System.out.println();
+    System.out.println("Inspect What?");
+    System.out.println();
 
-    }else{
-    String itemName = command.getExtraWords().get(0);
-    currentRoom.inspectItem(itemName);
-    }
+  }else{
+  String itemName = command.getExtraWords().get(0);
+  currentRoom.inspectItem(itemName);
   }
-
+}
   /**
    * this method is used for attacking enemies in the rooms
    * @param command the players command
    * @throws InterruptedException for quit method
    */
   private void attack(Command command) throws InterruptedException {
-    if (currentRoom.hasEnemy()) { //checks if the current room that the player is in even has an enemy
-      if (!command.hasExtraWords()) { //checks if the command has extra words - asks for more information if there are no extra words
+    if (currentRoom.hasEnemy()) {
+      if (!command.hasExtraWords()) {
         System.out.println();
         System.out.println("I need more information");
         System.out.println();
@@ -739,18 +728,12 @@ public class Game {
 
           //if the player has no health calls playerDead method
           if (playerHealth <= 0) {
-            playerDead(); 
+            playerDead();
           }
           //if the enemy has no more health calls enemyDead method
           if (currentRoom.getCharacter().getHealth() <= 0) {
-            killedEnemy(); 
+            killedEnemy();
           }
-          /**
-           * if it does not satisfy the if statement
-           * print is not a valid weapon if it is not a valid weapon
-           * print is not in your inventory if it is not in the player's inventory
-           * 
-           */
         } else {
           if (!validWeapon(weaponName)) {
             System.out.println();
@@ -763,8 +746,12 @@ public class Game {
           }
         }
       }
+      /**
+      * if it does not satisfy the if statement
+      * print is not a valid weapon if it is not a valid weapon
+      * print is not in your inventory if it is not in the player's inventory 
+      */
     } else {
-      //if there are no enemies in the player's current room
       System.out.println("There is nothing to attack/kill in this space.");
     }
   }
@@ -889,17 +876,9 @@ public class Game {
     }
   }
 
-  /**
-   * displays how much inventory space the player has left (not how much used)
-   */
   private void inventorySpace(Command command) {
     playerInventory.inventorySpace();
   }
-
-  /**
-   * searches the room (uses method from inventory)
-   * prints out the items in that room
-   */
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
@@ -931,13 +910,6 @@ public class Game {
     System.out.println();
 
   }
-
-  /**
-   * displays the player's inventory 
-   * if the command word was display it will also display the player's xp and the player's health, not just their inventory
-   * void method 
-   * returns nothing
-   */
   public void displayInventory(String commandWord) throws InterruptedException {
     playerInventory.displayInventory();
     if(commandWord.equals("display")){
@@ -1086,8 +1058,12 @@ public class Game {
     return quotes.get(random); 
   }
 
-
   private void credits() throws InterruptedException {
+
+    /**Method that is only called when the player has won
+     * Has hard-coded strings to create printable message 
+     * Uses System.out.printf and Thread.sleep to acheive this effect
+     */
 
     String dots = "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
     String thankYouMessage = "                                                CONGRATULATIONS YOU HAVE ESCAPED DEATH DOLL";
