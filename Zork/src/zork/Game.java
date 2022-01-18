@@ -1001,16 +1001,16 @@ public class Game {
 
     if (!command.hasExtraWords()) {
       System.out.println();
-      System.out.println("Drop What?");
+      System.out.println("Drop What?"); //if the command has no extra words, display message
       System.out.println();
     } else {
       String itemName;
-      if (command.getExtraWords().size() > 1) {
-        String first = command.getExtraWords().get(0);
-        String second = command.getExtraWords().get(1);
+      if (command.getExtraWords().size() > 1) { //this is used for multiple word items
+        String first = command.getExtraWords().get(0);  //first index of first word
+        String second = command.getExtraWords().get(1); //first index of second word
         itemName = first + " " + second;
       } else {
-        itemName = command.getExtraWords().get(0);
+        itemName = command.getExtraWords().get(0);  //grab the first index of the extraWords
       }
 
       Item item = playerInventory.remove(itemName);
