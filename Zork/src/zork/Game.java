@@ -718,7 +718,7 @@ public class Game {
             System.out.println(red + " YOU DIED, better luck next time..." + white);
             System.out.println();
             System.out.println(blue + "''Sometimes, the things you see in the shadows are more than just shadows.''" + white);
-            quit();
+            reset();
             System.out.println();
             System.exit(0);
             System.out.println();
