@@ -217,9 +217,6 @@ for(Item i:items){  //iterate through arraylist<> of items
     return null; 
   }
 
-  /**
-   * calculates the total inventory space that the user has left (not how much they have used)
-   */
   public void inventorySpace(){
     
  /* * * * * * * * * * * * * * * * * * * * *

@@ -23,9 +23,10 @@ public class Game {
   private Room currentRoom;
   Inventory playerInventory;
   Item item;
-  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" };
-  int playerHealth = 500;
-  int playerXp = 0;
+  String weapons[] = { "pistol", "bat", "ak 47", "pitchfork", "plastic spoon", "knife", "sword" }; //array of all valid weapons
+  int playerHealth = 500; //player's health 
+  int playerXp = 0; //player's xp
+  int xpKeyCounter = 0; //makes sure that player only gets xp once for collecting all keys
   //This ArrayList contains everything the player has done and picked up 
   TreeSet<String> all = new TreeSet<String>(); 
 
@@ -374,6 +375,15 @@ public class Game {
       System.out.println("Eat?!? Are you serious?!");
     } else if (commandWord.equals("take")) {
       takeItem(command);
+      //gives player xp for collecting all keys - only does this once
+      if(playerInventory.hasAllKeys() && xpKeyCounter == 0){
+        System.out.println();
+        System.out.println("You now have all the keys - here's some xp");
+        xpKeyCounter++; 
+        playerXp += 75; 
+        System.out.println();
+        System.out.println(blue + "PLAYER XP + 75" + white);
+      }
     } else if (commandWord.equals("drop")) {
       dropItem(command);
     } else if(commandWord.equals("heal") || commandWord.equals("restore")){
@@ -496,7 +506,7 @@ public class Game {
      * this makes sure that the player only receives xp once as it will only reward the player xp if fred does NOT exist in the treeSet
      */
 
-     /**Hiden Commands that give players extra points */
+     /**Hidden Commands that give players extra points */
     else if (commandWord.equals("fred")) {
       System.out.println();
       System.out.println();
@@ -674,25 +684,35 @@ public class Game {
   }
 
   private void stuff(Command command){
-  if(!command.hasExtraWords()){
+    if(!command.hasExtraWords()){
 
-    System.out.println();
-    System.out.println("Inspect What?");
-    System.out.println();
+      System.out.println();
+      System.out.println("Inspect What?");
+      System.out.println();
 
-  }else{
-  String itemName = command.getExtraWords().get(0);
-  currentRoom.inspectItem(itemName);
+    }else{
+    String itemName = command.getExtraWords().get(0);
+    currentRoom.inspectItem(itemName);
+    }
   }
-}
 
-  private boolean attack(Command command) throws InterruptedException {
-    if (currentRoom.hasEnemy()) {
-      if (!command.hasExtraWords()) {
+  /**
+   * this method is used for attacking enemies in the rooms
+   * @param command the players command
+   * @throws InterruptedException for quit method
+   */
+  private void attack(Command command) throws InterruptedException {
+    if (currentRoom.hasEnemy()) { //checks if the current room that the player is in even has an enemy
+      if (!command.hasExtraWords()) { //checks if the command has extra words - asks for more information if there are no extra words
         System.out.println();
         System.out.println("I need more information");
         System.out.println();
       } else {
+        /**
+         * creates weapon name 
+         * either by getting 1st and 2nd word of the array (2 word weapon) 
+         * or getting the 1st word of array (1 word weapon)
+         */
         String weaponName;
         if (command.getExtraWords().size() > 1) {
           String first = command.getExtraWords().get(0);
@@ -701,6 +721,12 @@ public class Game {
         } else {
           weaponName = command.getExtraWords().get(0);
         }
+        /**
+         * checks if the weapon the player inputted is a valid weapon and if it is in the player's inventory
+         * subtracts the weapon's damage from the enemy's health 
+         * subtracts the enemy's damage from the player's health 
+         * displays message displaying the damage done, the damage taken, and a quote
+         */
         if (validWeapon(weaponName) && playerInventory.inInventory(weaponName)) {
           Weapon weapon = (Weapon) playerInventory.findItem(weaponName);
 
@@ -711,52 +737,20 @@ public class Game {
               + " they did " + currentRoom.getCharacter().getDamage() + " damage to you, your health is now "
               + playerHealth + " and " + currentRoom.getCharacter().getName() + " says ''" + quotes() + "''");
 
+          //if the player has no health calls playerDead method
           if (playerHealth <= 0) {
-            System.out.println();
-            System.out.println("_______________________________________________________________________________________________________________________________________");
-            System.out.println();
-            System.out.println(red + " YOU DIED, better luck next time..." + white);
-            System.out.println();
-            System.out.println(blue + "''Sometimes, the things you see in the shadows are more than just shadows.''" + white);
-            quit();
-            System.out.println();
-            System.exit(0);
-            System.out.println();
-            return true;
-
+            playerDead(); 
           }
+          //if the enemy has no more health calls enemyDead method
           if (currentRoom.getCharacter().getHealth() <= 0) {
-            System.out.println();
-            System.out.println("You have defeated " + currentRoom.getCharacter().getName());
-            System.out.println();
-            currentRoom.removeCharacter();
-            System.out.println();
-            
-            playerXp += 100; 
-            System.out.println(blue + "Enemy defeated - PLAYER XP + 100" + white);
-        
-            if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck") && currentRoom.getRoomName().equals("Cellar")) {
-
-              System.out.println(green + currentRoom.getCharacter().getDescription() + white);
-
-            } else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null
-                && currentRoom.getCharacter().getName() != "Shreck") {
-              System.out.println(currentRoom.getCharacter().getDescription());
-  
-            }else if (!currentRoom.getRoomName().equals("Cellar")) {
-              System.out.println();
-              System.out.println("You now receive key 3, here's some xp for finding all keys");
-              Item key3 = new Item(50, "key 3", false,
-                  "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
-              playerInventory.add(key3);
-              if(!all.contains(key3.getName())){
-                playerXp += 75; 
-                System.out.println(blue + "PLAYER XP + 75" + white);
-              }
-              all.add(key3.getName()); 
-             
-            }
+            killedEnemy(); 
           }
+          /**
+           * if it does not satisfy the if statement
+           * print is not a valid weapon if it is not a valid weapon
+           * print is not in your inventory if it is not in the player's inventory
+           * 
+           */
         } else {
           if (!validWeapon(weaponName)) {
             System.out.println();
@@ -770,10 +764,80 @@ public class Game {
         }
       }
     } else {
+      //if there are no enemies in the player's current room
       System.out.println("There is nothing to attack/kill in this space.");
     }
-    return false;
   }
+  /**
+   * this method is called when the health of the enemy that the player was attacking becomes 0
+   * first it prints out that the player has defeated the enemy and displays the enemy's name 
+   * removes the enemy from the room 
+   * adds 100xp to the player
+   * explaining if statements below 
+   */
+  private void killedEnemy() {
+    System.out.println();
+              System.out.println("You have defeated " + currentRoom.getCharacter().getName());
+    System.out.println();
+    currentRoom.removeCharacter();
+    System.out.println();
+
+    playerXp += 100;
+    System.out.println(blue + "Enemy defeated - PLAYER XP + 100" + white);
+
+    /**
+     * if the player is in the cellar, there is enemy's left and the enemy's name is Shreck 
+     * -- it will print out the character's description in green (for Shreck)
+     * else if the player is in the cellar and the next enemy is not Shreck 
+     * -- it will print out the character's description in white
+     * else if the player was not in the cellar this means that they were in bedroom 4
+     * -- it rewards the player with the 3d key, adding it to their inventory
+     * -- if the player has all the keys it will give them 75xp 
+     * -- if the player does not have all keys it will tell them to go find the other keys
+     */
+    if (currentRoom.getCharacter() != null && currentRoom.getCharacter().getName().equals("Shreck")
+        && currentRoom.getRoomName().equals("Cellar")) {
+      System.out.println(green + currentRoom.getCharacter().getDescription() + white);
+    } else if (currentRoom.getRoomName().equals("Cellar") && currentRoom.getCharacter() != null
+        && currentRoom.getCharacter().getName() != "Shreck") {
+      System.out.println(currentRoom.getCharacter().getDescription());
+
+    } else if (!currentRoom.getRoomName().equals("Cellar")) {
+      Item key3 = new Item(50, "key 3", false,
+          "Congratulations on finding the last key, but don't celebrate just yet. Head down to the cellar to figure out what's next.");
+      System.out.println();
+      if(playerInventory.hasAllKeys()){
+        System.out.println("You now receive key 3, here's some xp for finding all keys");
+        if (!all.contains(key3.getName())) {
+          playerXp += 75;
+          System.out.println(blue + "PLAYER XP + 75" + white);
+        }
+        all.add(key3.getName());
+      }
+      else{
+        System.out.println("You now receive key 3, go find the missing key(s) to move on");
+      }
+      playerInventory.add(key3);
+    }
+  }
+  /**
+   * prints out a death message and then quits the game
+   * @throws InterruptedException for the quit method
+   */
+  private void playerDead() throws InterruptedException {
+    System.out.println();
+    System.out.println(
+        "_______________________________________________________________________________________________________________________________________");
+    System.out.println();
+    System.out.println(red + " YOU DIED, better luck next time..." + white);
+    System.out.println();
+    System.out.println(blue + "''Sometimes, the things you see in the shadows are more than just shadows.''" + white);
+    quit();
+    System.out.println();
+    System.exit(0);
+    System.out.println();
+  }
+
   /**
    * @param weaponName takes in a weaponName
    * searches through the array of weapons to see if the weaponName exists there
@@ -825,9 +889,17 @@ public class Game {
     }
   }
 
+  /**
+   * displays how much inventory space the player has left (not how much used)
+   */
   private void inventorySpace(Command command) {
     playerInventory.inventorySpace();
   }
+
+  /**
+   * searches the room (uses method from inventory)
+   * prints out the items in that room
+   */
   private void search(Command command) throws InterruptedException {
     currentRoom.search();
   }
@@ -859,6 +931,13 @@ public class Game {
     System.out.println();
 
   }
+
+  /**
+   * displays the player's inventory 
+   * if the command word was display it will also display the player's xp and the player's health, not just their inventory
+   * void method 
+   * returns nothing
+   */
   public void displayInventory(String commandWord) throws InterruptedException {
     playerInventory.displayInventory();
     if(commandWord.equals("display")){
@@ -1006,6 +1085,7 @@ public class Game {
     int random = (int) (Math.random() * quotes.size()); 
     return quotes.get(random); 
   }
+
 
   private void credits() throws InterruptedException {
 
