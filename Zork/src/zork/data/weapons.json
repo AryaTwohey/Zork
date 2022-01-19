@@ -6,7 +6,7 @@
         "id": "Pistol",
         "name": "pistol",
         "damage": "60",
-        "description": "You have chosen a pistol. It only has 5 bullets inside so fire wisely.",
+        "description": "This is a pistol, not as powerful as an ak-47...",
         "isOpenable" : "False",
         "weight" : "950"
       },
@@ -15,7 +15,7 @@
         "id": "Bat",
         "name": "bat",
         "damage": "30",
-        "description": "You have chosen the baseball bat. It looks like it's pretty old, maybe from the 1900s.",
+        "description": "This is a baseball bat. It looks like it's pretty old, maybe from the 1900s.",
         "isOpenable" : "False",
         "weight" : "880"
       },
@@ -24,7 +24,7 @@
         "id": "A.K 47",
         "name": "ak 47",
         "damage": "100",
-        "description": "You have chosen an A.K 47. This weapon has insane accuracy and aim, great to defend you and your friend.",
+        "description": "This is an A.K 47, great to defend yourself",
         "isOpenable" : "False",
         "weight" : "2000"
       },
@@ -33,7 +33,7 @@
         "id": "Pitchfork",
         "name": "pitchfork",
         "damage": "65",
-        "description": "You have chosen a Pitch Fork. Quick and hurry to save your friend!”",
+        "description": "This is a pitchfork. Quick and hurry to save your friend!”",
         "isOpenable" : "False",
         "weight" : "907"
       },
@@ -42,7 +42,7 @@
         "id": "Plastic Spoon",
         "name": "plastic spoon",
         "damage": "5",
-        "description": "You have chosen a plastic spoon. You never know, this might come in handy. Fred is hot",
+        "description": "This is a plastic spoon. You never know, this might come in handy. Fred is hot?",
         "isOpenable" : "False",
         "weight" : "6"
       },
@@ -51,7 +51,7 @@
         "id": "Knife",
         "name": "knife",
         "damage": "25",
-        "description": "This thing is sharp and' pointy, could probably be used as a weapon",
+        "description": "This thing is sharp and pointy, could probably be used as a weapon",
         "isOpenable" : "False",
         "weight" : "130" 
       },
@@ -60,7 +60,7 @@
         "id": "Sword",
         "name": "sword",
         "damage": "80",
-        "description": "Wow! I've never held a sword before, this is definitely an upgrade from that crappy knife",
+        "description": "Wow! I've never seen a sword before, this could definitely be an upgrade from that crappy knife",
         "isOpenable" : "False",
         "weight" : "1000"
       }

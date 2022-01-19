@@ -1,5 +1,5 @@
 /**
- * Arman and Arya worked on inventory
+ * Arman and Arya worked on inventory 
  */
 package zork;
 

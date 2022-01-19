@@ -423,7 +423,7 @@ public class Game {
       System.out.println("Your game is being reset...");
       reset();
 
-      String welcome = "Welcome To Zork!!!";
+      String welcome = "Welcome To Death Doll!!!";
       String creators = "A text-adventure game created by Arya, Arman, Lara and Muriel!!!";
       String help = "Type 'help' to see the commands";
       String line = yellow + "________________________________________________________________" + white;
@@ -573,7 +573,7 @@ public class Game {
     if(currentRoom.getRoomName().equals("Cellar")){
       if(currentRoom.noMoreEnemies()){
         playerXp += 10000; 
-        System.out.println(blue + "PLAYER XP + 10000" + white);
+        System.out.println(blue + "Won the game! - PLAYER XP + 10000" + white);
         return true;
       }
     }
@@ -720,7 +720,7 @@ public class Game {
   }
 }
   /**
-   * Arman did this method
+   * Arman did this method - Arya helped
    * this method is used for attacking enemies in the rooms
    * @param command the players command
    * @throws InterruptedException for quit method
@@ -835,6 +835,7 @@ public class Game {
           if (!all.contains(key3.getName())) {
             playerXp += 75;
             System.out.println(blue + "PLAYER XP + 75" + white);
+            xpKeyCounter++; 
           }
           all.add(key3.getName());
         }
