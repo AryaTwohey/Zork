@@ -970,48 +970,51 @@ public class Game {
 
     if (!command.hasExtraWords()) {
       System.out.println();
-      System.out.println("Take What?");
+      System.out.println("Take What?");   //Without extra words, "take what"
       System.out.println();
     } else {
-      String itemName;
+      String itemName;    //create a variable called itemName 
       if (command.getExtraWords().size() > 1) {
         String first = command.getExtraWords().get(0);
         String second = command.getExtraWords().get(1);
         itemName = first + " " + second;
       } else {
-        itemName = command.getExtraWords().get(0);
+        itemName = command.getExtraWords().get(0);  //grabs the extra words at the first and second index of itemName
       }
 
-      Item item = currentRoom.removeItem(itemName);
-      if (item == null) {
+      Item item = currentRoom.removeItem(itemName); //Remove the item from the current room
+      if (item == null) {       //if the currentRoom.getItem returns null then prompt the user that there is no item in the room
         System.out.println();
-        System.out.print("This " + itemName + " does not exist in this room. ");
+        System.out.print("This " + itemName + " does not exist in this room. ");  
         System.out.println("Or try typing " + blue + "search " + white + "to find the proper name of the item");
       } else {
-        if (!playerInventory.add(item))
-          currentRoom.addItem(item);
+        if (!playerInventory.add(item)) //Used for XP system after taking item once, add it to a seprate arrayList
+          currentRoom.addItem(item);  //add the item to the room 
         else {
+
+          //Weapons have different effects on the XP functionality
+
           System.out.println();
-          if(!all.contains(item.getName()) && !validWeapon(item.getName())){  
+          if(!all.contains(item.getName()) && !validWeapon(item.getName())){  //if the item is not a weapon and is not in the all<> arrayList, then award points
             playerXp += 15; 
-            System.out.println(blue + "Item picked up -> PLAYER XP + 15" + white);
+            System.out.println(blue + "Item picked up -> PLAYER XP + 15" + white);  //show the player their added XP 
           }
-          if(!all.contains(item.getName()) && validWeapon(item.getName())){
-            if(playerXp - 50 < 0){
-              System.out.println("You do not have enough xp to take this weapon");
+          if(!all.contains(item.getName()) && validWeapon(item.getName())){ //if the item is a weapons and does not exist in all<> arraylist, then remove 50 XP
+            if(playerXp - 50 < 0){  //player cannot take weapon if they do not have at least 50 XP 
+              System.out.println("You do not have enough xp to take this weapon");  
               playerInventory.remove(itemName); 
               currentRoom.addItem(item); 
             }
             else{
-              playerXp -= 50;
-              System.out.println(red + "Weapon picked up -> PLAYER XP - 50" + white);
+              playerXp -= 50; //subtrace 50 XP from inventory
+              System.out.println(red + "Weapon picked up -> PLAYER XP - 50" + white); //tell the user that they have picked up the weapon
             } 
           }
-          all.add(item.getName()); 
+          all.add(item.getName());  //add the weapon to the all<> list
           System.out.println("You took the " + itemName);
         }
       }
-      System.out.print(currentRoom.exits());
+      System.out.print(currentRoom.exits());  //display room exists
       System.out.println();
     }
   }
@@ -1021,29 +1024,29 @@ public class Game {
 
     if (!command.hasExtraWords()) {
       System.out.println();
-      System.out.println("Drop What?");
+      System.out.println("Drop What?"); //if the command has no extra words, display message
       System.out.println();
     } else {
       String itemName;
-      if (command.getExtraWords().size() > 1) {
-        String first = command.getExtraWords().get(0);
-        String second = command.getExtraWords().get(1);
+      if (command.getExtraWords().size() > 1) { //this is used for multiple word items
+        String first = command.getExtraWords().get(0);  //first index of first word
+        String second = command.getExtraWords().get(1); //first index of second word
         itemName = first + " " + second;
       } else {
-        itemName = command.getExtraWords().get(0);
+        itemName = command.getExtraWords().get(0);  //grab the first index of the extraWords
       }
 
       Item item = playerInventory.remove(itemName);
-      if (item == null) {
+      if (item == null) { //check to see if item is actaully in players inventory
         System.out.println();
-        System.out.println("You don't have " + itemName + " in your inventory");
+        System.out.println("You don't have " + itemName + " in your inventory");  //show the uses that they do not have this ite
         System.out.println();
       } else {
-        currentRoom.addItem(item);
+        currentRoom.addItem(item);  //if they do have this item, then add it to the currentRooms inventory
         System.out.println();
-        System.out.println("You dropped the " + itemName);
+        System.out.println("You dropped the " + itemName);  //display the weapon that was dropped
       }
-      System.out.println(currentRoom.exits());
+      System.out.println(currentRoom.exits());  //display room exits
       System.out.println();
     }
   }
