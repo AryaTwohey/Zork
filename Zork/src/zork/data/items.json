@@ -21,7 +21,7 @@
         "starting location": "Library (Bookshelf)",
         "id": "bookshelf",
         "name": "bookshelf",
-        "description": "This is a bookshelf, which stores all the books in this library.",
+        "description": "This is a bookshelf, which stores all the books in this library. I recommend reading Harry Potter",
         "isOpenable" : "False",
         "isNote" : "False", 
         "Weight" : "10000"
@@ -30,7 +30,7 @@
         "starting location": "Bathroom (Bathtub)",
         "id": "Key 1",
         "name": "key 1",
-        "description": "You have found 1 of the 3 keys that lie in this house. Find the other 2 keys to unlock the passage to the cellar and save your friend from the horrors within the house.",
+        "description": "You have found key #1!",
         "isOpenable" : "False",
         "Weight" : "50"
       },
@@ -70,7 +70,7 @@
         "starting location": "Bedroom 3",
         "id": "Standing Fan",
         "name": "standing fan",
-        "description": "You found a standing fan in the bedroom.",
+        "description": "You found a standing fan in the bedroom. Do you feel the fresh air?",
         "isOpenable" : "False",
         "Weight" : "900"
       },
@@ -113,8 +113,8 @@
       },
       {
         "starting location": "Library (Bookshelf)",
-        "id": "Godfather 1",
-        "name": "godfather 1",
+        "id": "Godfather",
+        "name": "godfather",
         "description": "''I'm gonna make em an offer he can't refuse''",
         "isOpenable": "false",
         "isNote": "True",
@@ -133,7 +133,7 @@
         "starting location": "Kitchen",
         "id": "fridge",
         "name": "fridge",
-        "description": "Half-eaten baloney sandwich, mustard and undercooked lasanga",
+        "description": "Half-eaten baloney sandwich, mustard, and undercooked lasagna in this fridge",
         "isOpenable" : "true",
         "Weight" : "10000" 
       }

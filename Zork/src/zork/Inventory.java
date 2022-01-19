@@ -98,22 +98,17 @@ public class Inventory {
    * This method is used to see the description of items
    * That are too heavy to pick up, for example a TV or Fridge
    */
-  public void inspectRoomItem(String itemName){
+  public String inspectRoomItem(String itemName){
     for(Item i:items){  //iterate through arraylist<> of items
-
       if(i.getName().equals(itemName)){   //grab the name of each item and check if it matches itemName
-
-        System.out.println();
-        System.out.println(itemName + ": " + i.getDescription()); //if the names match, print the description
-        System.out.println();
-        
-      }else{
-      System.out.println();
-      System.out.println("* Currently Not Inspecting *");  //if the names do not match, then display message
-      System.out.println();
-      }    
+        return itemName + ": " + i.getDescription(); //if the names match, return the description
       }
     }
+    
+    return "* Unable to inspect - either the item does not exist or is already in your inventory *";  //if the names do not match, then display message
+       
+  }    
+  
   
     //Arya did this
  public void searchRoom() throws InterruptedException {

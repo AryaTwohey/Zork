@@ -1,8 +1,6 @@
 package zork;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.CharBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -29,11 +27,13 @@ public class Game {
   //This ArrayList contains everything the player has done and picked up 
   TreeSet<String> all = new TreeSet<String>(); 
 
+  int xpKeyCounter = 0; //insures the player only gets xp once for collecting all the keys
+
   public static final String yellow = "\u001B[33m"; // for the welcome message
   public static final String white = "\u001B[0m"; // also for the welcome message
   public static final String blue = "\u001B[34m"; // for quit message
   public static final String red = "\u001B[31m"; // for red coloured text (blood)
-  public static final String green = "\u001B[32m";
+  public static final String green = "\u001B[32m"; //for green colour (Shreck)
 
   /**
    * Create the game and initialize its internal map.
@@ -380,6 +380,15 @@ public class Game {
       System.out.println("Eat?!? Are you serious?!");
     } else if (commandWord.equals("take")) {
       takeItem(command);
+      //gives player xp for collecting all keys - only does this once
+      if(playerInventory.hasAllKeys() && xpKeyCounter == 0){
+        System.out.println();
+        System.out.println("You now have all the keys - here's some xp");
+        xpKeyCounter++; 
+        playerXp += 75; 
+        System.out.println();
+        System.out.println(blue + "PLAYER XP + 75" + white);
+      }
     } else if (commandWord.equals("drop")) {
       dropItem(command);
     } else if(commandWord.equals("heal") || commandWord.equals("restore")){
@@ -407,7 +416,7 @@ public class Game {
       System.out.println(currentRoom.exits());
     
     }else if (commandWord.equals("inspect")) {
-      stuff(command);
+      inspect(command);
     } else if (commandWord.equals("restart") || commandWord.equals("reset")) {
 
       System.out.println();
@@ -684,7 +693,12 @@ public class Game {
     System.out.println();
   }
 
-  private void stuff(Command command){
+  /**
+   * insepct method
+   * Arya worked on this - Arman helped
+   * inspects elements - giving description or what item does/contains
+   */
+  private void inspect(Command command){
   if(!command.hasExtraWords()){
 
     System.out.println();
@@ -692,8 +706,17 @@ public class Game {
     System.out.println();
 
   }else{
-  String itemName = command.getExtraWords().get(0);
-  currentRoom.inspectItem(itemName);
+    String itemName; 
+    if (command.getExtraWords().size() > 1) {
+      String first = command.getExtraWords().get(0);
+      String second = command.getExtraWords().get(1);
+      itemName = first + " " + second;
+    } else {
+      itemName = command.getExtraWords().get(0);
+    }
+    System.out.println();
+    System.out.println(currentRoom.inspectItem(itemName));
+    System.out.println();
   }
 }
   /**

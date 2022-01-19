@@ -3,8 +3,6 @@
  */
 package zork;
 
-import java.util.Arrays;
-import java.util.TreeSet;
 
 public class CommandWords {
   // a constant array that holds all valid command words

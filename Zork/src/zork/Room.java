@@ -203,10 +203,8 @@ public class Room {
   }
   /**Makes a call to inspectRoomItem
    */
-public void inspectItem(String itemName){
-
-
-  inventory.inspectRoomItem(itemName);
+public String inspectItem(String itemName){
+  return inventory.inspectRoomItem(itemName);
 }
 
   public Character getCharacter(){
