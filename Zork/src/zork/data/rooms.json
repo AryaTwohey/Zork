@@ -83,7 +83,7 @@
     {
       "id": "Living Room",
       "name": "Living Room",
-      "description": "You have entered the living room. There is a table with nothing but a tablecloth on it. The room is covered with dust and   old fashioned decorations." ,
+      "description": "You have entered the living room. There is a table with nothing but a tablecloth on it. The room is covered with dust and old fashioned decorations." ,
       "exits": [
         {
           "isLocked": false,
